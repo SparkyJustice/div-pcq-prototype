@@ -1,0 +1,85 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Do you agree to a divorce?
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  Your {{ respsHusbandOrWife() }} has based the breakdown of the marriage on the fact that you have been separated for 2 years, and that you give your consent (agreement) to a divorce.
+</p>
+
+<p class="text">
+    The court must have your consent for the divorce to continue on these grounds. 
+</p>
+<details>
+
+  <summary><span class="summary">What happens if you don't agree</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+  <p class="text">
+  If you don't agree, then the divorce won't be able to continue based on 2 years separation with consent.
+</p>
+
+
+<p class="text">
+  The application will be returned to your {{ respsHusbandOrWife() }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent. 
+</p>
+
+<p class="text">
+  Your {{ respsHusbandOrWife() }} will have to pay £95 to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs.
+</p>
+</div>
+
+</details>
+
+</p>
+
+
+
+  <div class="form-group">
+    <h3 class="heading-small">Do you consent to a divorce?</h3>
+    <fieldset>
+      <div class="multiple-choice">
+      <legend class="visually-hidden">{{ question }}</legend>
+        <input id="consent-yes" type="radio"
+               name="consent" value="Yes" {{ checked(session.aos.consent, 'Yes') }}>
+        <label for="consent-yes">Yes, I give my consent</label>
+      </div>
+
+      <div class="multiple-choice" data-target="defend">
+      <legend class="visually-hidden">{{ question }}</legend>
+        <input id="consent-no" type="radio"
+               name="consent" value="No" {{ checked(session.aos.consent, 'No') }}>
+        <label for="consent-no">No, I don't give my consent </label>
+      </div>
+    </fieldset>
+  </div>
+
+<div class="form-group js-hidden" id="defend">
+    <h3 class="heading-small">Do you want to defend the divorce?</h3>
+    <fieldset>
+      <div class="multiple-choice">
+      <legend class="visually-hidden">{{ question }}</legend>
+        <input id="defend-yes" type="radio"
+               name="defend" value="Yes" {{ checked(session.aos.defend, 'Yes') }}>
+        <label for="defend-yes">Yes, I want to defend</label>
+      </div>
+
+      <div class="multiple-choice">
+      <legend class="visually-hidden">{{ question }}</legend>
+        <input id="defend-no" type="radio"
+               name="defend" value="No" {{ checked(session.aos.defend, 'No') }}>
+        <label for="defend-no">No, I don't want to defend</label>
+      </div>
+      
+    </fieldset>
+  </div>
+  
+
+{% endblock %}

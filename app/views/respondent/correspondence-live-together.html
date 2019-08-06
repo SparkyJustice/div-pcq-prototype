@@ -1,0 +1,47 @@
+{% extends "question.html" %}
+{% block question %}
+Does your {{ petsHusbandOrWife() }} want their divorce papers sent to this address?
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+If your {{ petsHusbandOrWife() }} has given you a specific address for you to send their divorce papers to, you must use that address.
+</p>
+
+<p>
+  {% for key, addressLine in session.respondent.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+</p>
+<div class="form-group">
+  <fieldset>
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+        <input id="yes"
+               type="radio"
+               name="usePetitionerAddressForService"
+               value="Yes"
+               {{ checked(session.respondent.usePetitionerAddressForService, 'Yes') }}>
+        <label for="yes">Yes, use this address</label>
+    </div>
+    <div class="multiple-choice">
+        <input id="no-solicitor"
+               type="radio"
+               name="usePetitionerAddressForService"
+               value="noSolicitor"
+               {{ checked(session.respondent.usePetitionerAddressForService, 'noSolicitor') }}>
+        <label for="no-solicitor">No, send them to their solicitor's address</label>
+    </div>
+    <div class="multiple-choice">
+        <input id="no"
+               type="radio"
+               name="usePetitionerAddressForService"
+               value="noOther"
+               {{ checked(session.respondent.usePetitionerAddressForService, 'noOther') }}>
+        <label for="no">No, send them to a different address</label>
+    </div>
+  </fieldset>
+</div>
+{% endblock %}

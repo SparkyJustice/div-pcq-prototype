@@ -1,0 +1,177 @@
+{% extends "question.html" %}
+
+{% block question %}
+How do you want to respond?
+{% endblock %}
+
+{% block form %}
+
+<div class="text">
+
+  <p>
+
+    Choose one of the following options.</p>
+
+       <details>
+        <summary>
+          <span class="summary">Read more about your options</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+
+          <h4 class="heading-small">Proceeding with the divorce</h4>
+
+          <p class="text">
+            If you proceed with the divorce, you and your {{ respsHusbandOrWife() }} usually won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing.
+          </p>
+
+  {% if (session.facts.reason == "unreasonable-behaviour") or (session.facts.reason == "desertion") %}
+
+          <h4 class="heading-small">Proceeding, but not accepting the allegations</h4>
+
+          <p class="text">
+            If you don't agree with what your {{ respsHusbandOrWife() }} has said in their divorce application, but you don't want to try to prevent the divorce (you don't want to defend it) you can choose this option. The outcome of the divorce won't be affected if you choose this option.
+          </p>
+
+          <p class="text">
+            You usually won't have to pay any more court fees related to the divorce. You'll be divorced sooner than if you defend the divorce and you usually won't need to attend a court hearing. 
+          </p>
+
+ {% endif %}
+
+          <h4 class="heading-small">Disagreeing with the application (defending)</h4>
+          
+          <p class="text">
+            If you choose to defend the divorce you will have to pay a fee of £245. You may have to both attend a hearing where a judge will decide if the divorce should be granted. Defending usually only delays a divorce rather than prevents it.
+          </p> 
+
+
+  {% if session.facts.reason == "separation-5-years" %}
+
+
+  <h2 class="heading-small">Defending the divorce because it will cause you hardship</h2>
+
+  <p>
+    As your {{ respsHusbandOrWife() }} used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.
+  </p>
+
+  <p>
+    The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).
+  </p>
+
+  <p>
+    You'll need to convince the court that the hardship will be severe.
+  </p>
+
+  <p>
+    The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.
+  </p>
+
+  <p>
+    Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.
+  </p>
+
+  <p class="text">
+    You'll need to make your case for hardship in another form (called the 'answer'). You have 21 days to submit your answer from the date that you sign in to respond to the divorce application.
+  </p>
+
+<p class="text">
+     You'll also have to pay another £245 fee.
+  </p>
+
+  {% endif %}
+
+        </div>
+      </details>
+
+
+      <div id="reasonForDivorce" class="form-group">
+
+        <fieldset>
+          <div class="multiple-choice">
+            <input id="no-defend"
+            type="radio"
+            name="response"
+            value="agreesAndWillNotDefend" {{ checked(session.aos.response, 'agreesAndWillNotDefend') }}>
+            <label class="form-label-bold block-label"
+            for="no-defend" >I will let the divorce proceed<br>
+            <span class="font-small">
+              Choose this option if you do not intend to defend the divorce.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+      {% if (session.facts.reason == "unreasonable-behaviour") or (session.facts.reason == "desertion") %}
+      <fieldset>
+        <div class="multiple-choice">
+          <input id="no-defend-do-not-agree"
+          type="radio"
+          name="response"
+          value="disagreesAndWillNotDefend" {{ checked(session.aos.response, 'disagreesAndWillNotDefend') }}>
+          <label class="form-label-bold block-label"
+                 for="no-defend-do-not-agree" >I will let the divorce proceed, but I don't accept what my {{ respsHusbandOrWife () }} said about me
+          <br>
+          <span class="font-small">
+            Choose this option if you don't accept the allegations in the application, but you do not intend to defend.
+          </span>
+        </label>
+      </div></fieldset>
+      {% endif %}
+      <fieldset>
+        <div class="multiple-choice" data-target="will-defend-warning">
+          <input id="disagrees"
+          type="radio"
+          name="response"
+          value="disagrees" {{ checked(session.aos.response, 'disagrees') }}>
+
+          <label class="form-label-bold block-label"
+          for="disagrees" >I disagree with the application for divorce<br>
+          <span class="font-small">
+            Choose this option if you intend to defend because you don’t agree that your marriage has irretrievably broken down; want to defend yourself against the allegations; or want to make your own application.<br>
+          </label>
+        </div>
+        <!-- <div class="panel panel-border-narrow js-hidden" id="will-defend-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+              You'll have to pay up to £550 fee and will usually have to attend a court hearing with your {{ respsHusbandOrWife() }}.
+            </div>
+          </div> -->
+
+        </fieldset>
+
+        <!-- <fieldset>
+          <div class="multiple-choice" data-target="cross-petition-warning">
+            <input id="cross-petition"
+            type="radio"
+            name="response"
+            value="crossPetition">
+            <label class="form-label-bold block-label"
+            for="cross-petition" >I want to make my own application for divorce<br>
+            <span class="font-small">
+              Choose this option if you want to make your own application for divorce (formerly known as a 'cross petition')
+            </span>
+          </label>
+        </div>
+ 
+        <div class="panel panel-border-narrow js-hidden" id="cross-petition-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+               You'll have to pay the £550 fee for a new divorce application. Your divorce will be delayed and you will usually have to attend a court hearing with your {{ respsHusbandOrWife() }}.
+            </div>
+          </div>
+
+ </fieldset> -->
+
+      </div>
+
+
+
+
+
+      {% endblock %}
+

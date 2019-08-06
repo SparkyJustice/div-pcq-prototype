@@ -1,0 +1,77 @@
+{% extends "question.html" %}
+{% if session.certificate.hasCertifiedTranslation == "Yes" %}
+  {% set question = ' How are your names displayed on the marriage certificate translation' %}
+{% else %}
+  {% set question = 'How are your names displayed on the marriage certificate?' %}
+{% endif %}
+{% block question %}
+  {{ question }}
+{% endblock %}
+
+
+
+
+
+
+{% block form %}
+
+<p class="text">
+{% if session.certificate.hasCertifiedTranslation == "Yes" %}
+ Copy what is written on the translation of your marriage certificate exactly. Include any extra text such as 'formerly known as'. 
+{% else %}
+ Copy what is written on your marriage certificate exactly. Include any extra text such as 'formerly known as'. 
+{% endif %}
+</p>
+
+<fieldset class="form-group">
+
+  <legend class="form-label-bold">
+    {% if session.certificate.hasCertifiedTranslation == "Yes" %}
+    Enter your full name on the translation 
+    {% else %}
+    Enter your full name on the certificate 
+    {% endif %}
+  </legend>
+
+  <fieldset class="form-group {{ " error" if fields.petCertificateName.error }}" >
+    <legend class="visually-hidden">Your name</legend>
+    <label class="form-hint" for="petCertificateName">
+            This will be the name you used on your wedding day, eg a maiden name.
+    </label>
+    {{ errorsFor(fields.petCertificateName) }}
+    <input class="form-control"
+           id="petCertificateName"
+           name="petCertificateName"
+           type="text"
+           value="{{ fields.petCertificateName.value }}">
+  </fieldset>
+
+<br>
+    <legend class="form-label-bold">
+    {% if session.certificate.hasCertifiedTranslation == "Yes" %}
+    Enter your {{ petsHusbandOrWife() }}'s full name on the translation 
+    {% else %}
+    Enter your {{ petsHusbandOrWife() }}'s full name on the certificate 
+    {% endif %}
+  </legend>
+
+
+
+  <fieldset class="form-group {{ "error" if fields.respCertificateName.error }}" >
+      <legend class="visually-hidden">Your {{ petsHusbandOrWife() }}'s name</legend>
+    <label class="form-hint" for="respCertificateName"> This will be the name your {{ petsHusbandOrWife() }} used on your wedding day, eg a maiden name.</label>
+    {{ errorsFor(fields.respCertificateName) }}
+    <input class="form-control"
+           id="respCertificateName"
+           name="respCertificateName"
+           type="text"
+           value="{{ fields.respCertificateName.value }}">
+  </fieldset>
+
+</fieldset>
+
+
+
+
+
+{% endblock %}

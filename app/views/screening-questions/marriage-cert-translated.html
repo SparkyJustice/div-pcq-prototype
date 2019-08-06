@@ -1,0 +1,31 @@
+{% extends "question.html" %}
+
+{% block question %}
+Do you have a certified translation of your marriage certificate?
+{% endblock %}
+
+{% block form %}
+
+<fieldset class="form-group inline" id="translated-cert">
+
+    <p class="text">Your marriage certificate must be translated into English and certified by either a:</p>
+
+    <ul class="list list-bullet">
+        <li>statement of truth</li>
+        <li>notary public</li>
+    </ul>
+
+    <label for="translated-yes" class="block-label">
+        <input id="translated-yes" type="radio"
+               name="isTranslated" value="Yes" {{ checked(session.certificate.isTransalted, 'Yes') }}>
+        Yes
+    </label>
+
+    <label for="translated-no" class="block-label">
+        <input id="translated-no" type="radio"
+               name="isTranslated" value="No" {{ checked(session.certificate.isTransalted, 'No') }}>
+        No
+    </label>
+</fieldset>
+
+{% endblock %}

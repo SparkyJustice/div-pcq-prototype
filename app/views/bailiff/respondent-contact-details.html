@@ -1,0 +1,29 @@
+{% import "common/components/genderComponent.html" as gender %}
+{% extends "question.html" %}
+
+{% block question %}
+Your {{ husbandOrWife() }}'s phone number
+{% endblock %}
+
+{% block form %}
+<p>The bailiff may try to contact your {{ husbandOrWife() }} by phone so that they can deliver the divorce petition to them. You can skip this section if you do not have their phone number.</p>
+
+
+
+
+  <fieldset class="form-group {{ "error" if fields.phoneNumber.error }}">
+    <legend class="visually-hidden">Enter your {{ husbandOrWife() }}'s phone number</legend>
+    <label class="form-label" for="phone-number">
+    Enter your {{ husbandOrWife() }}'s phone number
+    </label>
+    {{ errorsFor(fields.phoneNumber) }}
+    <input class="form-control"
+           id="mobile-number"
+           name="mobileNumber"
+           type="text"
+           value="{{ fields.mobileNumber.value }}">
+  </fieldset>
+</fieldset>
+
+
+{% endblock %}

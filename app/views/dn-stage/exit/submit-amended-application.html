@@ -1,0 +1,64 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+Amend your application
+
+
+{% endblock %}
+
+{% block exit_reason %}
+
+<p class="text">
+    If you want your divorce to continue, you need to resubmit the application using a different reason (fact) for divorce.</p>
+
+<p class="text">
+    You'll also have to pay an amendment fee of £95.
+</p>
+
+<div class="panel panel-border-wide">
+    <p class="text">
+    You won't be able to read your {{ petsHusbandOrWife() }}'s response after you started amending your application. Go back a screen if you want to read it again.
+</p>
+</div>
+
+    <p class="text">
+        <form method="POST" accept-charset="utf-8" class="form" id="form"
+              enctype="{% block encoding %}application/x-www-form-urlencoded{% endblock %}">
+
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button button-start" value="Start">
+            </div>
+    </p>
+<!-- <p class="text">
+    Your progress has not been saved.
+</p> -->
+
+<!-- <p class="text">
+	Your progress will be saved for 6 months. A link to your application has been sent to 
+
+
+      
+        <strong class="bold-small">
+            {% if session.emailAddress %}
+            {{ session.emailAddress }}
+            {% else %}
+                zoe.elizabeth.dante@gmail.com
+            {% endif %}
+        </strong>.
+  </p> -->
+
+
+
+
+	<p class="text">
+	If you need help with this service you can call or email us.<br>
+	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+	Email: divorce@justice.gov.uk<br>
+</p>
+
+
+
+
+
+</form>
+{% endblock %}

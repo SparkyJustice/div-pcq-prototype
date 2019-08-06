@@ -1,0 +1,156 @@
+{% extends "question.html" %}
+
+{% block question %}
+How do you want to respond?
+{% endblock %}
+
+{% block form %}
+
+<div class="text">
+
+ <p class="text">
+  The divorce will go ahead if you and the respondent do not defend it, and the court agrees to grant a divorce.
+</p>
+
+<div class="panel panel-border-wide">
+  <p>
+    It is possible for you to not dispute the allegations, but still object to paying the divorce costs (if they've been claimed against you). You can do this on the next page. 
+  </p>
+</div>
+
+
+<p class="text">
+  If you choose to defend, you will have to pay a fee of £245 and submit another form. You may also have to go to a hearing with a judge. 
+</p> 
+
+
+
+
+<h3 class="heading-small"> Choose one of the following options</h3>
+
+
+      <!--  <details>
+        <summary>
+          <span class="summary">Read more about your options</span>
+        </summary>
+        <div class="panel panel-border-narrow">
+
+          <h4 class="heading-small">Letting the divorce proceed</h4>
+
+          <p class="text">
+            The divorce will go ahead if you and the respondent let the divorce proceed, and the court agrees to grant a divorce.
+          </p>
+          <p class="text">
+          If you defend the divorce, you can ask that the court removes you from the divorce proceedings. You will have to pay a fee of £245 and submit another form. You may have to attend a hearing where a judge will decide if the divorce should be granted. 
+
+         </p> 
+       
+       <p class="text">
+        You can let the divorce proceed, but still object to paying the costs if you want to (if they've been claimed against you).
+      </p>
+
+  
+          <h4 class="heading-small">Disagreeing with the application (defending)</h4>
+          
+          <p class="text">
+            If you choose to defend the divorce you will have to pay a fee of £245 and submit a form. You may have to attend a hearing where a judge will decide if the divorce should be granted. 
+
+By defending the divorce, you can ask that the court removes you from the divorce proceedings. As a co-respondent, you won't be able to prevent the divorce from going ahead. 
+
+          </p> 
+          You don't have to defend the divorce to object to paying the costs (if they've been claimed against you).
+</p>
+        </div>
+      </details> -->
+
+
+      <div id="reasonForDivorce" class="form-group">
+
+        <fieldset>
+          <div class="multiple-choice">
+            <input id="no-defend"
+            type="radio"
+            name="response"
+            value="agreesAndWillNotDefend">
+            <label class="form-label-bold block-label"
+            for="no-defend" >I do not dispute the allegations in the application.<br>
+            <span class="font-small">
+              Choose this option if you do not intend to defend the divorce.
+            </span>
+          </label>
+        </div>
+      </fieldset>
+      {% if (session.facts.reason == "unreasonable-behaviour") or (session.facts.reason == "desertion") or (query.desertion == "Yes") %}
+      <fieldset>
+        <div class="multiple-choice">
+          <input id="no-defend-do-not-agree"
+          type="radio"
+          name="response"
+          value="disagreesAndWillNotDefend">
+          <label class="form-label-bold block-label"
+          for="no-defend-do-not-agree" >I will let the divorce proceed, but I don't admit to what my {{ respsHusbandOrWife () }} said about me
+          <br>
+          <span class="font-small">
+            Choose this option if you don't accept the allegations made in the application, but you don't want to try to prevent the divorce (you don't intend to 'defend' it).
+          </span>
+        </label>
+      </div></fieldset>
+      {% endif %}
+      <fieldset>
+        <div class="multiple-choice" data-target="will-defend-warning">
+          <input id="disagrees"
+          type="radio"
+          name="response"
+          value="disagrees">
+          <label class="form-label-bold block-label"
+          for="disagrees" >I want to dispute the allegations in the application. <br>
+          <span class="font-small">
+            Choose this option if you intend to defend the divorce.<br>
+          </label>
+        </div>
+        <!-- <div class="panel panel-border-narrow js-hidden" id="will-defend-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+              You'll have to pay up to £550 fee and will usually have to attend a court hearing with your {{ respsHusbandOrWife() }}.
+            </div>
+          </div> -->
+
+        </fieldset>
+
+        <!-- <fieldset>
+          <div class="multiple-choice" data-target="cross-petition-warning">
+            <input id="cross-petition"
+            type="radio"
+            name="response"
+            value="crossPetition">
+            <label class="form-label-bold block-label"
+            for="cross-petition" >I want to make my own application for divorce<br>
+            <span class="font-small">
+              Choose this option if you want to make your own application for divorce (formerly known as a 'cross petition')
+            </span>
+          </label>
+        </div>
+ 
+        <div class="panel panel-border-narrow js-hidden" id="cross-petition-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+               You'll have to pay the £550 fee for a new divorce application. Your divorce will be delayed and you will usually have to attend a court hearing with your {{ respsHusbandOrWife() }}.
+            </div>
+          </div>
+
+        </fieldset> -->
+
+      </div>
+
+
+
+
+
+      {% endblock %}
+

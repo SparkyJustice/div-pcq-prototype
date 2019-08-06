@@ -1,0 +1,372 @@
+    {% extends "exit.html" %}
+
+    {% block heading %}
+    How you can proceed with your divorce
+    {% endblock %}
+
+    {% block exit_reason %}
+
+    <!-- <p class="text">
+
+    	The divorce application was sent to the following address:
+    </p>
+
+    <ul class="list">
+      23 Stanley Street	<br>			
+      Farnborough <br>
+      UK <br>
+      FO54 3RD <br>
+    </ul> -->
+
+    <p class="text">
+      The court usually needs to hear from both parties in a marriage before it can grant a divorce.
+    </p>
+
+    <div class="notice">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Warning</span>
+      </i>
+      <strong class="bold-small">
+       If it's safe to do so, usually the simplest way to proceed is to contact your {{ petsHusbandOrWife() }} directly to find out why they haven't responded. They can still send in their response after the deadline has passed.     
+     </strong>
+   </div>
+
+   <br>
+
+   <p class="text">
+    If you can't get in contact with your {{ petsHusbandOrWife() }}, you may want to consider asking their family, friends and workplace if they have a new address, and provide that to the court.</p>
+
+    <p>
+      If there's still no response using the original address, you have the following options available to you, depending on your situation. 
+    </p>
+
+ <!--  <details>
+    <summary><span class="summary">Paying extra fees</span></summary>
+    <div class="panel panel-border-narrow">
+
+      <p class="text">
+        If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+      </p>
+
+      <p class="text">
+       If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+     </p>
+
+   </div>
+ </details> -->
+
+
+ <h2 class="heading-medium">Which situation applies to you?</h2>
+<!-- <legend class="form-label-bold">Which situation applies to you?</legend>
+-->
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">I have another residential address or a solicitor's address for my {{ petsHusbandOrWife() }} (no fee)</span>
+  </summary>
+ 
+
+    <p>
+
+      Contact the Courts and Tribunals Service Centre to provide a different address for your {{ petsHusbandOrWife() }}. This can be a UK or international address.</p>
+
+      <p>You don't have to pay anything extra to have the application sent to a different address.
+      </p>
+<!-- <p class="text">
+      This can be either their:
+    </p>
+
+<ul class="list list-bullet text">
+  <li>residential address</li>
+    <li>solicitor's address</li>
+  </ul> -->
+
+    <form method="POST" accept-charset="utf-8" class="form" id="form"
+    enctype="{% block encoding %}application/x-www-form-urlencoded{% endblock %}">
+
+<!--     <div class="form-group">
+      <input id="continue-button" type="submit" class="button" value="Continue">
+    </div>
+    {% block help %}{% endblock %}
+  </form>
+
+</div>
+ --></details>
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">
+     I need to send the application to a non-residential address, eg a work address (£50)
+   </span>
+ </summary>
+ <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+
+  <p class="text">
+   You can ask for the application to be sent to a non-residential address.
+ </p>
+
+ <p class="text">
+   <strong class="bold-small">How to apply</strong>: Download and complete <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98" target="_blank">form D11</a>. <!-- In answer to question 3 write: "I need to send my application for divorce to my {{ petsHusbandOrWife() }}'s work address because it can't be sent to a residential address." --> Send the form to the Courts and Tribunals Service Centre.
+ </p>
+
+ <p class="text">
+   <strong class="bold-small">How to pay</strong>: Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+ </p>
+
+ <p class="text">
+  If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+</p>
+
+<p class="text">
+ If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+</p>
+
+</div>
+</details>
+
+
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">I need to search government records for my {{ petsHusbandOrWife() }}’s address (£50)</span>
+  </summary>
+  <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+    <p class="text">
+     You can apply for a search of government databases (eg the electoral role) for your {{ petsHusbandOrWife() }}’s address. Your {{ petsHusbandOrWife() }} must live in England or Wales.
+   </p>
+
+   <p class="text">
+     <strong class="bold-small">How to apply</strong>: Contact the Courts and Tribunals Service Centre and ask for the form to be sent to you.
+   </p>
+
+   <p class="text">
+     <strong class="bold-small">How to pay</strong>: Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+   </p>
+
+   <p class="text">
+    If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+  </p>
+
+  <p class="text">
+   If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+ </p>
+
+</div>
+</details>
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">
+     I need to send the application to my {{ petsHusbandOrWife() }}'s email address  (£50)
+   </span>
+ </summary>
+ <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+
+  <p class="text">
+   You can ask for the application to be delivered by email.
+ </p>
+
+ <p class="text">
+   <strong class="bold-small">How to apply</strong>: Download and complete <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98" target="_blank">form D11</a>. <!-- In answer to question 3 write: "I need to send my application for divorce to my {{ petsHusbandOrWife() }}’s electronic address because I can't send it to a residential address." --> Send the form to the Courts and Tribunals Service Centre.
+ </p>
+
+ <p class="text">
+   <strong class="bold-small">How to pay</strong>: Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+ </p>
+
+ <p class="text">
+  If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+</p>
+
+<p class="text">
+ If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+</p>
+
+</div>
+</details>
+
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">
+     I believe my {{ petsHusbandOrWife() }} lives at that address, but chose not to respond (£110)
+   </span>
+ </summary>
+ <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+
+<p class="text">
+   If you think that your {{ petsHusbandOrWife() }} is deliberately not responding you can pay a professional to deliver (serve) the divorce papers directly to them.
+
+<p class="text">
+  You can do this by using either a:
+</p>
+
+<ul class="list list-bullet text">
+<li>Process server (a privately hired professional)</li>
+<li>Court bailiff (an employee of the courts)</li>
+</ul>
+
+<strong class="bold-small">Process servers</strong>
+
+<p class="text">
+  Contact a local solicitor who should be able to give you the contact details for a local company.
+</p>
+
+  <strong class="bold-small">Court bailiffs</strong>
+
+ <p class="text">
+   The bailiff service can only be used at addresses in England and Wales where delivery by post has already failed. If you have a new address for your {{ petsHusbandOrWife() }}, you’ll have to get it delivered by post before you can apply for the bailiff service.
+ </p>
+
+ <p class="text">
+   If the bailiff succeeds in delivering the application, you'll be given a letter as evidence that your {{ petsHusbandOrWife() }} has received the application. This is known as an ‘endorsement of service'. If your {{ petsHusbandOrWife() }} doesn’t respond within 14 days of getting the application, you can use this letter to continue your divorce without their response.
+ </p>
+
+
+ <!--
+ <p class="text">
+   <strong class="bold-small">How to apply</strong>: Fill in <a href="https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=156" target="_blank">form D89</a>.
+ </p>
+-->
+
+<p class="text">
+ <strong class="bold-small">How to apply</strong>: Download and complete <a href="https://www.gov.uk/government/publications/form-d89-request-for-personal-service-by-a-court-bailiff">form D89</a>.
+</p>
+
+ <p>
+<p>
+  You'll also need to send the following:
+</p>
+
+<ul class="list list-bullet text">
+<li>a photo of your {{ petsHusbandOrWife() }}</li>
+<li>a copy of your divorce application</li>
+</ul>
+
+<p>
+  Send the form to the Courts and Tribunals Service Centre.
+ </p>
+
+ <p class="text">
+   <strong class="bold-small">How to pay</strong>: Call the service centre to make the £110 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+ </p>
+
+<p class="text">
+  If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+</p>
+
+<p class="text">
+ If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+</p>
+
+</div>
+</details>
+
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">
+     I have evidence that my {{ petsHusbandOrWife() }} received the application, but can't or won't respond (£50)
+   </span>
+ </summary>
+ <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+  <p class="text">
+    If you know your {{ petsHusbandOrWife() }} received the application, but can’t or won’t respond, you can apply to the court for a ‘deemed service’. This means that the court will decide that your {{ petsHusbandOrWife() }} has received the application, and that you can continue without their response.
+  </p>
+  <p class="text">
+    You need to be able to prove that your {{ petsHusbandOrWife() }} received the application (eg, you have a text message from {{ petsHusbandOrWife() }} saying they received it).
+  </p>
+  
+
+  {% if session.facts.reason == "separation-2-years" %}
+  <p class="text">
+    As you're using 2 years with consent as your reason for divorce, you can only use deemed service if you have a written statement from your {{ petsHusbandOrWife() }} in which they consent to a divorce.
+  </p>
+
+  {% endif %}
+
+  <p class="text">
+    <strong class="bold-small">How to apply</strong>: Download and complete <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98" target="_blank">form D11</a>. Send the form and documents to the Courts and Tribunals Service Centre.
+  </p>
+
+  <p class="text"><strong class="bold-small">How to pay</strong>: Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+  </p>
+
+  <p class="text">
+    If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+  </p>
+
+  <p class="text">
+   If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+ </p>
+</div>
+</details>
+
+
+
+
+
+<details role="group" class="exit-guidance">
+  <summary role="button" aria-controls="details-content-0" aria-expanded="false">
+    <span class="summary">
+     I’ve tried every possible way of delivering the application  (£50)
+   </span>
+ </summary>
+ <div class="panel panel-border-narrow" id="details-content-0" aria-hidden="true">
+
+  <p class="text">
+    Under exceptional circumstances, you can ask the court to ‘dispense with service’ (decide your {{ petsHusbandOrWife() }} doesn’t have to be served the divorce application).
+  </p>
+
+  <p class="text">
+    It’s up to the court to decide whether to grant this. Before it can be considered, you’ll need to show that you’ve done everything you can to find them by contacting their: 
+
+    <ul class="list list-bullet text">
+      <li>relatives (including children)</li>
+      <li>friends</li>
+      <li>last known employer</li>
+      <li>trade union or professional organisation</li>
+    </ul>
+
+    <p class="text">
+      You'll also need to have tried to find their address by searching for it on government databases.
+    </p> 
+
+    {% if session.facts.reason == "separation-2-years" %}
+
+    <p class="text">
+      As you're using 2 years with consent as your reason for divorce, you can only 'dispense with service' if you have a written statement from your {{ petsHusbandOrWife() }} in which they consent to a divorce.
+    </p>
+
+    {% endif %}
+
+
+
+    <p class="text">
+      <strong class="bold-small">How to apply</strong>: Download and complete <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=98" target="_blank">form D11</a> and <a href="https://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=1112" target="_blank">form D13b</a>. Send the forms to the Courts and Tribunals Service Centre.
+    </p>
+
+    <p class="text"><strong class="bold-small">How to pay</strong>: Call the service centre to make the £50 payment by card (between 8.30am and 5pm) or include a cheque with your form.
+    </p>
+
+    <p class="text">
+      If you're eligible for help with fees you'll need to apply again and <a href="https://www.gov.uk/get-help-with-court-fees">get a new reference number</a>.
+    </p>
+
+    <p class="text">
+     If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+   </p>
+
+ </div>
+
+</div>
+<div class="column-third">
+
+    {% embed "lib/partials/sidebar.html" %}
+    {% endembed %}
+</div>
+</details>
+
+
+</main>
+
+{% endblock %}

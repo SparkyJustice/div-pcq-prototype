@@ -1,0 +1,154 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Do you agree that the courts of England and Wales have jurisdiction?
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  Your {{ respsHusbandOrWife() }} has stated that the court has jurisdiction (the legal power) to grant you a divorce because:
+</p>
+
+<ul class="bullet list-bullet">
+  <li>You are both habitually resident in England or Wales.</li>
+  <li>You are both domiciled in England or Wales.</li>
+</ul>
+<br>
+
+<details>
+  <summary>
+    <span class="summary">What this means</span>
+  </summary>
+  <div class="panel panel-border-narrow">
+
+    <!-- <p class="text">
+      The applicant must choose a connection to England or Wales which gives the court the jurisdiction (the legal power) to grant a divorce. The possible connections are as follows:
+    </p>
+
+    <ul class="bullet list-bullet">
+      <li>The applicant and the respondent are habitually resident in England and Wales.</li>
+      <li>The applicant and respondent were last habitually resident in England and Wales and the applicant or the respondent still reside there.</li>
+      <li>The applicant is habitually resident in England and Wales.</li>
+      <li>The applicant is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.</li>
+      <li>The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the petition.</li>
+      <li>The applicant and respondent are both domiciled in England and Wales.
+      </li>
+      <li>The courts of England and Wales have jurisdiction on a residual basis.</li>
+    </ul>
+  -->
+  <h3 class="heading-small">Habitual residence</h3>
+
+  <p class="text">
+    If your lives are mainly based in England or Wales then you're what is legally known as 'habitually resident'. </p>
+    <p class="text">
+      This may include working, owning property, having children in school, and your main family life taking place in England or Wales.
+    </p>
+    <p class="text">
+      The examples above aren't a complete list of what makes up habitual residence, and just because some of them apply to you doesn’t mean you’re habitually resident. If you’re not sure, you should get legal advice.
+    </p>
+
+
+    <h3 class="heading-small">Domicile</h3>
+
+    <p class="text">
+      Your domicile is usually the place in which you were born, regard as your permanent home and to which you have the closest ties.
+    </p>
+    <p class="text">
+      However, domicile can be more complex if you or your parents have moved countries in the past. 
+    </p>
+    <p class="text">
+      When you're born, you acquire a <strong class="bold-small">domicile of origin</strong>. This is usually:
+    </p>
+    <ul class="list-bullet list">
+      <li>
+        the country your father considered his permanent home if your parents were married
+      </li>
+      <li>
+        the country your mother considered her permanent home if your parents were unmarried, or your father had died
+      </li>
+    </ul>
+    <p class="text">
+      If you leave your domicile of origin and settle in another country as an adult, the new country may become your <strong class="bold-small">domicile of choice</strong>.
+    </p>
+    <p class="text">
+      If you're not sure about your domicile you should get legal advice.
+    </p>
+
+    <h2 class="heading-small">Residual jurisdiction</h2>
+
+<p class="text">
+      The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:
+    </p>
+
+    <ul class="list-bullet list">
+      <li>either the applicant or the respondent  are domiciled in England or Wales</li>
+      <li>neither the applicant nor the respondent are able to apply (on the basis of their nationality or residence) for a divorce in another member state of the EU</li>
+    </ul>
+
+    <p class="text">In addition, if the marriage is between a same-sex couple, the court may have residual jurisdiction if all the following apply:</p>
+
+    <ul class="list-bullet list">
+      <li>the applicant and the respondent married each other in England or Wales</li>
+      <li>neither the applicant nor the respondent is able to apply for a divorce in any other country</li>
+      <li>it would be in the interests of justice for the court to consider the application (for example, this may apply if the applicant’s or respondent’s home country doesn’t allow divorce between same-sex couples).</li>
+    </ul>
+
+        <p class="text">
+        However, residual jurisdiction can be more complex. If you’re not sure if this might apply to you, you should get legal advice.
+    </p>
+    
+  </div>
+</details>
+
+<p class="text">Just one of these gives the court jurisdiction.</p>
+
+
+<form>
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice">
+        <input id="continue-yes" type="radio"
+        name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+        <label for="continue-yes">Yes, I agree that the court has jurisdiction</label>
+      </div>
+      <div class="multiple-choice" data-target="jurisdiction-no">
+
+        <input id="continue-no" type="radio"
+        name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+        <label for="continue-no">No, I don't agree that the court has jurisdiction</label>
+      </div>
+
+    </fieldset>
+  </div>
+  <div id="jurisdiction-no" class="form-group panel js-hidden" >
+
+
+   <label class="form-label-bold" for="case-details-textarea">
+     Why don't you agree that the court has jurisdiction?
+   </label>
+   <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+
+   <br>
+   <fieldset class="form-group">
+    <legend class="visually-hidden">In which country is your life mainly based?</legend>
+    <label class="form-label-bold" for="whichCountry">
+      In which country is your life mainly based?
+<!--       <span class="form-hint">In which country do you live?</span>
+-->    </label>
+
+<input class="form-control"
+id="whichCountry"
+name="whichCountry"
+type="text"
+value="{{ fields.whichCountry.value }}">
+</fieldset>
+
+</div>
+
+
+{% endblock %}

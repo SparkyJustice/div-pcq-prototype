@@ -1,0 +1,82 @@
+{% extends "question.html" %}
+{% set question = 'Enter your current names' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<!-- <p class="text">You need to have your marriage certificate in front of you when you complete this section.</p> -->
+<!-- 
+<p class-"text">
+  These details will be printed on your decree absolute (the document ending your marriage) and so must match your marriage certificate exactly.
+</p> -->
+<!-- <div class="notice notice-cert">
+  <i class="icon icon-important">
+    <span class="visuallyhidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    Your application will be rejected if these details don't match your marriage certificate exactly.
+  </strong>
+</div> -->
+
+
+<fieldset class="form-group">
+  <legend class="form-label-bold">Provide your full name</legend>
+
+  <fieldset class="form-group {{ " error" if fields.petCurrentFirstName.error }}" >
+    <legend class="visually-hidden">First Name(s)</legend>
+    <label class="form-label" for="petCurrentFirstName">
+      First name(s)
+      <span class="form-hint">Include all middle names here</span>
+    </label>
+    {{ errorsFor(fields.petCurrentFirstName) }}
+    <input class="form-control"
+           id="petCurrentFirstName"
+           name="petCurrentFirstName"
+           type="text"
+           value="{{ fields.petCurrentFirstName.value }}">
+  </fieldset>
+
+  <fieldset class="form-group {{ "error" if fields.petCurrentLastName.error }}" >
+    <legend class="visually-hidden">Last Name(s)</legend>
+    <label class="form-label" for="petCurrentLastName">Last name(s) </label>
+    {{ errorsFor(fields.petCurrentLastName) }}
+    <input class="form-control"
+           id="petCurrentLastName"
+           name="petCurrentLastName"
+           type="text"
+           value="{{ fields.petCurrentLastName.value }}">
+  </fieldset>
+</fieldset>
+
+<fieldset class="form-group">
+  <legend class="form-label-bold">Provide your {{ petsHusbandOrWife() }}'s full name</legend>
+
+  <fieldset class="form-group {{ " error" if fields.respCurrentFirstName.error }}" >
+    <legend class="visually-hidden">{{ petsHusbandOrWife() | capitalize }}'s First Name(s)</legend>
+    <label class="form-label" for="respCurrentFirstName">
+      {{ petsHusbandOrWife() | capitalize }}'s first name(s)
+      <span class="form-hint">Include all middle names here</span>
+    </label>
+    {{ errorsFor(fields.respCurrentFirstName) }}
+    <input class="form-control"
+           id="respCurrentFirstName"
+           name="respCurrentFirstName"
+           type="text"
+           value="{{ fields.respCurrentFirstName.value }}">
+  </fieldset>
+
+  <fieldset class="form-group {{ "error" if fields.respCurrentLastName.error }}" >
+    <legend class="visually-hidden" >{{ petsHusbandOrWife() | capitalize }}'s last name(s)</legend>
+    <label class="form-label" for="respCurrentLastName">{{ petsHusbandOrWife() | capitalize }}'s last name(s) </label>
+    {{ errorsFor(fields.respCurrentLastName) }}
+    <input class="form-control"
+           id="respCurrentLastName"
+           name="respCurrentLastName"
+           type="text"
+           value="{{ fields.respCurrentLastName.value }}">
+  </fieldset>
+</fieldset>
+
+{% endblock %}

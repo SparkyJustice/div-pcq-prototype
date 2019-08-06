@@ -1,0 +1,185 @@
+f{% extends "question.html" %}
+{% set question = 'Have you agreed how to divide your money and property with your wife?
+' %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<!-- 
+<p>You should select <span class="bold-small">Yes</span> if you:</p>
+
+<ul class="list list-bullet">
+
+  <li>haven't yet come to an agreement, but are confident that you will</li>
+  <li>have no assets, but want to make sure that after you are divorced you have no claim to each others money and property in the future</li>
+</ul> -->
+
+<p>This includes your property, money, pensions and other assets, and whether one of you pays maintenance to the other or their children.</p>
+<p>If you haven't yet come to an agreement with your wife, but are confident that you will come to an agreement, then select <span class="bold-small">Yes</span>. You can save your application and return later if you need to discuss this with your wife.</p>
+
+
+<!-- <p>If you have no assets, but want to make sure that after you are divorced you have no claim to each others money and property in the future, then select Yes.</p>
+-->
+<div class="form-group">
+  <fieldset id="financesAgreed">
+
+    <div class="form-group {{"error" if fields.financesAgreed.error }}">
+      {{ errorsFor(fields.financesAgreed) }}
+
+      <div class="multiple-choice" data-target="financialOrderInfo">
+        <input id="yes"
+        type="radio"
+        name="financesAgreed"
+        value="Yes"
+        {{ checked(session.financesAgreed, 'Yes') }}>
+        <label for="yes" >Yes, we have agreed or will agree
+        </label>
+      </div>
+
+      <div class="multiple-choice" data-target="financesAgreedsWarning">
+        <input id="no"
+        type="radio"
+        name="financesAgreed"
+        value="No"
+        {{ checked(session.financesAgreed, 'No') }}>
+        <label for="no">No, we have not agreed</label>
+      </div>
+
+      <div class="multiple-choice" data-target="noFinances">
+        <input id="none"
+        type="radio"
+        name="financesAgreed"
+        value="None"
+        {{ checked(session.financesAgreed, 'None') }}>
+        <label for="none">We have no assets to divide</label>
+      </div>
+    </div>
+
+
+    <div id="financesAgreedsWarning" class="js-hidden">
+
+      <div class="form-group">
+        <fieldset class="inline">
+          <legend class="visually-hidden">Getting an order to decide how your assets will be divided
+          </legend>
+          <h2 class="heading-medium" style="margin-top: 0px;">Getting an order to decide how your assets will be divided
+          </h2>
+          <p>
+            If you can't agree you can ask the court to make a <span class="bold-small">financial order</span>.  This is a legally binding decision on how your assets will be shared, and whether either of you pays maintenance to the other person, or maintenance for any children you have. If the financial order ends all your financial ties to each other once you're divorced then it's known as a <span class="bold-small">clean break order</span>. You can apply for orders for yourself, and your children if you have any.</p>
+<!--           <p>
+             If you're already in the process of getting one of these then select <span class="bold-small">Yes</span>.
+           </p> -->
+           <h3 class="heading-small" style="margin-top: 0px;">Do you want to apply for a financial order?
+           </h3>
+
+
+           <div class="multiple-choice" data-target="how-to">
+            <input id="courtDecide-yes" type="radio"
+            name="courtDecide" value="Yes" {{ checked(session.finances.courtDecide, 'Yes') }}>
+            <label for="courtDecide-yes">Yes</label>
+          </div>
+          <div class="multiple-choice" data-target="warning-message">
+            <input id="courtDecide-no" type="radio"
+            name="courtDecide" value="No" {{ checked(session.finances.courtDecide, 'No') }}>
+            <label for="courtDecide-no">No</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div id="financialOrderInfo" class="js-hidden">
+      <div class="form-group">
+        <fieldset class="inline">
+          <legend class="visually-hidden">Making your agreement legally binding</legend>
+          <h2 class="heading-medium" style="margin-top: 0px;">Making your agreement legally binding</h2>
+          <p>
+            When you agree how your assets will be shared, the only way to make your agreement legally binding is to get a <span class="bold-small">financial order</span> (also known as a <span class="bold-small">consent order</span>). If the consent order also ends all your financial ties to each other once you're divorced then it's known as a <span class="bold-small">clean break order</span>. <!-- If you're already in the process of getting one of these then select <span class="bold-small">Yes</span>. --> <!-- You don't need to do anything else to apply for one now, but you will be better protected in future if you select 'Yes'. -->
+          </p>
+
+          <h3 class="heading-small" style="margin-top: 0px;">Do you want to apply for a financial order?</h3>
+
+          <div class="multiple-choice" data-target="how-to">
+            <input id="courtDecide-yes" type="radio"
+            name="courtDecide" value="Yes" {{ checked(session.finances.courtDecide, 'Yes') }}>
+            <label for="courtDecide-yes">Yes</label>
+          </div>
+          <div class="multiple-choice" data-target="warning-message">
+            <input id="courtDecide-no" type="radio"
+            name="courtDecide" value="No" {{ checked(session.finances.courtDecide, 'No') }}>
+            <label for="courtDecide-no">No</label>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+
+    <div id="noFinances" class="js-hidden">
+      <div class="form-group">
+        <fieldset class="inline">
+          <legend class="visually-hidden">Getting a clean break order</legend>
+          <h2 class="heading-medium" style="margin-top: 0px;">Getting a clean break order</h2>
+          <p>
+<!--             A <span class="bold-small">clean break order</span> is a type of <span class="bold-small">financial order</span> that will cut all your financial ties to each other once you're divorced. Without one, you and your wife will be able to make a claim on each other's assets at any time in the future. For example, if you inherit money or win the lottery you could be ordered to give some of it to them despite being divorced many years. 
+</p> -->
+
+<p>
+  Even if you don't want to make any financial claim now, you may want to ask the court to make a <span class="bold-small">financial order</span> which ends any financial ties between you after you are divorced. This is known as a <span class="bold-small">clean break order</span> and can be used to prevent any financial claims against each other which you may have now or in the future.
+</p>
+
+<h3 class="heading-small" style="margin-top: 0px;">Do you want to apply for a financial order?</h3>
+
+<div class="multiple-choice" data-target="how-to">
+  <input id="courtDecide-yes" type="radio"
+  name="courtDecide" value="Yes" {{ checked(session.finances.courtDecide, 'Yes') }}>
+  <label for="courtDecide-yes">Yes</label>
+</div>
+<div class="multiple-choice" data-target="warning-message">
+  <input id="courtDecide-no" type="radio"
+  name="courtDecide" value="No" {{ checked(session.finances.courtDecide, 'No') }}>
+  <label for="courtDecide-no">No</label>
+</div>
+</fieldset>
+</div>
+</div>
+
+<div class="panel panel-border-narrow js-hidden" id="warning-message">
+ <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    Without a legally binding order from the court, then you and your wife will be able to make a claim on each other's money, property and pensions at any time in the future even after you are divorced.
+  </div>
+</div>
+
+
+<div class="panel panel-border-narrow js-hidden" id="how-to">
+  <div class="form-group">
+    <fieldset class="inline">
+     <p>You’ll be given guidance on how to get a financial order when you finish your divorce application.
+     </p>
+   </fieldset>
+ </div>
+
+</div>
+
+
+<div class="panel panel-border-narrow js-hidden" id="warning-message">
+ <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    Without a legally binding order from the court, then you and your wife will be able to make a claim on each other's money, property and pensions at any time in the future even after you are divorced.
+  </strong>
+</div>
+
+</div>
+
+</fieldset>
+<br>
+
+{% endblock %}

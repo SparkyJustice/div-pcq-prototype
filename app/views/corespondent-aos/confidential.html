@@ -1,0 +1,34 @@
+{% extends "question.html" %}
+{% set question = 'Do you need your contact details kept private from your ' + petsHusbandOrWife() + '?' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+  The court won't share your email or phone number with your wife if you want to keep them private.
+</p>
+
+<div class="form-group">
+  <fieldset>
+  <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="no"
+             type="radio"
+             name="confidential"
+             value="No"
+             {{ checked(session.petitioner.confidential, 'No') }}>
+      <label for="no">I don't need my contact details kept private</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="yes"
+             type="radio"
+             name="confidential"
+             value="Yes"
+             {{ checked(session.petitioner.confidential, 'Yes') }}>
+       <label for="yes">Keep my contact details private</label>
+    </div>
+</fieldset>
+</div>
+{% endblock %}

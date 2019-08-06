@@ -1,0 +1,37 @@
+{% extends "question-feedback.html" %}
+
+
+{% block question %}
+Amend your application
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+Change the sections of your application the court has asked you to change.
+</p>
+
+<h2 class="heading-medium">Application for divorce</h2>
+
+{% include "mini-petition.html" %}
+    <h3 class="heading-medium">Do you need to change your application or add anything?</h3>
+    <div class="form-group">
+      <fieldset class="inline">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice" data-target="yes">
+          <input id="need-to-change-yes" type="radio"
+                   name="needToChange" value="Yes" >
+          <label for="need-to-change-yes">Yes</label>
+        </div>
+        <div class="multiple-choice" >
+          <input id="need-to-change-no" type="radio"
+                   name="needToChange" value="No" >
+          <label for="need-to-change-no">No</label>
+        </div>
+      </fieldset>
+    </div>
+
+  <div id="yes" class="form-group js-hidden" >
+</div>
+
+{% endblock %}

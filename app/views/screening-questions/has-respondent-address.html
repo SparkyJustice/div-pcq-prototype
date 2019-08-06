@@ -1,0 +1,40 @@
+{% extends "question.html" %}
+{% set question = 'Do you have an address for your ' + petsHusbandOrWife() +'?' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+<fieldset class="inline {{" error" if fields.hasRespondentAddress.error }}" id="hasRespondentAddress">
+<legend class="visually-hidden">{{ question }}</legend>
+<p class="text">
+  You must provide either a residential address or their solicitor's address. This can be a UK or international address.
+</p>
+
+<p class="text">
+  The court needs this so that it can send your {{ petsHusbandOrWife() }} their divorce papers.
+</p>
+
+
+
+
+<div class="multiple-choice">
+  <input id="hasRespondentAddress-yes"
+         type="radio"
+         name="hasRespondentAddress"
+         value="Yes"
+         {{ checked(fields.hasRespondentAddress.value, 'Yes') }}>
+  <label for="hasRespondentAddress-yes">Yes</label>
+</div>
+<div class="multiple-choice">
+  <input id="hasRespondentAddress-no"
+         type="radio"
+         name="hasRespondentAddress"
+         value="No"
+         {{ checked(fields.hasRespondentAddress.value, 'No') }}>
+  <label for="hasRespondentAddress-no">No</label>
+</div>
+</fieldset>
+</div>
+{% endblock %}

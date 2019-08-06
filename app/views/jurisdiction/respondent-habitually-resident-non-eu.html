@@ -1,0 +1,30 @@
+{% extends "question.html" %}
+
+{% block question %}
+Is your husband/wife a national or habitual resident of a country outside the EU?
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+  <span class="bold-small">Habitual Residence</span> means that you live voluntarily and for settled purposes (such as
+  work, training, family life) in England or Wales, apart from temporary or occasional absences. You must spend a
+  substantial amount of time in a place to be habitually resident there. This does not have to be your permanent home.
+</p>
+<p class="text">
+  <span class="bold">National means that you are a citizen of that country.</span>
+</p>
+
+<fieldset class="form-group inline">
+  <label class="block-label">
+    <input id="national-yes" name="national" type="radio" value="Yes" {{ 'checked' if together}} >
+    Yes
+  </label>
+
+  <label class="block-label">
+    <input id="national-no" name="national" type="radio" value="No" {{ 'checked' if not together}}>
+    No
+  </label>
+</fieldset>
+
+{% endblock %}

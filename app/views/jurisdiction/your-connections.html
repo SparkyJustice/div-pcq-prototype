@@ -1,0 +1,102 @@
+{% extends "question.html" %}
+
+{% block question %}
+How are you connected to England and Wales?
+{% endblock %}
+
+{% block form %}
+
+<div class="text">
+
+  <p class='text'>You must be able to show that you or your {{ petsHusbandOrWife() }} have a connection to England and Wales
+    to apply for a divorce here.</p>
+
+  <p class='text'>The courts here can only consider your divorce if you fall within their jurisdiction.</p>
+
+  <fieldset class="form-group">
+    <label class="form-label-bold">Select the statement which applies to you:</label>
+    <br>
+
+    <label class="form-label-bold block-label"
+           for="adultery">
+      <input id="adultery"
+             type="checkbox"
+             name="reason"
+             value="adultery">
+
+      <strong class="bold-small">You're both habitually resident and domiciled</strong>
+      <br>
+      <span class="font-small">
+        Your life is mainly based here, and you consider it to be your permanent home.
+      </span>
+      <br>
+    </label>
+
+    <br>
+    </label>
+    <br>
+    <label class="form-label-bold block-label"
+           for="unreasonable-behaviour">
+      <input id="unreasonable-behaviour"
+             type="checkbox"
+             name="reason"
+             value="unreasonable-behaviour">
+
+      <strong class="bold-small">You are habitually resident only</strong>
+
+      <br>
+
+      <span class="font-small">
+        Your life is mainly based here, and you intend to either stay here or at least settle here for a substantial length of time.
+        <br>
+      </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="separation-2-years" data-target="separation-2-years-warning">
+      <input id="separation-2-years"
+             type="checkbox"
+             name="reason"
+             value="separation-2-years">
+
+      <strong class="bold-small">You are domiciled only</strong>
+      <br>
+        <span class="font-small">
+            You consider it to be your permanent home. You may be living here or abroad but plan to return here in the future.
+        <br>
+        </span>
+
+    </label>
+
+
+    <p class="bold-small">Or
+    </p>
+
+    <label class="form-label-bold block-label"
+           for="separation-5-years">
+      <input id="separation-5-years"
+             type="checkbox"
+             name="reason"
+             value="separation-5-years">
+
+      <strong class="bold-small">You're neither habitually resident or domiciled</strong>
+      </span>
+
+        <span class="font-small">
+        <p>Your life is mainly based elsewhere and you don't consider England or Wales to be your permanent home</p>  
+        </span>
+    </label>
+
+
+  </fieldset>
+</div>
+{% endblock %}
+
+<label class="block-label" for="nationalities-other" data-target="example-different-country">
+  <input id="nationalities-other" name="nationalities" type="checkbox" value="Citizen of a different country">
+  Citizen of a different country
+</label>
+<div class="panel panel-border-narrow js-hidden" id="example-different-country">
+  <label class="form-label" for="nationalities-other-country">Country name</label>
+  <input class="form-control" type="text" id="nationalities-other-country" name="nationalities-other-country">
+</div>

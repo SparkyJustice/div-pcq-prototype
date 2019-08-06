@@ -1,0 +1,31 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your application has been delivered to your {{ petsHusbandOrWife() }} 
+
+{% endblock %}
+{% block content %}
+<!-- <p>
+Reference no: 12345678
+</p> -->
+<p>
+Dear {{ petsName() }},
+</p>
+
+<p class="text">
+A court bailiff has now delivered the divorce application to your {{ petsHusbandOrWife() }}.
+</p>
+
+<p class="text">
+	They have to respond within 7 days. If your {{ petsHusbandOrWife() }} doesn't respond by the deadline, you'll be able to continue with your divorce without their response.</p>
+</p>
+
+{% endblock %}
+

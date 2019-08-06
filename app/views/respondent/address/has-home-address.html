@@ -1,0 +1,34 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Do you know where your {{ petsHusbandOrWife() }} lives now?
+{% endblock %}
+
+
+
+{% block form %}
+
+
+
+
+  <fieldset class="form-group inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <label for="know-where-yes" class="block-label">
+      <input id="know-where-yes" type="radio"
+             name="knowWhere" value="Yes" {{ checked(session.respondent.knowWhere, 'Yes') }}>
+      Yes
+    </label>
+
+    <label for="know-where-no" class="block-label">
+      <input id="know-where-no" type="radio"
+             name="knowWhere" value="No" {{ checked(session.respondent.knowWhere, 'No') }}>
+      No
+    </label>
+
+  </fieldset>
+
+
+  
+
+{% endblock %}

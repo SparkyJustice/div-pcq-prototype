@@ -1,0 +1,52 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+You need to change your application
+{% endblock %}
+
+{% block exit_reason %}
+
+{% if session.facts.reason == "desertion" %}
+<p class="text">
+    You must have lived apart from your {{ petsHusbandOrWife() }} for the past 2 years to use this reason for divorce.
+</p>
+
+{% else %}
+
+<p class="text">
+    You must have lived apart from your {{ petsHusbandOrWife() }} for the past {{ session.separation.constSeparationPeriod }} years to use this reason for divorce.
+</p>
+
+{% endif %}
+
+<p class="text">
+	You are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the {% if session.facts.reason == "desertion" %} 2 year period {% else %}
+ {{ session.separation.constSeparationPeriod }} year separation period{% endif %}. You’ll need to have lived apart for longer to make up any time that you spent living together.
+</p>
+
+<p>
+    {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    {{ session.separation.periodOfInterestStartDateFormatted }} is the date exactly {{ session.separation.constSeparationPeriod }} years and 6 months in the past. As you have lived together for more than 6 months since then, then you can't use this reason for divorce at this time.
+    {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+    As you have lived together for more than 
+        {% if session.separation.potentialLiveTogetherPeriodWholeWeeks > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodWholeWeeks }} weeks
+        {% endif %}
+        {% if (session.separation.potentialLiveTogetherPeriodWholeWeeks > 0) and (session.separation.potentialLiveTogetherPeriodRemainingDays > 0) %}
+        and
+        {% endif %}
+        {% if session.separation.potentialLiveTogetherPeriodRemainingDays > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodRemainingDays }} days
+        {% endif %}
+        since {{ session.separation.mostRecentSeparationDateFormatted }} you have not been separated for long enough to use the {{ session.separation.constSeparationPeriod }} years separation reason for divorce at this time.
+    {% endif %} 
+  </p>
+
+
+<p class="text">
+	If you want to proceed with your divorce application, you must <a href="../../reason-for-divorce">choose another fact which applies to you</a> or wait until you have been separated for long enough.
+</p>
+
+
+
+{% endblock %}

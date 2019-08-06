@@ -1,0 +1,129 @@
+{% extends "question.html" %}
+
+{% block question %}
+Confirm your connections to England and Wales
+{% endblock %}
+
+{% block form %}
+
+
+<p class="text">
+  Your answers indicate that the following legal statements apply to you and/or your {{ petsHusbandOrWife() }}.
+</p>
+
+<p class="text">
+  In each statement your {{ petsHusbandOrWife() }} is the Respondent and you are the Petitioner.
+</p>
+
+
+{% if eitherPartyHabitualResident %}
+
+<details>
+  <summary>
+    <span class="summary font-small">What is habitual residence?</span>
+  </summary>
+  <div class="panel panel-border-narrow font-small text">
+
+    <p class='font-small'>
+      Your life is mainly based in England and Wales, you’re settled here and you intend to remain settle here.
+    </p>
+
+    <p class='text'>
+      Some or all of the following may apply to you:
+    </p>
+
+    <ul class="list list-bullet">
+      <li>you work here or intend to find work here</li>
+      <li>you own property here</li>
+      <li>your personal possessions are mostly here</li>
+      <li>you’ve enrolled your children at a school here</li>
+      <li>you have family and relatives here</li>
+
+    </ul>
+
+    <p class='font-small'>
+      This isn’t a complete list of everything that indicates habitual residence. Even if one or more of these apply to
+      you, you may still not be habitually resident. If you’re not sure, you should get legal advice.</p>
+
+  </div>
+</details>
+
+{%endif%}
+
+{% if eitherPartyDomicile%}
+
+<details>
+  <summary>
+    <span class="summary font-small">What does domiciled mean?</span>
+  </summary>
+  <div class="panel panel-border-narrow font-small text">
+
+    <p class='font-small'>
+      You consider England and Wales to be your permanent home, and have one of the following connections:
+    </p>
+
+    <ul class="list list-bullet">
+      <li>
+        your father was domiciled here when you were born (if your parent's were married)
+      </li>
+      <li>
+        your mother was domiciled here when you were born (if your parent's weren't married)
+      </li>
+      <li>
+        you've settled in England and Wales and intend to stay here for the rest of your life, for example by becoming
+        a citizen
+      </li>
+    </ul>
+    <p class='font-small'>
+      This isn’t a complete list of everything that indicates domicile. If you’re not sure, you should get legal
+      advice.
+    </p>
+
+    <p class='font-small'>
+      You can be domiciled and live abroad as long as you intend to return here.
+    </p>
+  </div>
+</details>
+{%endif%}
+
+<div class="jurisdiction-concepts">
+  <ul class="list list-bullet">
+
+    {% if answeredEitherPartyHabitualResident %}
+    <li>
+      The Petitioner and the Respondent are habitually resident in England and Wales
+    </li>
+    <li>
+      The Respondent is habitually resident in England and Wales
+    </li>
+    {%endif%}
+    {% if answeredLivinglast12MonthsYes %}
+    <li>
+      The Petitioner is habitually resident in England and Wales and has resided there for at least a year immediately
+      prior
+      to the presentation of the petition
+    </li>
+    {%endif%}
+    {% if answeredLivinglast6MonthsYes %}
+    <li>
+      The Petitioner is domiciled and habitually resident in England and Wales and has resided there for at least
+      six months immediately prior to the petition
+    </li>
+    {%endif%}
+    {% if answeredEitherPartyDomicile %}
+    <li>
+      The Petitioner and Respondent are both domiciled in England
+    </li>
+    {%endif%}
+  </ul>
+</div>
+
+<p>
+  <a href="{{ changeLink }}" class="secondary-button check-answers">Change my answers</a>
+</p>
+
+<label class="form-label-bold block-label" for="confirm">
+  <input id="confirm" type="checkbox" name="confirm">
+  I confirm that the above statements are true, to the best of my knowledge
+</label>
+{% endblock %}

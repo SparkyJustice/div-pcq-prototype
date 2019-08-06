@@ -1,0 +1,49 @@
+{% extends "question.html" %}
+{% block question %}
+Have you lived apart since finding out about the adultery?
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+You said you found out about the adultery on 5 September 2017.
+</p>
+
+<div class="panel panel-border-wide">
+    <p class="text">
+  You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.
+</p>
+
+</div>
+
+<div class="form-group">
+    <fieldset class="inline" id="lived-together">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice">
+            <input id="yes" type="radio"
+                 name="haveLivedTogetherSinceApplicationDate" value="Yes" {{ checked(session.dnHaveLivedTogetherSinceApplicationDate, 'yes') }}>
+            <label for="yes">Yes</label>
+        </div>
+        <div class="multiple-choice" data-target="LivedTogetherDates">
+            <input id="no" type="radio"
+                 name="haveLivedTogetherSinceApplicationDate" value="No" {{ checked(session.separation.dnHaveLivedTogetherSinceApplicationDate, 'no') }}>
+            <label for="no">No</label>
+        </div>
+    </fieldset>
+    <div id="LivedTogetherDates" class="js-hidden fieldset form-group">
+        <h3 class="heading-medium">Provide details of how long you've lived together since you found out about the adultery</h3>
+        <p class="text">
+        You can’t base your divorce on an act of adultery if you lived together as a couple for more than 6 months after you found out about it.
+        </p>
+        <p class="text">
+        This could have been in one go, or if you lived together on and off for several periods of time adding up to more than 6 months.
+        </p>
+        <p>You can contact the court if you’re not sure.</p>
+        <label class="form-label-bold" for="case-details-textarea">
+        Give approximate dates or number of months you lived together
+        </label>
+        <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+    </div>
+</div>
+
+{% endblock %}

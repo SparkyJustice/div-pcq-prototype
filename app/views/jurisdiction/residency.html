@@ -1,0 +1,48 @@
+{% extends "question.html" %}
+
+{% block question %}
+How long have you lived in England or Wales immediately prior to filing
+this application?
+{% endblock %}
+
+{% block form %}
+
+<fieldset class="form-group" id="residence-time">
+
+  <label for="More than 1 year" class="block-label">
+    <input
+        id="More than 1 year"
+        type="radio"
+        name="residenceTime"
+        value="More than 1 year"
+        {{ checked(session.jurisdiction.residenceTime, 'More than 1 year') }}
+    >
+    More than 1 year
+  </label>
+
+  <label for="Between 6 months and 1 year" class="block-label">
+    <input
+        id="Between 6 months and 1 year"
+        type="radio"
+        name="residenceTime"
+        value="Between 6 months and 1 year"
+        {{ checked(session.jurisdiction.residenceTime, 'Between 6 months and 1 year') }}
+    >
+    Between 6 months and 1 year
+  </label>
+
+  <label for="Less than 6 months" class="block-label">
+    <input
+        id="Less than 6 months"
+        type="radio"
+        name="residenceTime"
+        value="Less than 6 months"
+        {{ checked(session.jurisdiction.residenceTime, 'Less than 6 months') }}
+    >
+    Less than 6 months
+  </label>
+</fieldset>
+
+
+{% endblock %}
+

@@ -1,0 +1,10 @@
+{% extends "genericError.html" %}
+
+{% block error_heading %}
+You’ve been signed out to protect your privacy
+{% endblock %}
+{% block error_content %}
+      <p class="text">Your application was saved and closed because it was inactive for more than 60 minutes.</p>
+      <p class="text"><a href=\"/index\">Sign in</a> to return to your application.</p>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + husbandOrWife() + " must respond",
+  complete: true
+},
+three: {
+label: "Get a decree nisi",
+current: true
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+<h4 class="heading-medium">Your application has been rejected</h4>
+
+<p>
+  The court has rejected your application following a review of the case. You can read the court's reasons for this in the <a href="/public/pdf/general-order.pdf" target="_blank">general order</a> (PDF, 69kb).
+</p>
+
+<h2 class="heading-medium">If you disagree with this decision</h2>
+
+<p class"text">
+  You can contact the service centre if you disagree with this decision. Court staff can’t give you legal advice however, and you should speak to a <a href="https://www.gov.uk/find-a-legal-adviser"target="blank">solicitor or legal adviser</a> if you want to continue your application for divorce.
+</p>
+
+    <h2 class="heading-medium">Help us improve this service</h2>
+
+    <p class"text">
+
+      Please help us improve this service by <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done">leaving your feedback</a>.
+    </p>
+
+    
+  {% block button %}
+  <!-- No button required -->
+  {% endblock button %}
+  {% endblock %}

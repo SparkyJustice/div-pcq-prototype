@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block proposition_header %}
+  <div class="header-proposition">
+  <div class="content">
+    <nav id="proposition-menu">
+      <a href="/" id="proposition-name">
+        {{ session.serviceName }}
+      </a>
+
+  <div id="account-details" style="margin-top: 0;">
+<span id="name"><a href="/save-return/goodbye/{{ path }}">Sign out</a></span>
+
+    </nav>
+  </div>
+</div>
+{% endblock %}
+{% from "common/reform-progress-list/macro.html" import reformProgressList %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% import "common/components/account.html" as account %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" class="prototype-8" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+ 
+   <div class="grid-row">
+    <div class="column-two-thirds">
+        <h1 class="heading-xlarge">
+            Your divorce        </h1>
+           <p class="font-xsmall"><strong class="bold-xsmall">Case number:</strong>&nbsp;&nbsp;&nbsp; EX11D81265
+           <br />
+           <strong class="bold-xsmall">Name:</strong> &nbsp;&nbsp;&nbsp;{{ respsName() }}</p>
+
+           {% block core_content %}
+            Content goes here.
+           {% endblock core_content %}
+           {% block button %}
+<p class="text">
+<a class="button button-start" href="/aos/start?origin_url={{ path }}" role="button">Continue</a>
+      </p>
+      {% endblock button %}
+
+      {% block divorce_times %}
+  <br />
+<!--
+    <details>
+  <summary><span class="summary">See average divorce times</span></summary>
+  <div class="panel panel-border-narrow">
+
+<p class="font-xsmall">From when your {{ respsHusbandOrWife() }} applied for it, it usually takes 4 to 6 months to get a divorce if you don't 'defend' it (don't try to prevent it). </p>
+
+
+    <table>
+                <thead>
+                <tr>
+                    <th class="bold font-xsmall">What happens</th>
+                    <th class="bold font-xsmall">How long it takes</th>
+                </tr>
+                </thead>
+                <tbody class="table--borderless">
+                
+                <tr>
+                    <td class="font-xsmall">How long you have to respond</td>
+                    <td class="font-xsmall">3 weeks</td>
+                </tr>
+                <tr>
+                    <td class="font-xsmall">Decree nisi is granted</td>
+                    <td class="font-xsmall">3 to 4 weeks after your  {{ respsHusbandOrWife() }} applies for it</td>
+                </tr>
+                <tr>
+                    <td class="font-xsmall">Wait to apply for decree absolute</td>
+                    <td class="font-xsmall">6 weeks and 1 day after decree nisi is granted</td>
+                </tr>
+                      <tr>
+                    <td class="font-xsmall">Divorce is granted </td>
+                    <td class="font-xsmall">2 working days after applying for decree absolute</td>
+                </tr>
+                
+
+                </tbody>
+            </table>
+
+<p class="font-xsmall">
+      Times can vary depending on when and where your {{ respsHusbandOrWife() }} applied for a divorce, and how long it takes you to respond.
+    </p>
+
+  
+  </div>
+</details>
+-->
+{% endblock divorce_times %}
+
+
+          <!--  <div style="padding-top: 30px;"></div>
+            <div class="panel panel-border-wide">
+                <p>All evidence should be received by <span style=""> 9 February 2017</span> <span style="color:red;">[date + 28 days from DWP response]</span>.This is so there’s time to read it before your hearing. <br/><a href="benefit-appeal-evidence">Find out about submitting evidence to support your appeal</a></p>
+            </div>-->
+            <div class="updates-border"></div>
+        </div>
+<div class="column-third">
+    {% embed "lib/partials/sidebar.html" %}
+    {% endembed %}
+
+</div>
+
+
+</main>
+
+{% endblock %}

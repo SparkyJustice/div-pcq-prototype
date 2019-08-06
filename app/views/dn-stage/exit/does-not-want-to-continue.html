@@ -1,0 +1,47 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+You've been signed out
+
+
+{% endblock %}
+
+{% block exit_reason %}
+
+<p class="text">
+    <a href="/IDAM/login?continue_url=/progress-bar/undefended">Sign in</a> to return to the application.
+</p>
+
+<!-- <p class="text">
+    Your progress has not been saved.
+</p> -->
+
+<!-- <p class="text">
+	Your progress will be saved for 6 months. A link to your application has been sent to 
+
+
+      
+        <strong class="bold-small">
+            {% if session.emailAddress %}
+            {{ session.emailAddress }}
+            {% else %}
+                zoe.elizabeth.dante@gmail.com
+            {% endif %}
+        </strong>.
+  </p> -->
+
+
+
+
+	<p class="text">
+	If you need help with this service you can call or email us.<br>
+	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+	Email: divorce@justice.gov.uk<br>
+</p>
+
+
+
+
+
+</form>
+{% endblock %}

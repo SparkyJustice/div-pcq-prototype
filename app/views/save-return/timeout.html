@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="column-two-thirds">
+        {% include "includes/phase_banner_beta.html" %}
+        <a class="link-back" href="#" onclick="javascript:history.go(-1)">Back</a>
+
+        <h1 class="heading-large">
+            You have been signed out
+        </h1>
+        <p>Your session timed out after 15 minutes to protect your details.</p>
+        <p>Sing back in to continue your application</p>
+        <fieldset class="form-group ">
+            <legend class="visually-hidden">Enter Your mobile number</legend>
+            <label class="form-label" for="mobileNumber">
+                Mobile number
+            </label>
+
+            <input class="form-control"
+                   id="mobileNumber"
+                   name="mobileNumber"
+                   type="text"
+                   value="{{ fields.mobileNumber.value }}">
+        </fieldset>
+
+
+    </div>
+</main>
+{% endblock %}

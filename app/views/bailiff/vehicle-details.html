@@ -1,0 +1,50 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Does your {{ husbandOrWife() }} have a car or other vehicle?
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  It will help the bailiff to deliver the application if you provide these details.</p>
+    <br>
+
+<form>
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice"  data-target="vehicle-yes">
+        <input id="continue-yes" type="radio"
+               name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+        <label for="continue-yes">Yes</label>
+      </div>
+<div id="vehicle-yes" class="form-group panel js-hidden" >
+
+
+	<label class="form-label-bold" for="case-details-textarea">
+        Describe the vehicle
+	</label>
+
+  <p class="text">Try to include details such as the make, model, colour, licence plate and where it's usually parked. For example, Volkswagen, Tiguan, Blue, YB53 7CV, Usually parked across the street.</p>
+<textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+
+
+
+</div>
+      <div class="multiple-choice">
+      
+        <input id="continue-no" type="radio"
+               name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+        <label for="continue-no">No</label>
+      </div>
+
+    </fieldset>
+  </div>
+
+  
+
+{% endblock %}

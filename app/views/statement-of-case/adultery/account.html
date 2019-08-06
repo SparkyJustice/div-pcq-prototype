@@ -1,0 +1,49 @@
+{% extends "question.html" %}
+
+{% block question %}
+Your account of the adultery
+{% endblock %}
+
+{% block form %}
+
+  <div class="form-date">
+    <p class="text">
+      Provide the following information about the adultery. If you don't know any of this information, say that you don't know and explain why.
+    </p>
+
+    <div class="panel panel-border-wide">
+      <p class="text">
+        Your {{ husbandOrWife() }}  will be sent a copy of your divorce application, so you may want to avoid writing anything that will cause conflict between you. You can discuss your statement with your {{ husbandOrWife() }}  if you want to.
+      </p>
+    </div>
+
+   <p class="text">
+    Your application will be rejected if you don’t provide enough information to convince the court that your {{ husbandOrWife() }}  committed adultery.
+</p>
+
+    <p class="text">
+Do not name the person with whom the adultery was committed, unless you want to formally include them in your divorce proceedings.
+  </div>
+    {% if session.adultery.knowWhere == "Yes" %}
+      {{ inputComponents.describeField(
+      id='adulteryWhere',
+      name='adulteryDetailsWhere',
+      value=session.adultery.adulteryDetailsWhere,
+      label='Where did the adultery happen?') }}
+    {% endif %}
+
+    {% if session.adultery.knowWhen == "Yes" %}
+      {{ inputComponents.describeField(
+      id='acodulteryWhen',
+      name='adulteryDetailsWhen',
+      value=session.adultery.adulteryDetailsWhen,
+      label='When did the adultery happen?') }}
+    {% endif %}
+<div id="describe-wrapper-adulteryWhat" class="form-group">
+  <label class="form-label-bold" for="adulteryWhat">
+      What {{ "else" if (showWhen=="Yes" or showWhere =="Yes") else "" }} do you know about the adultery?
+  </label>
+<textarea class="form-control" id="adulteryWhat" rows="4" name="adulteryDetailsWhat" type="text" style="width: 100%"></textarea>
+
+</div>
+{% endblock %}

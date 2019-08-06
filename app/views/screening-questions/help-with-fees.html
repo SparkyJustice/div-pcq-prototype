@@ -1,0 +1,33 @@
+{% extends "question.html" %}
+{% set question = 'Do you want help paying your fee?' %}
+{% block question %}
+{{ question }}
+
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+If you have little or no savings, are on certain benefits or have a low income you may be able to get help with paying the £550 fee.
+</p>
+
+<p class="text">
+  Select Yes if you already have a Help with Fees reference number.
+</p>
+<div class="form-group">
+<fieldset class="inline" id="marriage-type">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+        <input id="wants-help-with-fees-yes" type="radio"
+               name="wantsHelpWithFees" value="Yes" {{ checked(session.wantsHelpWithFees, 'Yes') }}>
+        <label for="wants-help-with-fees-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="wants-help-with-fees-no" type="radio"
+               name="wantsHelpWithFees" value="No" {{ checked(session.wantsHelpWithFees, 'No') }}>
+      <label for="wants-help-with-fees-no">No</label>
+    </div>
+</fieldset>
+</div>
+{% endblock %}
+

@@ -1,0 +1,183 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Paying for the divorce
+{% endblock %}
+
+
+
+{% block form %}
+
+
+{% if session.claimCosts.applicantChoice == "YesIDefend" %}
+<p class="text">
+  Your {{ respsHusbandOrWife() }} has stated that they will not claim their costs if you let the divorce proceed and do not defend it.
+</p>
+
+{% endif %}
+
+<p class="text">
+Your {{ respsHusbandOrWife() }} has asked the court to order you {% if session.claimCosts.applicantChoice == "YesIDefend" %} if you choose to defend, that {% endif %}  
+
+  {% if session.claimCosts.claimFromCoRespondent == "Yes" %}
+  and the co-respondent
+  {% endif %}
+  to pay all
+  {% if session.claimCosts.splitMethod == "even" %}
+  to pay half
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysAll" %}
+  to pay all
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysSpecific" %}
+  to pay £52 towards
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysPercentage" %}
+  to pay 75% of
+  {% endif %}
+  the costs of the divorce. 
+</p>
+<!--
+<div class="panel panel-border-wide">
+<p class="text">"My {{ petsHusbandOrWife() }} should pay half my costs."
+  </div>
+-->
+
+<p class="text">
+  You can suggest how much you should pay, or make a case for not paying anything at all. The court will  take your statement into account when it makes its decision.
+</p>
+
+  <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.
+  </strong>
+</div>
+
+
+<br>
+  <details>
+  <summary><span class="summary">Read more about costs orders</span></summary>
+  <div class="panel panel-border-narrow">
+
+
+<p class="text">
+  As part of their divorce application, your {{ respsHusbandOrWife() }}  is allowed to ask the court to order you to pay their costs.
+</p>
+
+  <h3 class="heading-small">How much you may have to pay</h3>
+
+<p class="text">
+  The applicant's costs usually include the £550 fee. They could also include other court fees and costs. The costs could be much higher if your {{ respsHusbandOrWife() }} has legal fees (eg a solicitor) and these are also included. 
+</p>
+
+
+<p class="text">
+  {% if session.facts.reason == "separation-2-years" %}
+  <p class="text">
+    In divorces based on 2 years separation, the court will usually make an order that the respondent pay half the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+  </p>
+{% endif %}
+
+{% if session.facts.reason == "separation-5-years" %}
+  <p class="text">
+  In divorces based on 5 years separation, the court usually won't order the respondent to pay any of the applicant's costs. However, it could order them to pay costs under some circumstances. 
+</p>
+{% endif %}
+
+{% if session.facts.reason == "unreasonable-behaviour" %}
+  <p class="text">
+  In divorces based on the respondent's behaviour, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+{% endif %}
+
+{% if session.facts.reason == "adultery" %}
+  <p class="text">
+  In divorces based on adultery, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+{% endif %}
+
+{% if session.facts.reason == "desertion" %}
+  <p class="text">
+  In divorces based on desertion, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+{% endif %}
+
+  <h3 class="heading-small">What happens now</h3>
+
+    <p>
+     Your {{ respsHusbandOrWife() }} will be asked to confirm that they want to claim their costs when they apply for a decree nisi. 
+   </p> 
+
+    <p>
+     The court will then make its decision on whether you should pay any costs. It will take all your circumstances into account, including your conduct, and your {{ respsHusbandOrWife() }}'s conduct, before and during the divorce.
+    </p>
+
+    <p>
+      You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.
+    </p>
+
+      <h3 class="heading-small">Objecting to the costs order</h3>
+
+    <p>
+      You can dispute the costs order if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing.
+    </p>
+ 
+
+  </div>
+</details>
+
+
+
+
+
+{% if session.aos.response == "agreesAndWillNotDefend" or "disagreesAndWillNotDefend" %}
+
+     
+      <h2 class="heading-medium">Do you agree to pay the costs?</h2>
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice">
+        <input id="continue-yes" type="radio"
+               name="response" value="Agrees" {{ checked(session.claimCosts.response, 'Agrees') }}>
+        <label for="continue-yes">I agree to pay the 
+    {% if (not session.adultery.wishToName) or (session.adultery.wishToName == "No") %}
+            suggested 
+    {% endif %}
+            costs</label>
+      </div>
+    {% if (not session.adultery.wishToName) or (session.adultery.wishToName == "No") %}
+      <div class="multiple-choice" data-target="agree-other">
+        <input id="continue-other" type="radio"
+               name="response" value="Other" {{ checked(session.claimCosts.response, 'Other') }}>
+        <label for="continue-other">I suggest I pay a different amount</label>
+      </div>
+      {% endif %}
+    <div id="agree-other" class="form-group js-hidden panel" >
+    <label class="form-label-bold" for="case-details-textarea">
+        Provide brief details of how much you want to pay and why
+    </label>
+    <textarea class="form-control form-control-3-4" id="case-details-textarea" rows="4" name="case-details" type="text"></textarea>
+    </div>
+      <div class="multiple-choice" data-target="agree-no">
+      
+        <input id="continue-no" type="radio"
+               name="response" value="No" {{ checked(session.claimCosts.response, 'No') }}>
+        <label for="continue-no">I should not pay any costs, and will give my reasons</label>
+      </div>
+
+    <div id="agree-no" class="form-group js-hidden panel" >
+    <label class="form-label-bold" for="case-details-textarea">
+        Provide a brief explanation of why you should not pay     </label>
+    <textarea class="form-control form-control-3-4" id="case-details-textarea" rows="4" name="case-details" type="text"></textarea>
+    </div>
+      </fieldset>
+  </div>
+
+
+{% endif %}
+{% endblock %}

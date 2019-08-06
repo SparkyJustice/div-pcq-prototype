@@ -1,0 +1,107 @@
+{% extends "question.html" %}
+{% block question %}
+Have you lived together for more than
+{% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+6 months
+{% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+{{ session.separation.potentialLiveTogetherPeriodDays }} days
+{% endif %}
+since
+{% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    {{ session.separation.periodOfInterestStartDateFormatted }}
+{% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+    {{ session.separation.mostRecentSeparationDateFormatted }}
+{% endif %}
+{% endblock %}
+
+<!-- NOTE: For testing purposes, Ive changed the H1 to the physical separation date, as the code for calculating the mental vs. physical separation doesn't work yet. 
+ -->
+{% block form %}
+
+<p class="text">
+  You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.
+</p>
+
+<p>You can contact the court if you’re not sure if this applies to you.</p>
+
+
+<details>
+
+  <summary><span class="summary">Why the court needs to know this</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+<p>
+  You must have spent the past 2/5 years living apart. You can have had periods of living together as long as they don’t add up to more than 6 months. Any time that you’ve spent living together as a couple won’t count towards your separation period.
+</p>
+
+
+
+</details>
+
+<br>
+<!-- 
+<p class="text">
+  Select No if you’ve spent any time living together as a couple since {{ session.separation.separationDateFormatted }}.
+</p> -->
+
+<!-- <details>
+
+  <summary><span class="summary">Read the rules on living apart</span></summary>
+
+  <div class="panel panel-border-narrow">
+    <p class="text">
+      You must have lived apart from your {{ petsHusbandOrWife() }} for at least 2 years/5 years since you separated. 
+    </p>
+
+    <p class="text">Any time that you've spent living together since you separated doesn't count towards your separation period.</p>
+
+    <p class="text">
+      The court will add up any time that you've lived together since you separated. The combined total could affect the date that you can apply using this reason for divorce.
+    </p>
+
+    <h4 class="heading-small">Living together for 6 months or more</h4>
+    <p class="text">
+      If you've lived together for a total of more than 6 months since you separated, then you can't rely on that period of separation as the basis for your 2 year/5 year separation period.
+    </p>
+
+    <p class="text">
+      If this is the case for you, you'll have to use the next date that you separated as a starting point for your 2 years/5 years separation period.
+    </p>
+
+    <h4 class="heading-small">Living together for less than 6 months</h4>
+
+    <p class="text">
+      You can still rely on a given date as your separation date if you've lived together for less than 6 months since that date.
+    </p>
+
+    <p class="text">However, you'll need to make up any time during which you were living together.
+    </p>
+
+    <p class="text">
+      For example if you separated on March 2014, lived together from May 2014 to July 2014 (3 months), then lived apart from Aug 2014, the earliest you could apply for divorce based on your original separation date would be June 2016  (2 years and 3 months from March 2014).
+    </p>
+
+
+  </div>
+
+</details> -->
+  <div class="form-group">
+    <fieldset class="inline" id="where-married">
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice">
+        <input id="yes" type="radio"
+               name="haveLivedTogetherSince" value="Yes" {{ checked(session.separation.haveLivedTogetherSince, 'Yes') }}>
+        <label for="yes">Yes</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="no" type="radio"
+               name="haveLivedTogetherSince" value="No" {{ checked(session.separation.haveLivedTogetherSince, 'No') }}>
+        <label for="no">No</label>
+      </div>
+    </fieldset>
+  </div>
+  
+
+
+{% endblock %}

@@ -1,0 +1,128 @@
+<aside class="govuk-related-items" role="complementary">
+    <h3 class="heading-small" id="subsection-title">
+    {% block heading %}Getting help{% endblock %}</h3>
+    {% block list %}
+        <ul class="font-xsmall">
+        <li><strong class="bold-xsmall">Email</strong><br>
+        divorcecase@justice.gov.uk</br>
+        <li><strong class="bold-xsmall">Phone</strong></br>
+            0300 303 0642 <br />(Monday to Friday, 8.30am to 5pm)</br></li>
+    <li><strong class="bold-xsmall">Courts and Tribunals Service Centre</strong></br>
+      c/o East Midlands Regional Divorce Centre</br>
+      PO Box 10447</br>
+      Nottingham</br>
+      NG2 9QN</br></li>
+    {% endblock %}
+    {% block documents %}
+        {% if session.courtDocumentsAvailable.miniPetition == "Yes" or 
+              session.courtDocumentsAvailable.refusalOrder == "Yes" or
+              session.courtDocumentsAvailable.generalOrder == "Yes" or
+              session.courtDocumentsAvailable.decreeNisi == "Yes" or 
+              session.courtDocumentsAvailable.decreeAbsolute == "Yes" or 
+              session.courtDocumentsAvailable.costsOrder == "Yes" or
+              session.courtDocumentsAvailable.certificateOfEntitlement == "Yes" %}
+
+ <h3 class="heading-small" id="subsection-title">
+  Download your documents
+</h3>
+{% endif %}
+<nav role="navigation" aria-labelledby="subsection-title">
+  <ul class="font-xsmall downloads-sidebar">
+        {% if session.courtDocumentsAvailable.miniPetition == "Yes" %}
+    <li>
+      <a href="/public/pdf/application.pdf" target="_blank">
+          Divorce application (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+ {% if session.courtDocumentsAvailable.refusalOrder == "Yes" %}
+    <li>
+      <a href="/public/pdf/refusal-order.pdf" target="_blank">
+          Refusal order (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+
+        {% if session.courtDocumentsAvailable.generalOrder == "Yes" %}
+    <li>
+      <a href="/public/pdf/general-order.pdf" target="_blank">
+          General order (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+
+        {% if session.courtDocumentsAvailable.certificateOfEntitlement == "Yes" %}
+    <li>
+      <a href="/public/pdf/certificate-of-entitlement.pdf" target="_blank">
+          Entitlement to a decree (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+        {% if session.courtDocumentsAvailable.costsOrder == "Yes" %}
+    <li>
+      <a href="/public/pdf/costs-order.pdf" target="_blank">
+        Costs order (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+
+        {% if session.courtDocumentsAvailable.decreeNisi == "Yes" %}
+    <li>
+      <a href="/public/pdf/decree-nisi.pdf" target="_blank">
+        Decree nisi (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+
+
+
+        {% if session.courtDocumentsAvailable.decreeAbsolute == "Yes" %}
+    <li>
+      <a href="/public/pdf/decree-absolute.pdf" target="_blank">
+        Decree absolute (PDF, 69kb)
+      </a>
+    </li>
+        {% endif %}
+
+ </ul>
+</nav>
+{% endblock %}
+{% block guidance %}
+ <h3 class="heading-small" id="subsection-title">
+  Guidance on GOV.UK
+</h3>
+
+<nav role="navigation" aria-labelledby="subsection-title">
+  <ul class="font-xsmall">
+
+    <li>
+      <a href="https://www.gov.uk/respond-divorce-application">
+        How to respond to a divorce application
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.gov.uk/divorce/apply-for-decree-nisi">
+        Get a divorce
+      </a>
+    </li>
+
+    <li>
+      <a href="https://www.gov.uk/looking-after-children-divorce/overview">
+        Children and divorce
+      </a>
+    </li>
+    <li>
+      <a href="https://www.gov.uk/money-property-when-relationship-ends">
+       Money and property             
+     </a>
+   </li>
+ </ul>
+</nav>
+{% endblock %}
+
+</aside>
+
+
+
+

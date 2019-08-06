@@ -1,0 +1,42 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  current: true
+},
+three: {
+label: "Get a decree nisi"
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+<h4 class="heading-medium">Your application is in progress</h4>
+
+<p>
+  Some content from CCD.
+</p>
+
+<h2 class="heading-medium">If you need help</h2>
+
+<p class"text">
+  You can contact the divorce centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a <a href="https://www.gov.uk/find-a-legal-adviser"target="blank">solicitor or legal adviser</a>.
+</p>
+
+    <h2 class="heading-medium">Help us improve this service</h2>
+
+    <p class"text">
+      Please <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done">give us your feedback</a> to help improve this service.
+    </p>
+
+    
+  {% block button %}
+  <!-- No button required -->
+  {% endblock button %}
+  {% endblock %}

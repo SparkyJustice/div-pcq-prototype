@@ -1,0 +1,177 @@
+{% extends "question.html" %}
+{% block question %}
+{% if session.facts.reason == "desertion" %}
+<!-- Have you lived apart from your {{ petsHusbandOrWife() }} since they deserted you?
+ -->
+Have you lived apart from your {{ petsHusbandOrWife() }} for the entire time since they deserted you?
+
+{% else %}
+Have you lived apart for the entire time since you separated?
+{% endif %}
+
+<!-- {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+{{ session.separation.periodOfInterestStartDateFormatted }}
+{% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+{{ session.separation.mostRecentSeparationDateFormatted }}
+{% endif %} -->
+{% endblock %}
+
+
+{% block form %}
+
+{% if session.facts.reason == "separation-5-years" or session.facts.reason == "separation-2-years" %} 
+
+<p class="text">
+  You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.
+</p>
+
+<p>You can contact the court if you’re not sure if this applies to you.</p>
+
+
+{% endif %}
+
+<fieldset class="inline form-group" id="where-married">
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice">
+    <input id="yes" type="radio"
+    name="haveLivedApartSince" value="Yes" {{ checked(session.separation.haveLivedApartSince, 'Yes') }}>
+    <label for="yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="livedTogetherSince">
+    <input id="no" type="radio"
+    name="haveLivedApartSince" value="No" {{ checked(session.separation.haveLivedApartSince, 'No') }}>
+    <label for="no">No</label>
+  </div>
+</fieldset>
+
+<div id="livedTogetherSince" class="js-hidden">
+
+  <h2 class="heading-medium">
+    Have you lived together for more than
+    {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    6 months
+    {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+        {% if session.separation.potentialLiveTogetherPeriodWholeWeeks > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodWholeWeeks }} weeks
+        {% endif %}
+        {% if (session.separation.potentialLiveTogetherPeriodWholeWeeks > 0) and (session.separation.potentialLiveTogetherPeriodRemainingDays > 0) %}
+        and
+        {% endif %}
+        {% if session.separation.potentialLiveTogetherPeriodRemainingDays > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodRemainingDays }} days
+        {% endif %}
+    {% endif %}
+    since
+    {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    {{ session.separation.periodOfInterestStartDateFormatted }}
+    {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+    {{ session.separation.mostRecentSeparationDateFormatted }}
+    {% endif %}?
+  </h2>
+
+  <p>
+    {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    {{ session.separation.periodOfInterestStartDateFormatted }} is the date exactly {{ session.separation.constSeparationPeriod }} years and 6 months in the past. If you have lived together for more than 6 months (over one or more periods) since that date, then you can't use this reason for divorce at this time.
+    {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+    If you have lived together for more than 
+        {% if session.separation.potentialLiveTogetherPeriodWholeWeeks > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodWholeWeeks }} weeks
+        {% endif %}
+        {% if (session.separation.potentialLiveTogetherPeriodWholeWeeks > 0) and (session.separation.potentialLiveTogetherPeriodRemainingDays > 0) %}
+        and
+        {% endif %}
+        {% if session.separation.potentialLiveTogetherPeriodRemainingDays > 0 %}
+        {{ session.separation.potentialLiveTogetherPeriodRemainingDays }} days
+        {% endif %}
+        since {{ session.separation.mostRecentSeparationDateFormatted }} you won’t have been separated for long enough to use the {{ session.separation.constSeparationPeriod }} years separation reason for divorce at this time.
+    {% endif %} 
+  </p>
+
+
+  <details>
+    <summary>
+      <span class="summary">How this affects your separation period
+      </span>
+    </summary>
+
+    <div class="panel panel-border-narrow">
+
+     <!--  <h4 class="heading-small">A heading</h4> -->
+
+      <p>
+        You must have spent the past {{ session.separation.constSeparationPeriod }} years living apart to use this reason for divorce.
+      </p>
+      <p>
+        You are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the {{ session.separation.constSeparationPeriod }} year period. You’ll need to have lived apart for longer to make up any time that you spent living together.
+      </p>
+
+      <p>
+    {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    If you lived together for more than 6 months since {{ session.separation.periodOfInterestStartDateFormatted }}, then you can't satisfy the rules to use this reason for divorce. You will therefore need to use a different reason, or wait until you have been separated for long enough.
+    {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+    There are {{ session.separation.potentialLiveTogetherPeriodDays }} days between your separation date ({{ session.separation.mostRecentSeparationDateFormatted }}) and the date exactly {{ session.separation.constSeparationPeriod }} years in the past.  If you lived together for more than this, then you can't satisfy the rules to use this reason for divorce and will need to use a different reason, or wait until you have been separated for long enough.
+    {% endif %} 
+  </p>
+
+
+
+
+
+    </div>
+
+  </details>
+  
+
+<br>
+
+<!-- 
+<p>
+  If you have lived together for more than {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+  6 months
+  {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+  {{ session.separation.potentialLiveTogetherPeriodDays }} days
+  {% endif %}
+  since
+  {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+  {{ session.separation.periodOfInterestStartDateFormatted }}
+  {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+  {{ session.separation.mostRecentSeparationDateFormatted }}
+  {% endif %} you won’t have been separated for long enough to use the 2 years separation reason for divorce at this time.
+  <p>
+
+    <p>
+      This is because you must have spent the 2 years immediately preceding your divorce application living apart. 
+    </p>
+
+    <p>
+      You are allowed to have spent some time living together since you separated, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 years. You’ll need to have lived apart for longer to make up any time that you spent living together.
+    </p>
+
+    <p>
+      {% if session.separation.potentialLiveTogetherPeriodMonths >= 6 %}
+    {{ session.separation.periodOfInterestStartDateFormatted }}
+is the date exactly 2 years and 6 months ago. If you lived together for more than 6 months since then, then you can't satisfy the rules to use this reason for divorce.
+  {% elif session.separation.potentialLiveTogetherPeriodMonths < 6 %}
+  {{ session.separation.potentialLiveTogetherPeriodDays }} days
+  is the difference between your separation date, and the date exactly 2 years in the past. If you lived together for more than this time, then you can't satisfy the rules to use this reason for divorce.{% endif %} 
+</p> -->
+
+
+
+
+<fieldset class="inline form-group" id="where-married">
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice">
+    <input id="yes" type="radio"
+    name="haveLivedTogetherSince" value="Yes" {{ checked(session.separation.haveLivedTogetherSince, 'Yes') }}>
+    <label for="yes">Yes</label>
+  </div>
+  <div class="multiple-choice">
+    <input id="no" type="radio"
+    name="haveLivedTogetherSince" value="No" {{ checked(session.separation.haveLivedTogetherSince, 'No') }}>
+    <label for="no">No</label>
+  </div>
+</fieldset>
+</div>
+
+{% endblock %}

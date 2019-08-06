@@ -1,0 +1,84 @@
+{% extends "question.html" %}
+{% set question = 'Do you want help paying the fee?' %}
+{% block question %}
+{{ question }}
+
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+You need to pay a fee of £110. If you have little or no savings, are on certain benefits or have a low income you may be able to get help with paying this fee.
+</p>
+
+<!-- <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+        You need to make a new application for Help with Fees for each court fee.
+  </strong>
+</div> -->
+
+<br>
+
+<!-- 
+<p class="text">
+  Select Yes if you already have a Help with Fees reference number for this new fee. 
+</p> -->
+
+
+<!-- <p class="text">
+    If you asked the court to order your {{ petsHusbandOrWife() }} to pay your costs, then these extra costs will also be taken into account. 
+</p> -->
+
+
+
+<div class="form-group">
+<fieldset class="inline" id="marriage-type">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="has-hwf-reference"> 
+        <input id="wants-help-with-fees-yes" type="radio"
+               name="ammendmentWantsHelpWithFees" value="Yes" {{ checked(session.ammendmentWantsHelpWithFees, 'Yes') }}>
+        <label for="wants-help-with-fees-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="wants-help-with-fees-no" type="radio"
+      a         name="ammendmentWantsHelpWithFees" value="No" {{ checked(session.ammendmentWantsHelpWithFees, 'No') }}>
+      <label for="wants-help-with-fees-no">No</label>
+    </div>
+</fieldset>
+</div>
+
+<div class="js-hidden" id="has-hwf-reference">
+    <h2 class="heading-medium">Do you have a new Help with Fees reference number?</h2>
+
+<p class="text">
+  You need a new reference number for each court fee you pay.
+</p>
+
+
+    <fieldset class="form-group inline">
+
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="hwf-ref-wrapper">
+      <input id="help-with-fees-has-ref-yes" type="radio"
+             name="ammendmentHelpWithFeesHasRef" value="Yes" {{ checked(fields.ammendmentHelpWithFeesHasRef.value, 'Yes') }}a>
+      <label for="help-with-fees-has-ref-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="help-with-fees-has-ref-no" type="radio"
+             name="ammendmentHelpWithFeesHasRef" value="No" {{ checked(fields.ammendmentHelpWithFeesHasRef.value, 'No') }}>
+      <label for="help-with-fees-has-ref-no">No</label>
+    </div>
+<div id="hwf-ref-wrapper" class="panel panel-border-narrow js-hidden">
+    <label class="form-label-bold" for="hwf-ref">
+        Enter your reference number:
+    </label>
+  <input class="form-control" id="hwf-ref" name="helpWithFeesReference" type="text" value="">
+  </div>
+  </fieldset>
+  
+</div>
+{% endblock %}
+

@@ -1,0 +1,60 @@
+{% extends "question.html" %}
+{% block question %}
+Have you lived apart since {{ session.adultery.firstFindOutDateFormatted }}?
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+  You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.
+</p>
+
+<!-- <details>
+
+  <summary><span class="summary">What if we lived together after this date?</span></summary>
+
+  <div class="panel panel-border-narrow">
+    <h4 class="heading-small"></h4>
+    
+<p class="text">
+    You can’t use an act of adultery as a reason for divorce if you lived together as a couple for more than 6 months after you found out about it.
+</p>
+<p class="text">
+    This could have been in one go, or if you lived together on and off for several periods of time adding up to more than 6 months.
+</p>
+  </div>
+
+</details> -->
+
+  <fieldset class="inline form-group">
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice" >
+    <input id="haveLivedTogetherSinceSepDate-yes" type="radio"
+           name="haveLivedTogetherSinceSepDate" value="Yes" {{ checked(session.separation.haveLivedTogetherSinceSepDate, 'Yes') }}>
+    <label for="haveLivedTogetherSinceSepDate-yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="reunitedDates">
+    <input id="haveLivedTogetherSinceSepDate-no" type="radio"
+           name="haveLivedTogetherSinceSepDate" value="No" {{ checked(session.separation.haveLivedTogetherSinceSepDate, 'No') }}>
+    <label for="haveLivedTogetherSinceSepDate-no">No</label>
+  </div>
+</fieldset>
+  
+<div id="reunitedDates" class="js-hidden panel form-group">
+<p class="text">
+    You can’t use an act of adultery as a reason for divorce if you lived together as a couple for more than 6 months after you found out about it.
+</p>
+<p class="text">
+    This could have been in one go, or if you lived together on and off for several periods of time adding up to more than 6 months.
+</p>
+
+<p>
+  You’ll be asked for details when you apply for your decree nisi.
+</p>
+
+<p>Contact the court if you’re not sure.</p>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "question.html" %}
+{% block question %}
+Applying for a financial order
+{{ question }}
+{% endblock %}
+
+{% block form %}
+{% if session.financialOrder == "Yes-after" %}
+
+	<p class="text">
+		You’ll be given a link to guidance and the form to get a financial order when you've finished your divorce application. You'll also need to pay a fee. How much you'll need to pay will depend on what type of order you get. 
+	</p>   
+
+	</p>
+    <p class="text">
+    	The court won’t start processing your request for a financial order until you have submitted these forms and paid the fee.    
+	</p>
+
+
+  
+{% elif session.financialOrder == "Yes-later" %}
+
+	    <h3 class="heading-small">When you should get a financial order by</h3>
+
+    <p class="text">
+    	You should get a financial order before your divorce is finalised otherwise your legal rights will change. This will affect what you’re entitled to. For example, you will have to pay any capital gains tax on assets that are transferred between you.
+    </p>
+
+    <p class="text">
+    	You should get legal advice if you're not sure what to do.
+	</p>
+
+	<h3 class="heading-small">When you're ready to complete your financial order application</h3>
+
+    <p class="text">
+    	You'll need to complete another form and pay another fee to formally start financial proceedings. How much you'll need to pay will depend on what type of order you get. The court will only start processing your request for a financial order when you've done this.    
+	</p>
+
+	<p class="text">
+		You’ll be given a link to more guidance when you finish your divorce application.
+	</p>
+  
+{% endif %}
+
+   
+
+
+{% endblock %}
+

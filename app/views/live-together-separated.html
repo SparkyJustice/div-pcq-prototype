@@ -1,0 +1,37 @@
+{% extends "question.html" %}
+{% block question %}
+Do you both live in the same property, but separately?
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<fieldset class="form-group inline">
+  <p class="text">
+For example, you both live in the same property, but you don't eat, sleep or cook together.
+  </p>
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <label for="live-together-separated-yes" class="block-label" data-target="help-yes">
+    <input id="live-together-separated-yes" type="radio"
+           name="liveTogetherSeparated" value="Yes" {{ checked(fields.liveTogether.value, 'Yes') }}>
+    Yes
+  </label>
+
+  <label for="live-together-separated-no" class="block-label" data-target="help-no">
+    <input id="live-together-separated-no" type="radio"
+           name="liveTogetherSeparated" value="No" {{ checked(fields.liveTogether.value, 'No') }}>
+    No
+  </label>
+</fieldset>
+
+{% endblock %}
+
+{% macro reference(refId) %}
+<input class="form-control"
+       name="r{{ refId }}"
+       type="text"
+       value="{{ fields[refId].value }}"
+       maxlength="1"
+       title="reference number {{ refId }}">
+{% endmacro %}

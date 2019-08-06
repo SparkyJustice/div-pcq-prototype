@@ -1,0 +1,43 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  complete: true
+},
+three: {
+label: "Get a decree nisi",
+  current: true
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+
+            <h4 class="heading-medium">You can continue with your divorce</h4>
+            
+            <p>
+              The court has accepted your application to 'dispense with service' (decided that your {{ petsHusbandOrWife() }} doesn’t have to be served the divorce application).
+            </p>
+
+            <p>
+                You can now continue the divorce without their response.
+            </p>
+
+            <!-- <h4 class="heading-medium">Your husband has responded to your divorce application</h4>
+            <p>The court has posted you a copy of your husband’s response to your divorce application (known as the ‘acknowledgement of service’).</p>
+
+            <p>You need to read his response and check that the signature on the response is his.</p>
+
+            <p>Don’t continue until you have received and checked his response.</p> 
+
+ -->
+
+
+{% endblock %}

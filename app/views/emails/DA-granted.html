@@ -1,0 +1,37 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your divorce is now complete
+{% endblock %}
+{% block content %}
+<p>
+	Reference no: 12345678
+</p>
+<p>
+	Dear {{ petsName() }},
+</p>
+
+<p class="text">
+	The decree absolute has been made and you are now divorced.
+</p>
+
+<p class="text">
+		Download the certificate from your account and print it.
+	</p>
+
+<p class="text">
+		<a href="/IDAM/login?continue_url=/progress-bar/divorce-finalised">https://www.divorce.reform.hmcts.net/sign-in</a>
+	</p>
+
+<p class="text">
+	The certificate will be stored in your account until 9 November 2018 (for one year). If you need a copy of your certificate after this date, you'll need to contact the Courts and Tribunals Contact Centre.
+</p>
+		{% endblock %}
+

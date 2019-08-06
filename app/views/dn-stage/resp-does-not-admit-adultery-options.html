@@ -1,0 +1,62 @@
+{% extends "question.html" %}
+{% block question %}
+How do you want to proceed?
+{% endblock %}
+
+{% block form %}
+       
+<!-- 
+
+      <p class="text">
+        The court will need to make a judgement that adultery took place based on the information available.
+      </p> -->
+
+       <p class="text">
+        As your {{ petsHusbandOrWife() }} hasn't admitted the adultery, you need to choose whether to continue using this reason for divorce. 
+      </p>
+
+<!--       <ul class="list list-bullet text">
+       <li>change your reason for divorce and pay a fee of £95</li>
+        <li>keep using adultery without their admission and provide proof</li>
+      </ul> -->
+<!-- 
+       <p class="text">
+        You'll have to pay a fee of £95 to change your reason. 
+        </p> -->
+
+<!--         <p>
+          If you do change your reason, your {{ petsHusbandOrWife() }} can still object to the divorce (known as 'defending' or 'contesting' it). To do that they will have to fill in another form and pay a fee of £245.
+        </p> -->
+
+  <div class="form-group">
+  <fieldset id="lived-together">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="yes" type="radio"
+             name="nextStep" value="choose-another-reason" {{ checked(session.dnnextStep, 'Yes') }}>
+      <label for="yes">Change my reason for divorce (and pay a fee of £95)</label>
+    </div>
+    <div class="multiple-choice" data-target="LivedTogetherDates">
+      <input id="no" type="radio"
+
+             name="nextStep" value="continue-with-evidece" {{ checked(session.dnStageChosenNextStep, 'No') }}>
+      <label for="no">Keep using adultery and let the court make a judgement</label>
+
+ 
+
+    </div>
+  </fieldset>
+  </div>
+
+<div id="LivedTogetherDates" class="js-hidden">
+
+  <p>
+    The court will make a judgement on the information and evidence available. If you have further any evidence you'll be able to upload it later in this application.
+   </p>
+
+     <p>Evidence can include messages (eg letters, text messages, emails), photos, or an admission of the adultery from the person your {{ petsHusbandOrWife() }} committed adultery with.</p>
+
+
+</div>
+
+{% endblock %}

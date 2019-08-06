@@ -1,0 +1,330 @@
+{% extends "layout_noheader.html" %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block proposition_header %}
+{% endblock %}
+
+{% block content %}
+
+<main role="main">
+    <div>
+        <div class="grid-row">
+            <div class="column-third">
+    <div class="panel panel-border-narrow font-small text"> 
+<h2 class="heading-large" style="margin-top: 0;">Petitioner</h2>
+<form method="POST" accept-charset="utf-8" class="form" id="form" enctype="application/x-www-form-urlencoded" action="/">
+<div class="form-group">
+  <fieldset class="form-group" id="marriage-type">
+      <h3 class="heading-medium">Who are you divorcing?</h3>
+      <legend class="visually-hidden">Who are you divorcing?</legend>
+        <div class="multiple-choice" data-target="confirmation">
+              <input id="husband" type="radio" name="divorceWho" value="husband">
+              <label for="husband">Your husband</label>
+        </div>
+        <div class="multiple-choice" data-target="confirmation">
+            <input id="wife" type="radio" name="divorceWho" value="wife">
+          <label for="wife">Your wife</label>
+          </div>
+  </fieldset>
+</div>
+<div class="form-group">
+  <fieldset id="currentNameCheck" class="inline ">
+    <p>
+  <legend class="form-label-bold">
+     Select the following if it applies to you:
+  </legend>
+    </p>
+  
+    <div class="multiple-choice" data-target="sameSexExplanation">
+  
+    <input id="were-a-ss-couple" type="checkbox" name="sameSexCouple" value="Yes">
+   <label for="were-a-ss-couple"> We were a same-sex couple when we got married.</label>
+  </div>
+  <!-- <div class="panel panel-border-narrow js-hidden" id="sameSexExplanation">
+        <strong class="normal-small">
+            The court needs to know this so that the correct legislation is used when processing the divorce
+        </strong>
+      </div> -->
+  </fieldset>
+</div>
+<div id="reasonForDivorce" class="form-group">
+    <h3 class="heading-medium">Reason for divorce</h3>
+    <fieldset>
+      <legend class="form-label-bold">Select one of the following reasons:</legend>
+
+       <div class="multiple-choice" data-target="unreasonable-behaviour-warning">
+        <input id="unreasonable-behaviour"
+               type="radio"
+               name="reason"
+               value="unreasonable-behaviour">
+         <label class="form-label-bold block-label"
+             for="unreasonable-behaviour" >Behaviour<br>
+          <span class="font-small">
+            Your {{ petsHusbandOrWife() }} has behaved in such a way that you can't reasonably be expected to live with them any more
+          </span>
+         </label>
+      </div>
+
+      <!-- <div class="panel panel-border-narrow js-hidden" id="unreasonable-behaviour-warning">
+        <div class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="normal-small">
+            You can still use this reason if you continued to live together as a married couple afterwards; eg you still ate, slept, and cooked together. However, this can only have been for up to 6 months after the most recent example of behaviour - you'll have to choose another reason if it's more.
+
+          </strong>
+        </div>
+      </div> -->
+      <div class="multiple-choice" data-target="adultery-warning">
+     
+        <input id="adultery"
+               type="radio"
+               name="reason"
+               value="adultery">
+         <label class="form-label-bold block-label"
+             for="adultery">Adultery<br>
+        <span class="font-small">
+            Your {{ petsHusbandOrWife() }} has committed adultery <!-- with a {% if petsHusbandOrWife() == 'wife' %} man {% else %} woman {% endif %}  -->and you find it intolerable (unbearable) to live with them. You can only use adultery if it was with a member of the opposite sex
+
+        </span>
+      </label>
+      </div>
+      <!-- <div class="panel panel-border-narrow js-hidden" id="adultery-warning">
+        <div class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="normal-small">
+            You can still use this reason if you continued to live together as a married couple afterwards; eg you still ate, slept, and cooked together. However, this can only have been for up to 6 months after you found out about the adultery - you'll have to choose another reason if it's more.
+          </strong>
+        </div>
+      </div> -->
+
+      <div class="multiple-choice" data-target="separation-2-years-warning">
+        
+          <input id="separation-2-years"
+                 type="radio"
+                 name="reason"
+                 value="separation-2-years">
+
+
+          <label class="form-label-bold block-label"
+               for="separation-2-years" >Separated for 2 years with consent<br>
+              <span class="font-small">
+                  Your {{ petsHusbandOrWife() }} agrees to a divorce and you’ve been separated for 2 years or more
+              </span>
+        </label>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="separation-2-years-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+              The court will ask your {{ petsHusbandOrWife() }} if they agree to a divorce. If they don't agree, your application will be rejected and you'll need to choose another reason.
+            </strong>
+
+          </div>
+        </div>
+      
+      <div class="multiple-choice">
+          <input id="separation-5-years"
+                 type="radio"
+                 name="reason"
+                 value="separation-5-years">
+           <label class="form-label-bold block-label"
+               for="separation-5-years">Separated for 5 years<br>
+        <span class="font-small">
+          You’ve been separated from your {{ petsHusbandOrWife() }} for 5 years or more
+        </span>
+        </label>
+      </div>
+        <div class="multiple-choice" data-target="desertion-warning">
+        
+          <input id="desertion"
+                 type="radio"
+                 name="reason"
+                 value="desertion">
+          <label class="form-label-bold block-label"
+               for="desertion" >Desertion<br>
+      <span class="font-small">
+      Your {{ petsHusbandOrWife() }} abandoned you (left without your agreement) more than 2 years ago
+      </span>
+        </label>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="desertion-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+
+          </div>
+        </div>
+    </fieldset>
+    </div>
+
+
+
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="Continue">
+            </div>
+        </form>
+            </div>
+        </div>
+        <div class="column-third">
+            <div class="panel panel-border-narrow font-small text"> 
+                <h1 class="heading-large">
+                    Respondent
+                </h1>
+<form method="POST" accept-charset="utf-8" class="form" id="form" enctype="application/x-www-form-urlencoded" action="/">
+            
+
+
+
+    <h3 class="heading-medium">Will they pay the costs?</h3>
+<div class="form-group">
+      <fieldset class="inline">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice">
+          <input id="willPay"
+                 type="radio"
+                 name="willPayCosts"
+                 value="Yes"
+                 {{ checked(session.respondent.aos.willPayCosts, 'Yes') }}>
+           <label for="willPay">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="willNotPay"
+                 type="radio"
+                 name="willPayCosts"
+                 value="No"
+                 {{ checked(session.respondent.aos.willPayCosts, 'No') }}>
+          <label for="willNotPay">No</label>
+        </div>
+      </fieldset>
+    </div>
+
+
+    <h3 class="heading-medium">Will they defend the divorce?</h3>
+<div class="form-group">
+      <fieldset class="inline">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice">
+          <input id="willDefend"
+                 type="radio"
+                 name="willDefend"
+                 value="Yes"
+                 {{ checked(session.aos.defend, 'Yes') }}>
+           <label for="willDefend">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="willNotDefend"
+                 type="radio"
+                 name="willDefend"
+                 value="No"
+                 {{ checked(session.aos.defend, 'No') }}>
+          <label for="willNotDefend">No</label>
+        </div>
+      </fieldset>
+    </div>
+
+    <h3 class="heading-medium">Do they consent to the divorce? </h3>
+<div class="form-group">
+      <fieldset class="inline">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice">
+          <input id="consent"
+                 type="radio"
+                 name="consent"
+                 value="Yes"
+                 {{ checked(session.aos.consent, 'Yes') }}>
+           <label for="consent">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="consent"
+                 type="radio"
+                 name="consent"
+                 value="No"
+                 {{ checked(session.aos.consent, 'No') }}>
+          <label for="consent">No</label>
+        </div>
+      </fieldset>
+    </div>
+    
+    <h3 class="heading-medium">Do they admit the adultery? </h3>
+<div class="form-group">
+      <fieldset class="inline">
+        <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice">
+          <input id="admitAdultery"
+                 type="radio"
+                 name="admitAdultery"
+                 value="Yes"
+                 {{ checked(session.respondent.aos.admitAdultery, 'Yes') }}>
+           <label for="admitAdultery">Yes</label>
+        </div>
+        <div class="multiple-choice">
+          <input id="admitAdultery"
+                 type="radio"
+                 name="admitAdultery"
+                 value="No"
+                 {{ checked(session.respondent.aos.admitAdultery, 'No') }}>
+          <label for="admitAdultery">No</label>
+        </div>
+      </fieldset>
+    </div>
+    <div class="form-group">
+  <fieldset>
+
+    <legend>
+      <h3 class="heading-medium">Court documents downloadable</h3>
+      <span class="body-text">Select all that apply</span>
+    </legend>
+
+    <div class="multiple-choice">
+      <input id="document-available-1" name="documentsAvailable" type="checkbox" value="certificate-of-entitlement">
+      <label for="document-available-1">Certificate of Entitlement</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="document-available-2" name="documentsAvailable" type="checkbox" value="decree-nisi">
+      <label for="document-available-2">Decree Nisi</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="document-available-3" name="documentsAvailable" type="checkbox" value="costs-order">
+      <label for="document-available-3">Costs order</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="document-available-4" name="documentsAvailable" type="checkbox" value="decree-absolute">
+      <label for="document-available-4">Decree Absolute</label>
+    </div>
+    <div class="multiple-choice hidden">
+      <input id="document-available-5" name="documentsAvailable" type="checkbox" value="null-value" checked>
+      <label for="document-available-5">N/A</label>
+    </div>
+    <div class="multiple-choice hidden">
+      <input id="document-available-6" name="documentsAvailable" type="checkbox" value="null-value2" checked>
+      <label for="document-available-6">N/A</label>
+    </div>
+
+  </fieldset>
+    </div>
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="Continue">
+            </div>
+        </form>
+            </div>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
+{% macro checked(isChecked, answer) %}
+  {%if isChecked == answer %}
+    checked
+  {% endif %}
+{% endmacro %}

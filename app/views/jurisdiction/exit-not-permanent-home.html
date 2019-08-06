@@ -1,0 +1,23 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+Sorry, you can't use the online service
+{% endblock %}
+
+{% block exit_reason %}
+
+
+<p class="text">
+  Both you and your {{ petsHusbandOrWife() }} must be habitually resident in England or Wales to use this service.
+</p>
+<p class="text">
+  You may still be able to <a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetLeaflet.do?court_leaflets_id=140"
+                              target="_blank">apply for a divorce by post</a>.
+</p>
+
+<p class="text">
+  Get legal advice if you're not sure if you're allowed to get a divorce in England or Wales.
+</p>
+</div>
+
+{% endblock %}

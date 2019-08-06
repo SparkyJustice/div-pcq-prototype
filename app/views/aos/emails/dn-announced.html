@@ -1,0 +1,73 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your decree nisi has been announced
+{% endblock %}
+{% block content %}
+<p>
+Reference no: 12345678
+</p>
+<p>
+Dear {{ respsName() }},
+</p>
+
+<p>
+	Your decree nisi (court order) for a divorce from John James Dante was made on 8 August 2017. The order was announced by District Judge Wylie at East Midlands Regional Divorce Centre.
+</p>
+
+<p>
+	The judge also made a court order giving your {{respsHusbandOrWife () }} the right to claim their divorce costs from you.
+</p>
+
+
+<div class="panel panel-border-wide">
+  <p>
+  	You are not divorced yet. You will only be divorced when the second stage is complete and you have your decree absolute.
+  </p>
+</div>
+
+<p>
+	You can download certificates for both these orders from your account.</p>
+
+<p>
+	 <a href="/IDAM/login?continue_url=/aos/progress-bar/decree-nisi-granted">https://www.divorce.reform.hmcts.net/sign-in</a>
+</p>
+
+<h2 class="heading-medium">When the divorce can be completed</h2>
+
+<p>
+	Your {{respsHusbandOrWife () }} can apply for the decree absolute from 20 September 2017. This is because, by law, they must wait for 6 weeks after the decree nisi is granted.
+</p>
+
+<h2 class="heading-medium">What to do with the costs order</h2>
+
+<p>
+  The order will state what the court has decided you must pay your {{ respsHusbandOrWife()}}. You are required to pay them within 14 days of the order being made. If you don't pay within that time, your {{ respsHusbandOrWife()}} can use the order to make a money claim against you. 
+</p>
+
+<div class="panel panel-border-wide">
+	<p>
+		If you need help with this service you can call or email us. <br>
+		Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+		Email: divorce@justice.gov.uk<br>
+	</p>
+</div>
+
+<p>
+	Please help us improve this service by leaving your feedback at<br> <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/">http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email</a>.
+</p>
+
+
+<h2 class="heading-medium"> HM Courts & Tribunals Service </h2>
+<p>
+This is an automated message, please don’t reply to this email.
+</p>
+{% endblock %}
+

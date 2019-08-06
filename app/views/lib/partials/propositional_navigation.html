@@ -1,0 +1,18 @@
+<div class="header-proposition">
+  <div class="content">
+    <nav id="proposition-menu">
+      <a href="/" id="proposition-name">
+          {% if not session.serviceName %}
+            {{ serviceName }}
+          {% else %}
+            {{ session.serviceName }}
+          {% endif %}
+      </a>
+            {% if (session.isLoggedIn == "yes") %}
+  <div id="account-details" style="margin-top: 0;">
+      <span id="name"><a href="/save-return/goodbye/{{ path }}">Sign out</a></span>
+  </div>
+            {% endif %}
+    </nav>
+  </div>
+</div>

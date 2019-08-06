@@ -1,0 +1,67 @@
+{% extends "question.html" %}
+{% block question %}
+Have you lived apart since {{ session.unreasonable.lastIncidentDateFormatted }}?
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+  You can both live in the same property and be considered by the court to be living apart, as long as you're living separate lives. For example, you don’t eat, sleep, or socialise together.
+</p>
+<!-- 
+<p class="text">
+  Select No if you’ve spent any time living together as a couple since this date.
+</p> -->
+
+<!-- <details>
+
+  <summary><span class="summary">Why the court needs to know this</span></summary>
+
+  <div class="panel panel-border-narrow">
+    <h4 class="heading-small"></h4>
+
+    <p class="text">
+      If you lived together as a couple for more than 6 months after the behaviour occured, the court may take this into account in its decision on whether to grant you a divorce.
+    </p>
+    <p class="text">
+      This could have been in one go, or if you lived together on and off for several periods adding up to more than 6 months.
+    </p>
+
+  </div>
+
+</details> -->
+
+  <fieldset class="form-group inline">
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice">
+    <input id="live-together-yes" type="radio"
+           name="haveLivedTogetherSinceLastIncidentDate" value="Yes" {{ checked(fields.separation.haveLivedTogetherSinceLastIncidentDate, 'Yes') }}>
+    <label for="live-together-yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="reunitedDates">
+    <input id="live-together-no" type="radio"
+           name="haveLivedTogetherSinceLastIncidentDate" value="No" {{ checked(fields.separation.haveLivedTogetherSinceLastIncidentDate, 'No') }}>
+    <label for="live-together-no">No</label>
+  </div>
+</fieldset>
+  
+<div id="reunitedDates" class="js-hidden panel form-group">
+
+    <p class="text">
+      If you lived together as a couple for more than 6 months after the behaviour occured, the court may take this into account in its decision on whether to grant you a divorce.
+    </p>
+
+     <p class="text">
+      This could have been in one go, or if you lived together on and off for several periods adding up to more than 6 months.
+    </p>
+
+<p>
+  You’ll be asked for details when you apply for your decree nisi.
+</p>
+
+<p>Contact the court if you’re not sure.</p>
+
+</div>
+
+{% endblock %}

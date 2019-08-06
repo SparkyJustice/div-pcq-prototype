@@ -1,0 +1,34 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Divorce application (petition)
+{% endblock %}
+
+{% block form %}
+
+{% include "../mini-petition.html" %}
+
+  <h3 class="heading-medium">Acknowledgement</h3>
+<div class="notice">
+    <i class="icon icon-important">
+      <span class="visuallyhidden">Warning</span>
+    </i>
+    <strong class="text" >
+        You will be able to respond to this application on the next page
+    </strong>
+  </div>
+  <br />
+  <div class="check-your-answers">
+    <div class="form-group confirmation-container">
+      <div class="multiple-choice">
+        <input id="confirm" type="checkbox" name="confirm">
+        <label for="confirm">I have read the application for divorce.
+            <br/>
+
+        </label>
+      </div>
+    </div>
+  </div>
+
+  {% endblock %}

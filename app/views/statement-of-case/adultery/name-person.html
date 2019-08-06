@@ -1,0 +1,15 @@
+{% import "common/components/findAddressComponent.html" as address %}
+{% extends "question.html" %}
+{% set question = 'What is their home address?' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p class="text">This must be the residential address of the person that you believe your {{ petsHusbandOrWife() }} committed adultery with.</p>
+
+  {{ address.findAddressComponent(addresses) }}
+
+
+{% endblock %}

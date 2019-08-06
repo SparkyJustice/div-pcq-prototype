@@ -1,0 +1,60 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your application has been submitted
+
+
+{% endblock %}
+{% block content %}
+<p>
+	Case number: 12345678
+</p>
+<p>
+	Dear {{ petsName() }},
+</p>
+
+
+<p>
+Your application for a decree nisi has been submitted.
+</p>
+
+<p>
+If the court is satisfied that there’s no reason why you shouldn’t be given a divorce, you’ll be sent the time, date and court in which your decree nisi will be pronounced (read out). You don’t need to come to the hearing.
+</p>
+
+<p>
+After the decree nisi has been granted, you’ll have to wait 6 weeks before you can apply for a decree absolute to end the marriage.
+</p>
+
+<p>
+	You can contact us if you need help.
+</p>
+
+<div class="panel panel-border-wide">
+	<p>
+		Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+		Email: <a href="">divorce@justice.gov.uk</a><br>
+	</p>
+</div>
+
+<p>
+	Please help us improve this service by leaving your feedback at <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/">http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email</a>.
+</p>
+
+<p>
+	HM Courts & Tribunals Service
+</p>
+
+<p>
+	This is an automated message, please don’t reply to this email.
+</p>
+
+{% endblock %}
+

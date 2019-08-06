@@ -1,0 +1,52 @@
+{% extends "question.html" %}
+{% block question %}
+Apply for bailiff service
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p class="text">You can use this service to have a bailiff deliver (serve) the application to your {{ petsHusbandOrWife() }} at the following address:</p>
+
+  <div class="address" >
+      23 Stanley Street<br />      
+    Farnborough<br />
+    UK <br />
+    FO54 3RD <br />
+  </div>
+  </p>
+
+<p class="text">
+  You should only use the bailiff service if you're confident that your {{ petsHusbandOrWife() }} lives at this address and is choosing not to respond.
+</p>
+
+  <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    If your {{ petsHusbandOrWife() }} doesn't live at this address the bailiff won't be able to serve it and your divorce will be delayed further. 
+  </strong>
+</div>
+
+ 
+<br>
+
+<p class="text">
+	If you’re not sure that they live at this address, you should consider <a href="/dn-stage/exit/dn-no-response">other ways to proceed with your divorce</a>.</p>
+
+ <!-- <p class="text">
+ 	If you’re not sure that your {{ petsHusbandOrWife() }} lives at this address you should consider using one of the <a href="/dn-stage/exit/dn-no-response">other court services</a>.
+</p> -->
+
+<!-- <ul class="list list-bullet text">
+  <li>providing a different residential address for your {{ petsHusbandOrWife() }}</li>
+  <li>providing a work address</li>
+  <li>sending the application to an electronic address, eg an email address</li>
+  <li>searching government records for your  {{ petsHusbandOrWife() }} address </li> 
+</ul>
+ -->
+<br>
+
+{% endblock %}
+

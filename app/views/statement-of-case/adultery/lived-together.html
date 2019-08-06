@@ -1,0 +1,50 @@
+{% extends "question.html" %}
+
+{% block question %}
+Did you live together as a couple after you found out about the adultery?
+{% endblock %}
+
+{% block form %}
+
+
+<p class="text" for="lived-apart">
+    If you lived separate lives, but still lived in the same residence (eg you didn't sleep, cook or eat together) it
+    doesn't count as living together as a couple.
+</p>
+
+
+<fieldset class="form-group inline" id="lived-together">
+
+    <label for="cases-yes" class="block-label" data-target="time-period">
+        <input id="cases-yes" type="radio"
+               name="livedTogether" value="Yes" {{ checked(session.adultery.livedTogether, 'Yes') }}>
+        Yes
+    </label>
+
+    <label for="cases-no" class="block-label">
+        <input id="cases-no" type="radio"
+               name="livedTogether" value="No" {{ checked(session.adultery.livedTogether, 'No') }}>
+        No
+    </label>
+
+</fieldset>
+
+<div id="time-period" class="js-hidden panel">
+    <fieldset class="form-group inline" id="more-than-6-months">
+        <label class="form-label-bold">Was this for more than 6 months?</label>
+        <label class="form-label">Either in a single period or over several periods</label>
+        <label for="more-than-6-months-yes" class="block-label">
+            <input id="more-than-6-months-yes" type="radio"
+                   name="moreThan6Months" value="Yes" {{ checked(session.adultery.moreThan6Months, 'Yes') }}>
+            Yes
+        </label>
+
+        <label for="more-than-6-months-no" class="block-label">
+            <input id="more-than-6-months-no" type="radio"
+                   name="moreThan6Months" value="No" {{ checked(session.adultery.moreThan6Months, 'No') }}>
+            No
+        </label>
+    </fieldset>
+</div>
+
+{% endblock %}

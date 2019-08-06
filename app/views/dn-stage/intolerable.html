@@ -1,0 +1,34 @@
+{% extends "question.html" %}
+{% block question %}
+Do you find it intolerable to live with your {{ petsHusbandOrWife() }}?
+
+{% endblock %}
+{% block form %}
+
+ <!--  <p class="text">
+    To use adultery as your reason for divorce, you must find it intolerable (unbearable) to live with your {{ petsHusbandOrWife() }}. This applies whether you're still living together or not.
+  </p>
+ -->
+
+  <p class="text">
+    You must find it intolerable to live with your {{ petsHusbandOrWife() }} to use adultery as your reason for divorce. This applies whether you're still living together or not.
+  </p>
+
+
+<fieldset class="inline form-group">
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice" >
+    <input id="intolerable-yes" type="radio"
+           name="intolerable" value="Yes" {{ checked(session.adultery.intolerable, 'Yes') }}>
+    <label for="intolerable-yes">Yes</label>
+  </div>
+  <div class="multiple-choice">
+    <input id="intolerable-no" type="radio"
+           name="intolerable" value="No" {{ checked(session.adultery.intolerable, 'No') }}>
+    <label for="intolerable-no">No</label>
+  </div>
+</fieldset>
+
+{% endblock %}
+

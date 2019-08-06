@@ -1,0 +1,52 @@
+{% extends "question.html" %}
+{% set question = 'Did you last live together at this address?' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+</p>
+
+<fieldset>
+      <legend class="visually-hidden">
+      </legend>
+
+    <div class="form-group">
+      <div class="multiple-choice">
+      
+        <input id="petitioner"
+               type="radio"
+               name="whereLastLivedTogether"
+               value="Petitioner"
+               {{ checked(session.petitioner.whereLastLivedTogether, 'Petitioner') }}>
+        <label for="petitioner" >
+    Yes, at this address
+</label>
+      </div>
+      <div class="multiple-choice">
+      
+        <input id="no-different"
+               type="radio"
+               name="whereLastLivedTogether"
+               value="Other"
+               {{ checked(session.petitioner.whereLastLivedTogether, 'Other') }}>
+        <label for="later">No, at a different address</label>
+      </div>
+      <div class="multiple-choice" >
+      
+        <input id="no-never"
+               type="radio"
+               name="whereLastLivedTogether"
+               value="Never"
+               {{ checked(session.petitioner.whereLastLivedTogether, 'Never') }}>
+        <label for="no">No, we've never lived together</label>
+      </div>
+
+    </fieldset>
+{% endblock %}

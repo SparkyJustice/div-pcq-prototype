@@ -1,0 +1,108 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Why do you disagree with the application? 
+
+{% endblock %}
+
+
+{% block form %}
+
+
+    <p class="text">
+      You'll need to submit more forms and pay more court fees if you choose to disagree. You'll both usually have to go to a court hearing where a judge will make a decision.
+    </p>
+
+   <p class="text">
+    You may want to consider getting legal advice before choosing any of these options. 
+  </p>
+
+<details>
+
+  <summary><span class="summary">Read more about each option</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+    <h2 class="heading-small">Attempting to prevent the divorce </h2>
+
+  <p class="text">
+    You'll need to submit another form (legally known as the 'answer') with your reasons for defending within 21 days. You'll also have to pay another £245 fee.
+  </p>
+
+   <h2 class="heading-small">Making your own application for divorce</h2>
+   
+   <p class="text">
+      You'll need to submit the following forms:
+    </p>
+
+    <ul class="bullet list-bullet">
+      <li>answer with your reasons for defending (within 21 days of the date you first signed in to respond to the application)</li>
+      <li>application for divorce</li>
+    </ul>
+
+    <br>
+
+  <p class="text">
+    You'll have to pay £245 to submit your answer, and £550 to submit your own application for divorce.
+  </p>
+
+  {% if session.facts.reason == "separation-5-years" %}
+
+
+  <h2 class="heading-small">Preventing the divorce because it will cause you hardship</h2>
+
+  <p>
+    As your {{ respsHusbandOrWife() }} used separation for 5 years as the reason for divorce, you can try to prevent it on the basis that it will cause you severe hardship.
+  </p>
+
+  <p>
+    The hardship could be financial (for example, you'll lose your rights to a widow's pension) or another type of hardship (for example, you'll be stigmatized for cultural or religious reasons).
+  </p>
+
+  <p>
+    You'll need to convince the court that the hardship will be severe.
+  </p>
+
+  <p>
+    The court will take your and your husband's individual circumstances and interests into acccount. It will also take into account the needs of any children if you have any, and anyone else who would be affected by a divorce.
+  </p>
+
+  <p>
+    Severe hardship is rarely used as a defence against divorce, and it's even rarer for the court to reject a divorce application because of it.
+  </p>
+
+  <p class="text">
+    You'll need to make your case for hardship in another form (called the 'answer') within 21 days. You'll also have to pay another £245 fee.
+  </p>
+
+  {% endif %}
+
+</div>
+
+</details>
+
+
+<div class="form-group">
+  <fieldset>
+    <legend class="visually-hidden">{{ question }}</legend>
+
+    <div class="multiple-choice">
+      <input id="not-broken" type="radio" name="whyBroken" value="notBroken">
+      <label for="not-broken">I don’t believe the marriage has broken down irretrievably and I intend to prevent the divorce</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="cross-petition" type="radio" name="whyBroken" value="crossPetition">
+      <label for="cross-petition">I believe the marriage has broken down irretrievably, but not for the reasons given and I want to make my own application for divorce</label>
+    </div>
+    {% if session.facts.reason == "separation-5-years" %}
+    <div class="multiple-choice">
+      <input id="hardship" type="radio" name="whyBroken" value="financialHardship">
+      <label for="hardship">A divorce will cause me severe hardship and I intend to prevent it</label>
+    </div>
+    {% endif %}
+  </fieldset>
+</div>
+
+
+{% endblock %}

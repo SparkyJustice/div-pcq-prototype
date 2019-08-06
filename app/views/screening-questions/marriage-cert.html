@@ -1,0 +1,49 @@
+{% extends "question.html" %}
+{% set question = 'Do you have your marriage certificate with you now?' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+<fieldset class="form-group inline {{ " error" if fields.hasMarriageCert.error }}" id="hasMarriageCert">
+<legend class="visually-hidden">{{ question }}</legend>
+
+<p class="text">
+  You'll need to upload a picture of the certificate. You must have the original certificate or a <a href="https://www.gov.uk/order-copy-birth-death-marriage-certificate"target="_blank">certified copy</a>. 
+</p>
+
+<div class="panel panel-border-wide">
+  <p class="text">
+  You can use a camera phone to take the picture, then attach it to this application. If you can't do this, the documents can be sent by post.
+</p>
+</div>
+
+ <p class="text">
+    If your certificate isn't in English, you'll also need to provide a <a href="https://www.gov.uk/certifying-a-document">certified English translation</a>.
+  </p>
+
+  <!-- <p class="text">You'll need to post your marriage certificate to the court. It won't be returned to you.</p> -->
+
+
+
+{{ errorsFor(fields.hasMarriageCert) }}
+<div class="multiple-choice">
+  <input id="cert-yes"
+         type="radio"
+         name="hasMarriageCert"
+         value="Yes"
+         {{ checked(fields.hasMarriageCert.value, 'Yes') }}>
+  <label for="cert-yes">Yes</label>
+</div>
+<div class="multiple-choice">
+  <input id="cert-no"
+         type="radio"
+         name="hasMarriageCert"
+         value="No"
+         {{ checked(fields.hasMarriageCert.value, 'No') }}>
+  <label for="cert-no" class="block-label">No</label>
+</div>
+</fieldset>
+</div>
+{% endblock %}

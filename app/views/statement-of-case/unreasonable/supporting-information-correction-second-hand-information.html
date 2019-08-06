@@ -1,0 +1,36 @@
+{% extends "question.html" %}
+
+{% block question %}
+Has any of the information you've given come from another person?
+{{question}}
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  The court needs to know if you've provided any second-hand information.</p>
+
+  <fieldset class="form-group inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <label for="third-party-yes" class="block-label" data-target="detailed-information">
+      <input id="third-party-yes" type="radio"
+             name="dnThirdParty" value="Yes" {{ checked(session.dnThirdParty, 'Yes') }}>
+      Yes
+    </label>
+
+    <label for="third-party-no" class="block-label">
+      <input id="third-party-no" type="radio"
+             name="dnThirdParty" value="No" {{ checked(session.dnThirdParty, 'No') }}>
+      No
+    </label>
+  </fieldset>
+
+    <div class="panel panel-border-narrow js-hidden" id="detailed-information">
+        <label class="form-label-bold" for="case-details-textarea">
+            Which information was given to you?
+        </label>
+        <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+   </div>
+{% endblock %}

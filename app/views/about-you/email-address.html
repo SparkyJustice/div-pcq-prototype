@@ -1,0 +1,26 @@
+{% extends "question.html" %}
+{% set question = 'Enter your email address' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p class="text">
+  The court will use this to communicate with you about your application.
+</p>
+<fieldset class="form-group">
+
+  <fieldset class="form-group {{ " error" if fields.emailAddress.error }}" >
+    <label class="form-label" for="emailAddress">
+      Your email address
+    </label>
+    {{ errorsFor(fields.petFirstName) }}
+    <input class="form-control"
+           id="emailAddress"
+           name="emailAddress"
+           type="text"
+           value="{{ fields.emailAddress.value }}">
+  </fieldset>
+</fieldset>
+
+{% endblock %}
