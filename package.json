@@ -4,7 +4,7 @@
   "version": "2.1.0",
   "private": true,
   "engines": {
-    "node": "^6.10.3"
+    "node": "^6.10.1"
   },
   "scripts": {
     "start": "NODE_PATH=. node start.js",
@@ -66,5 +66,16 @@
     "validator": "^6.0.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
+    "sinon": "^1.17.5",
+    "sinon-chai": "^2.8.0",
+    "eslint-plugin-mocha": "^4.5.1",
+    "mocha": "^3.0.0",
+    "supertest": "^2.0.0",
+    "pa11y": "^4.0.1",
+    "codeceptjs": "^0.4.7",
+    "nightmare": "^2.7.0",
+    "nightmare-upload": "^0.1.1",
+    "mochawesome": "^1.5.3"
   }
 }
