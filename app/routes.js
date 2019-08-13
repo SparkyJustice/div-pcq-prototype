@@ -2977,7 +2977,7 @@ function getNextAosStep(req, path) {
             req.session.claimCosts.respReasonTheyWontPay = req.body.noDetails;
             return "/aos/contact-details";
         case "/aos/contact-details":
-            return "/aos/check-your-answers";
+            return "https://hmcts-pcq-div-prototype.herokuapp.com/pcq-v1/introduction?defendant=true&";
         case "/aos/check-your-answers":
             return "/aos/done";
     }
