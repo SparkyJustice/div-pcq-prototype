@@ -1,4 +1,4 @@
-const validations = require(__dirname + 'app/services/validations');
+const validations = require('app/services/validations');
 
 function stubReq({ body } = {}) {
   const req = {
