@@ -64,7 +64,8 @@
     "serve-favicon": "2.3.0",
     "twilio": "^2.11.1",
     "validator": "^6.0.0"
-  },
+  }
+  /*,
   "devDependencies": {
     "chai": "^3.5.0",
     "sinon": "^1.17.5",
@@ -78,4 +79,5 @@
     "nightmare-upload": "^0.1.1",
     "mochawesome": "^1.5.3"
   }
+  */
 }
