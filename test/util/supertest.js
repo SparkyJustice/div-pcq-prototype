@@ -1,7 +1,7 @@
 const express = require('express');
 const request = require('supertest');
 const sessions = require('app/services/sessions');
-const validations = require('app/services/validations');
+const validations = require(__dirname + '/app/services/validations');
 const locals = require('app/locals');
 const Flags = require('app/services/flags');
 const bodyParser = require('body-parser');
