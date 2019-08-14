@@ -1,4 +1,4 @@
-const Step = require('app/steps/Step');
+const Step = require('./app/steps/Step');
 
 const pleaseAnswer = 'Please answer the question';
 

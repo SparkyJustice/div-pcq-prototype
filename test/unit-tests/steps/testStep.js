@@ -1,7 +1,7 @@
 const { expect, sinon } = require('test/util/chai');
 const { request, testApp, withSession } = require('test/util/supertest');
 const { stubReq } = require('test/util/validations');
-const Step = require('app/steps/Step');
+const Step = require('./app/steps/Step');
 
 describe('Step', () => {
   describe('#name', () => {
