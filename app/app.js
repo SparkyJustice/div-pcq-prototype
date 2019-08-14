@@ -7,16 +7,16 @@ const flags = new (require(__dirname + '/services/flags'))();
 
 //Steps
 const steps = [
-  new (require('app/steps/screening-questions/marriageDate'))(),
-  new (require('app/steps/screening-questions/hasMarriageCert'))(),
-  new (require('app/steps/done'))(),
-  new (require('app/steps/screening-questions/hasRespondentAddress'))(),
-  new (require('app/steps/help-with-fees/hasApplied'))(),
-  new (require('app/steps/genericError'))()
+  new (require(__dirname + '/steps/screening-questions/marriageDate'))(),
+  new (require(__dirname + '/steps/screening-questions/hasMarriageCert'))(),
+  new (require(__dirname + '/steps/done'))(),
+  new (require(__dirname + '/steps/screening-questions/hasRespondentAddress'))(),
+  new (require(__dirname + '/steps/help-with-fees/hasApplied'))(),
+  new (require(__dirname + '/steps/genericError'))()
 ];
 
 //Check Your Answers
-const CheckYourAnswers = require('app/steps/checkYourAnswers');
+const CheckYourAnswers = require(__dirname + '/steps/checkYourAnswers');
 const checkYourAnswers = new CheckYourAnswers(steps);
 
 app.use(validations);
