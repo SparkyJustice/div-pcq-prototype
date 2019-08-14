@@ -2,8 +2,8 @@ const express = require('express');
 const app = express.Router();
 
 //Services
-const validations = require(__dirname + '/app/services/validations');
-const flags = new (require('/app/services/flags'))();
+const validations = require(__dirname + '/services/validations');
+const flags = new (require(__dirname + '/services/flags'))();
 
 //Steps
 const steps = [
