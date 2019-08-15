@@ -1,4 +1,4 @@
-const Step = require('./Step');
+const Step = require('./../Step');
 const validationMessages = require('app/validationMessages'),
       hasRespondentAddressErrorMsg = validationMessages.notAnswered;
 

@@ -1,4 +1,4 @@
-const Step = require('./steps/Step');
+const Step = require('./../Step');
 const validationMessages = require('app/validationMessages'),
       hasMarriageCertError = validationMessages.screeningQuestions.hasMarriageCert;
 
