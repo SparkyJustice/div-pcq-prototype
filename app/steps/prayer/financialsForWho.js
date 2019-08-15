@@ -1,4 +1,4 @@
-const Step = require('./app/steps/Step');
+const Step = require('app/steps/Step');
 
 module.exports = class FinancialsForWho extends Step {
   get url() { return '/financial-arrangements/for-who'; }

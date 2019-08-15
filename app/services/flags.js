@@ -1,4 +1,4 @@
-const Step = require('./app/steps/Step');
+const Step = require('./../steps/Step');
 
 function getFlag(req, name, defaultVal, parse) {
   if ('session' in req
