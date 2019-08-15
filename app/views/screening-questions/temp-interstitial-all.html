@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="column-two-thirds">
+        {% include "includes/phase_banner_beta.html" %}
+
+        <h1 class="heading-large">
+         Before you begin
+     </h1>
+
+     <p class="text">
+        This is a new service to complete the divorce application online. The court will send you the rest of the forms to complete the divorce by email. We’re working to bring the <a href="https://www.gov.uk/divorce" target="_blank">rest of the process</a> online.
+        </p>
+
+     <h2 class="heading-medium">
+         Fees
+     </h2>
+
+     <p class="text">
+        You'll need to pay the £550 fee by debit or credit card at the end of this application. That's usually all you'll have to pay.
+    </p>
+
+      <p class="text">
+            However, you may have to pay more later on if:
+        </p>
+
+        <ul class="bullet list-bullet">
+            <li>your husband or wife tries to prevent the divorce (known as defending it)</li>
+            <li>the divorce papers can't be delivered to them</li>
+            <li>you have to change your application</li>
+        </ul>
+<br>
+
+    <p class="text">
+        You can <a href="https://www.gov.uk/get-help-with-court-fees" target="_blank">get help paying these fees</a> if you have little or no savings, are on certain benefits or have a low income.
+    </p>
+      
+        <h2 class="heading-medium">
+            Have you settled your finances?
+        </h2>
+
+        <p class="text">
+            Before you begin you should consider how you'll divide your money and property</a>. You can make the division legally binding if you <a href="https://www.gov.uk/money-property-when-relationship-ends" target="_blank">get a 'financial order'</a>.
+        </p>
+
+        <p class="text">
+            You need to get a financial order if you:
+        </p>
+
+        <ul class="bullet list-bullet">
+            <li>have nothing to split but want to make your financial separation final</li>
+            <li>agree on how you want to share your money and property and want to make that legally binding</li>
+            <li>disagree on how to split your money and property and want the court to settle the dispute</li>
+        </ul>
+
+        <br>
+           
+       <!--      <h2 class="heading-medium">
+            This is a new service
+        </h2>
+        <p>
+            You’ll fill in the application online. The court will send you the rest of the forms to complete the divorce by email.
+
+            We’re working to bring the <a href="https://www.gov.uk/divorce">rest of the process</a> online.
+        </p> -->
+
+
+            <form method="POST" accept-charset="utf-8" class="form" id="form"
+            enctype="{% block encoding %}application/x-www-form-urlencoded{% endblock %}">
+            {% block form %}{% endblock %}
+
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="{% block button %}Continue{% endblock %}">
+            </div>
+            {% block help %}{% endblock %}
+        </form>
+    </div>
+
+</main>
+{% endblock %}

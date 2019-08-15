@@ -1,0 +1,105 @@
+{% extends "question.html" %}
+
+{% block question %}
+Describe your {{ petsHusbandOrWife() }}'s behaviour
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+  Include examples of your {{ petsHusbandOrWife() }}'s behaviour which affect you the most, and the most recent incidents. If you think your health has been affected, state how it's been affected.
+</p>
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+      Don't include examples in which you're both at fault.
+  </strong>
+</div>
+
+<br>
+<p class="text">
+  You can describe how they've behaved over a period of time or use particular incidents. Try to include dates if you remember them.
+</p>
+
+  <div class="panel panel-border-wide">
+    <p class="text">
+        Your {{ petsHusbandOrWife() }} will be sent a copy of your divorce application, so you may want to avoid writing anything that will cause conflict between you. You can discuss your examples with your {{ petsHusbandOrWife() }} if you want to.
+    </p>
+  </div>
+
+<p class="text">
+  Provide enough examples to satisfy the court that you can't reasonably be expected to live with your {{ petsHusbandOrWife() }}.</p>
+
+  <div id="examples">
+<div id="describe-wrapper-allegation-1" class="form-group">
+  <label class="form-label-bold" for="allegation-1">
+   Example 1
+  </label>
+  <textarea class="form-control"
+                  id="allegation-1"
+                  rows="3"
+                  name="unReasonableAllegation1"
+                  type="text"
+                  style="width: 100%">
+My {{ petsHusbandOrWife() }} ... </textarea>
+</div>
+
+<div id="describe-wrapper-allegation-2" class="form-group">
+  <label class="form-label-bold" for="allegation-2">
+   Example 2
+  </label>
+  <textarea class="form-control"
+                  id="allegation-2"
+                  rows="3"
+                  name="unReasonableAllegation2"
+                  type="text"
+                  style="width: 100%">
+My {{ petsHusbandOrWife() }} ... </textarea>
+</div>
+
+<div id="describe-wrapper-allegation-3" class="form-group">
+  <label class="form-label-bold" for="allegation-3">
+   Example 3
+  </label>
+  <textarea class="form-control"
+                  id="allegation-3"
+                  rows="3"
+                  name="unReasonableAllegation3"
+                  type="text"
+                  style="width: 100%">
+My {{ petsHusbandOrWife() }} ... </textarea>
+</div>
+</div>
+<div id="addAllegationBtn" class="form-group">
+    <a class="secondary-button">+ Add another example</a>
+</div>
+<script>
+function onLoadFunction() {
+    $(document).ready(function(){
+        $('#allegation-1').click(function() {
+            if ($('#allegation-1').val() == "My {{ petsHusbandOrWife() }} ... "){
+                $('#allegation-1').val("My {{ petsHusbandOrWife() }} ");
+            }
+        });
+        $('#allegation-2').click(function() {
+            if ($('#allegation-2').val() == "My {{ petsHusbandOrWife() }} ... "){
+                $('#allegation-2').val("My {{ petsHusbandOrWife() }} ");
+            }
+        });
+        $('#allegation-3').click(function() {
+            if ($('#allegation-3').val() == "My {{ petsHusbandOrWife() }} ... "){
+                $('#allegation-3').val("My {{ petsHusbandOrWife() }} ");
+            }
+        });
+        var allegationTemplate = '<div id="describe-wrapper-allegation-4" class="form-group">                <label class="form-label-bold" for="allegation-4">                 Example 4                </label>                <textarea class="form-control"                                id="allegation-4"                                rows="3"                                name="unReasonableAllegation3"                                type="text"                                style="width: 100%">My {{ petsHusbandOrWife() }} ... </textarea>              </div>  ';
+        $('#addAllegationBtn').click(function() {
+            $('#examples').append(allegationTemplate);
+        });
+    });
+}
+</script>
+
+{% endblock %}

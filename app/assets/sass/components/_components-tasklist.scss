@@ -1,0 +1,229 @@
+/*
+Task list
+*/
+
+$module: "task-list";
+
+.#{$module} {
+  padding-top: em(20);
+  padding-bottom: em(20);
+  
+  
+  &__step {
+    margin-top: - em(30, 16);
+    position: relative;
+    
+    &::before {
+      content: "";
+      border-left: 2px solid $grey-2;
+      height: 100%;
+      left: - em(31, 16);
+      position: absolute; 
+      top: em(30);
+      width: 0;
+      
+      @include media (tablet) {
+        border-width: 3px;
+        left: - em(46);
+      }
+      
+    }
+    
+  }
+  
+  
+  &__item {
+    padding-bottom: em(30, 16);
+    padding-left: em(45, 16);
+    position: relative;
+    
+    @include media (tablet) {
+      padding-left: em(60);
+    }
+
+    &:first-child {
+      
+      .#{$module}__step {
+        margin-top: 0;
+      }
+      
+    }
+
+    
+    &:last-child {
+      padding-bottom: 0;
+      
+      &::after {
+        background-color: $grey-2;
+        bottom: 0;
+        content: "";
+        height: 3px;
+        left: 8px;
+        position: absolute;
+        width: 16px;
+      }
+      
+      .#{$module}__step {
+        
+        &::before {
+          top: 0;
+        }
+        
+      }
+      
+    }
+    
+        
+  }
+  
+
+  &__number {
+    background-color: $page-colour;
+    box-sizing: border-box;
+    border: 2px solid $grey-2;
+    border-radius: 50%;
+    font-weight: 700;
+    height: 32px;
+    overflow: hidden;
+    position: absolute; left: -46px; top: 11px;
+    text-align: center;
+    width: 32px;
+    z-index: 2;
+    
+    @include media (tablet) {
+      border-width: 3px;
+      top: 30px; left: -60px;
+    }
+    
+    &::before {
+      @include bold-19;
+      content: attr(data-number);
+      display: block;
+      height: 26px;
+      line-height: 30px;
+      width: 26px;
+    
+      @include media (tablet) {
+        line-height: 28px;
+      }
+    
+    }
+    
+  }
+  
+  
+  &__header {
+    border-top: 2px solid $grey-3;
+    padding-top: $gutter-half;
+    padding-bottom: $gutter-half;
+    
+    @include media (tablet) {
+      padding-top: $gutter;
+      padding-bottom: $gutter;
+    }
+    
+  }
+  
+  
+  &__title {
+    @include bold-24();
+  }
+  
+  
+  &__panel {
+    padding-bottom: $gutter-half;
+    
+    @include media (tablet) {
+      padding-bottom: $gutter;
+    }
+    
+    &-links {
+      margin-bottom: 20px;
+      margin-top: 0;
+      
+      li {
+        padding-bottom: 10px;
+        
+        &:last-child {
+          padding-bottom: 0;
+        }
+        
+      }
+      
+      a {
+        text-decoration: none;
+      }
+      
+      &--required {
+        font-weight: bold;
+      }
+      
+    }
+    
+    p {
+      margin-top: 0;
+    }
+    
+    :last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+  }
+  
+
+}
+
+
+/*
+Task list (JavaScript only)
+*/
+
+$module: "task-list";
+
+.js-enabled .#{$module} {  
+  
+  
+  &__header {
+    cursor: pointer;
+    
+    .#{$module}__toggle {
+      @include core-16();
+      color: $link-colour;
+      display: block;
+      text-align: left;      
+    }
+    
+    &:hover {
+    
+      .#{$module}__toggle {
+        text-decoration: underline;    
+      }
+      
+      .#{$module}__button {
+        color: $link-colour;   
+      }
+      
+    }
+
+  }
+  
+  
+  &__button {
+    @include bold-24();
+    background-color: transparent;
+    border: 0 none; 
+    cursor: pointer;   
+    display: block;
+    padding: 0;
+    
+    // fix unwanted button padding in firefox
+    &::-moz-focus-inner {
+      border: 0;
+      padding: 0;
+    }
+    
+  }
+
+  
+}

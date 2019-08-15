@@ -1,0 +1,31 @@
+{% extends "question.html" %}
+{% block question %}
+Do you have a Help with Fees reference number?
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset class="form-group inline">
+
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="hwf-ref-wrapper">
+      <input id="help-with-fees-has-ref-yes" type="radio"
+             name="helpWithFeesHasRef" value="Yes" {{ checked(fields.helpWithFeesHasRef.value, 'Yes') }}a>
+      <label for="help-with-fees-has-ref-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="help-with-fees-has-ref-no" type="radio"
+             name="helpWithFeesHasRef" value="No" {{ checked(fields.helpWithFeesHasRef.value, 'No') }}>
+      <label for="help-with-fees-has-ref-no">No</label>
+    </div>
+  </fieldset>
+  <div id="hwf-ref-wrapper" class="panel panel-border-narrow js-hidden">
+    <label class="form-label-bold" for="hwf-ref">
+        Enter your reference number:
+    </label>
+  <input class="form-control" id="hwf-ref" name="helpWithFeesReference" type="text" value="">
+  </div>
+</div>
+{% endblock %}
+

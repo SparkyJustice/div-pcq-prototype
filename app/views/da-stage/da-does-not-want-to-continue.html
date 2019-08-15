@@ -1,0 +1,63 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+You've been signed out
+
+
+{% endblock %}
+
+{% block exit_reason %}
+
+
+<p class="text">
+    You can apply for your decree absolute any time from now. If you apply after 3 June 2020 (1 year after the decree nisi was granted) you’ll have to explain the delay to the court.
+</p>
+
+<p class="text">
+   The court can cancel (legally known as rescind) the decree nisi any time up until the decree absolute is granted, if it’s given new evidence showing why you shouldn’t be given a divorce.
+</p>
+
+<h3 class="heading-medium">When your {{ petsHusbandOrWife() }} can apply</h3>
+
+<p class="text">
+    Your {{ petsHusbandOrWife() }} can apply for the decree absolute from 3 April 2019 (3 months after you can). If your {{ petsHusbandOrWife() }}  applies you’ll both need to go to a court hearing.
+</p>
+
+
+<p class="text">
+    <a href="/IDAM/login?continue_url=/progress-bar/undefended">Sign in</a> to return to the application.
+</p>
+
+<!-- <p class="text">
+    Your progress has not been saved.
+</p> -->
+
+<!-- <p class="text">
+	Your progress will be saved for 6 months. A link to your application has been sent to 
+
+
+      
+        <strong class="bold-small">
+            {% if session.emailAddress %}
+            {{ session.emailAddress }}
+            {% else %}
+                zoe.elizabeth.dante@gmail.com
+            {% endif %}
+        </strong>.
+  </p> -->
+
+
+
+<!-- 
+	<p class="text">
+	If you need help with this service you can call or email us.<br>
+	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+	Email: divorce@justice.gov.uk<br>
+</p> -->
+
+
+
+
+
+</form>
+{% endblock %}

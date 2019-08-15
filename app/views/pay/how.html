@@ -1,0 +1,81 @@
+{% extends "question.html" %}
+
+{% block question %}
+{% if session.paymentSuccess == "no" %}
+Payment declined
+{% endif %}
+Payment
+{% endblock %}
+
+{% block form %}
+{% if session.paymentSuccess == "no" %}
+<div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+
+  <p class="text">
+ Your card payment has been declined.
+</p>
+
+<p>
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    Your application will only be submitted once the fee has been paid. 
+      </strong>
+</div>
+</p>
+
+<p class="text">
+  You can either:
+</p>
+
+<ul class="bullet list-bullet">
+  <li>try again with a different card</li>
+  <li>contact your bank to find out why the payment was declined</li>
+</ul>
+
+<br>
+
+
+</div>
+{% endif %}
+
+<p class="text">
+{% if session.helpWithFeesReference %}
+<p>
+	You’ve provided a Help with Fees reference number so don't need to make a payment now.
+</p>
+<p>
+	The court will check if your application for help with fees has been successful, and how much financial help you'll get. You’ll be contacted if you still need to pay anything.
+</p>
+
+{% else %}
+
+<p>
+Your application fee is £550. The payment can be made by anyone with a valid debit or credit card.
+</p>
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+Only continue if you’re sure that you want to apply. You can’t get a refund after the application has been issued (sent out).
+  </strong>
+</div>
+
+
+<br>
+<p>
+  If you're claiming the divorce costs from your {{ petsHusbandOrWife() }}, this fee can  be included in any costs order the court makes.
+</p>
+
+
+<p>Save and close this page if you can’t pay the fee now. Your application won’t be processed until you have paid the fee.</p>
+
+
+{% endif %}
+
+{% endblock %}
+

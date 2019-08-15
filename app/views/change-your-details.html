@@ -1,0 +1,72 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main id="content" role="main" tabindex="-1" class="check-your-answers">
+
+    <div class="phase-banner">
+  <p>
+    <strong class="phase-tag">Beta</strong>
+    <span>This is a new service – your <a aria-label="This link will open in a new tab. You’ll need to return to this tab and continue with your application within 60 minutes so you don’t lose your progress." href="http://www.smartsurvey.co.uk/s/0QIL4?pageurl=/check-your-answers" target="_blank">feedback</a> will help us to improve it.</span>
+  </p>
+</div>
+
+
+    <a class="link-back" href="#" onclick="history.go(-1); return false;">Back</a>
+
+    <h1 class="heading-large">Change your personal details</h1>    
+    <div class="grid-row">
+        
+    </div>
+    <br />
+    <table>
+          <colgroup>
+             <col span="1" style="width: 45%;">
+             <col span="1" style="width: 40%;">
+             <col span="1" style="width: 15%;">
+          </colgroup>
+          <tbody><tr>
+  <th>Name</th>
+  <td>Chris Neale</td>
+  <td><a class="link" aria-label="Change Reason for divorce" href="/reason-for-divorce">Change</a></td>
+</tr>
+<tr>
+    <th>Email address</th>
+    <td>christopher.neale@gmail.com</td>
+    <td><a class="link" aria-label="" href="">Change</a></td>
+</tr>
+<tr>
+    <th>Address</th>
+    <td>Flat 1 <br/>35 Church Walk<br/>London<br/>N16 8QR</td>
+    <td><a class="link" aria-label="" href="">Change</a></td>
+</tr>
+<tr>
+    <th>Phone number</th>
+    <td>07813 886337</td>
+    <td><a class="link" aria-label="" href="">Change</a></td>
+</tr>
+
+</tbody>
+      </table>
+
+    </div>
+    <div class="column-one-third">
+        <!-- side nav -->
+    </div>
+</div>
+
+
+            <div class="form-group">
+
+        <form method="POST" accept-charset="utf-8" class="form">
+              <input type="submit" class="button" value="Continue">
+        </form>
+    </div>
+
+            {% if (session.isLoggedIn == "yes") %}
+            <div>
+                <a href="/save-return/goodbye/{{ path }}">Save and close </a>
+            </div>
+            {% endif %}
+    {% include "report-error.html" %}
+</main>
+{% endblock %}

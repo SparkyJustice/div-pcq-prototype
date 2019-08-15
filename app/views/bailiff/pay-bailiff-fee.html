@@ -1,0 +1,93 @@
+{% extends "question.html" %}
+
+{% block question %}
+
+{% if session.paymentDeclined =="Yes" %}
+Payment declined
+{% else %} 
+Payment
+{% endif %}
+{% endblock %}
+
+{% block form %}
+
+{% if session.paymentDeclined =="Yes" %}
+
+
+<p class="text">
+ Your card payment has been declined.
+</p>
+
+<p>
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    Your application will only be submitted once the fee has been paid. 
+      </strong>
+</div>
+</p>
+
+
+<p class="text">
+  You can either:
+</p>
+
+<ul class="bullet list-bullet">
+  <li>try again with the same card or a different card</li>
+  <li>contact your bank to find out why the payment was declined</li>
+</ul>
+</p>
+
+
+<p class="text">
+If you want to pay by cheque instead, you’ll need to change your application using the <a href="https://www.gov.uk/divorce/file-for-divorce" target="_blank">paper D8 form</a>. The rest of your divorce will then be offline.
+</p>
+
+{% else %}
+
+
+<!-- 
+
+{% if session.paymentSuccess == "no" %}
+<div class="error-summary" role="group" aria-labelledby="error-summary-heading-example-1" tabindex="-1"> -->
+<!-- 
+  <h1 class="heading-medium error-summary-heading" id="error-summary-heading-example-1">
+    It has not been possible to process your card payment
+  </h1> -->
+<!-- 
+  <p>
+  Please choose another payment method or reattempt to pay using a different card.
+  </p> -->
+<!-- 
+
+</div>
+{% endif %} -->
+
+<p class="text">
+{% if session.helpWithFeesReference %}
+
+<p>
+  You’ve provided a Help with Fees reference number so don't need to make a payment now.
+</p>
+<p>
+  The court will check if your application for help with fees has been successful, and how much financial help you'll get. You’ll be contacted if you still need to pay anything.
+</p>
+
+{% else %}
+
+{% endif %}
+
+<p>
+  The fee to use bailiff service is £110. The payment can be made by anyone with a valid debit or credit card.
+</p>
+
+<p>
+  If you're claiming the divorce costs from your {{ petsHusbandOrWife() }}, this fee can  be included in any costs order the court makes.
+</p>
+
+{% endif %}
+
+{% endblock %}
+

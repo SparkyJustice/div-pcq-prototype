@@ -1,0 +1,19 @@
+{% extends "question.html" %}
+
+{% block question %}
+Enter the details of your {{ petsHusbandOrWife() }}'s solicitor
+{% endblock %}
+
+{% block form %}
+{% if label %} <p class="text" for="postcode">{{ label }}</p> {% endif %}
+<fieldset class="form-group">
+  <label class="form-label" for="solicitorName">Solicitor's Name</label>
+  <input class="form-control second-text-input" id="solicitor-name" name="solicitorName" type="text" value={{ session.respondent.solicitorName }}>
+</fieldset>
+
+<fieldset class="form-group">
+  <label class="form-label" for="solicitorFirm">Solicitor's Company/Organisation</label>
+  <input class="form-control second-text-input" id="solicitor-firm" name="solicitorFirm" type="text" value={{ session.respondent.solicitorFirm}}>
+</fieldset>
+
+{% endblock %}

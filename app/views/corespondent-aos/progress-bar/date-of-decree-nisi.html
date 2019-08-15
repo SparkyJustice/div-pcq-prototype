@@ -1,0 +1,108 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  complete: true
+},
+three: {
+label: "Get a decree nisi",
+  current: true
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+
+<h4 class="heading-medium">The application for a decree nisi has been accepted</h4>
+
+<p class="text">
+  A district judge will formally announce the decree nisi at a court hearing. This is the first stage of the decree ending the marriage.
+</p>
+
+<p class="text">
+  The court has also decided to make an order that you pay towards the divorce costs.
+</p>
+
+
+
+   <div class="panel panel-border-wide">
+       <p class="text">
+        The divorce is only complete when the decree absolute has been granted.
+  </p>
+</div>
+
+
+<h2 class="heading-medium">The hearing</h2>
+
+
+  <p>
+    You can find more details about the date of the hearing and the orders that will be made (including costs orders) in the <a href="/public/pdf/certificate-of-entitlement.pdf" target="_blank">Entitlement to a decree</a> (PDF, 69kb).
+</p>
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    You don’t need to come to the hearing unless you want to object to the costs order.
+  </strong>
+</div>
+
+<br>
+
+<p> If you want to attend the hearing, you need to email the court before the hearing date. If you want to dispute a costs order, the court must receive a letter or email stating the reasons for doing so at least 14 days before the hearing date.
+</p>
+
+
+
+
+
+
+<!-- 
+<h2 class="heading-medium">
+  Stages of the decree
+</h2>
+
+<p>
+  The order (known as a decree) is made in 2 stages. You’re only divorced once both stages are complete.
+</p>
+
+
+<ol class="list list-number">
+  <li>The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.</li>
+  <li>The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.
+</li>
+</ol>
+
+<p>
+  The court can cancel (known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.
+</p>
+ -->
+
+
+<!-- <p class="text">
+ <strong class="bold-small">When:</strong> 2pm, 8 August 2017
+</p>
+
+<p class="text">
+  <strong class="bold-small">Where:</strong> The Family Court at East Midlands Regional Divorce Centre<br>
+  60 Canal Street<br>
+  Nottingham<br>
+  Nottinghamshire<br>
+  NG1 7EJ<br>
+  Email: eastmidlandsdivorce@hmcts.gsi.gov.uk<br>
+  Phone: 0300 303 0642 (from 8.30am to 5pm)<br>
+</p>
+
+ -->
+<!--  {% include "lib/partials/downloads.html" %} -->
+{% block button %}
+<!-- No button required -->
+{% endblock %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "question.html" %}
+{% block question %}
+Your mobile number has been verified
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p class="text">
+You must have access to {{ session.mobileNumber }} if you exit your application and want to return to it.
+</p>
+
+{% endblock %}
+

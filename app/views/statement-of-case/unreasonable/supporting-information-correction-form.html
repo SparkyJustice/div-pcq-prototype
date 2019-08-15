@@ -1,0 +1,86 @@
+{% extends "question.html" %}
+{% from "common/errors.html" import errorsFor %}
+{% import "common/components/inputComponents.html" as inputComponents %}
+{% block question %}
+
+Describe your {{ petsHusbandOrWife() }} 's behaviour
+{{ question }}
+{% endblock %}
+
+
+{% block form %}
+<p class="text">You need to provide more detail in the examples of your {{ petsHusbandOrWife() }}'s behaviour that you supplied to the court.</p>
+
+<p class="text">Follow the instructions the court has provided for each example and resubmit them to the court. 
+
+
+<details role="group">
+    <p class="text">
+        <summary role="button" aria-controls="details-content-0" aria-expanded="true" style="">
+            <span class="report-error__toggle">If you need help </span>
+        </summary>
+    </p>
+    <div class="report-error__content panel" id="details-content-0" aria-hidden="false">
+
+    <p>You can contact the court if you need help with your application. Court staff can't provide legal advice.</p>
+
+<p class="bold-small">East Midlands Regional Divorce Centre</p>
+
+  <p>
+    Email: <a href="">eastmidlandsdivorce@hmcts.gsi.gov.uk</a>
+  </p>
+    <p>Phone: 0115 955 8186 (9am to 5pm, Monday to Friday)</p>      
+
+    <p class="text">
+        Your reference: 234234235
+    </p>
+    </div>
+</details>
+
+<br />
+<fieldset>
+<div id="examples">
+<div id="describe-wrapper-allegation-1" class="form-group">
+  <label class="form-label-bold" for="allegation-1">
+   Example 1
+  </label>
+    <div class="form-group-error">
+        <p><span class="form-hint">The court's feedback:</span> In Example 1 you state that you both argue all the time. To use unreasonable behaviour, you must say what your {{ petsHusbandOrWife() }} has done and not use examples which implicate you.</p>
+    </div>
+  <textarea class="form-control"
+                  id="allegation-1"
+                  rows="3"
+                  name="unReasonableAllegation1"
+                  type="text"
+                  style="width: 100%">
+{{ session.unreasonable.unReasonableAllegation1 }}
+  </textarea>
+</div>
+
+<div id="describe-wrapper-allegation-2" class="form-group">
+  <label class="form-label-bold" for="allegation-1">
+   Example 2
+  </label>
+  <textarea class="form-control"
+                  id="allegation-2"
+                  rows="3"
+                  name="unReasonableAllegation2"
+                  type="text"
+                  style="width: 100%">
+{{ session.unreasonable.unReasonableAllegation2 }}
+  </textarea>
+</div>
+
+</div>
+</fieldset>
+<script>
+function onLoadFunction() {
+    $(document).ready(function(){
+        $('#contact-court').click(function(e) {
+            e.preventDefault();
+            $('#contact-court-details').removeClass("js-hidden");
+        });
+    });
+}
+</script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  complete: true
+},
+three: {
+label: "Get a decree nisi",
+  current: true
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+
+<h4 class="heading-medium">You need to amend your application</h4>
+
+<!-- <p>
+	The court has reviewed your case and decided that your divorce cannot continue based on the current application. You can read the court's reasons for this in the <a href="/public/pdf/certificate-of-entitlement.pdf" target="_blank">refusal order</a> (PDF, 69kb).
+</p> -->
+
+
+<p>
+	The court has reviewed your case and is not yet satisfied that you're entitled to a decree of divorce. You can read the court's reasons for this in the <a href="/public/pdf/refusal-order.pdf" target="_blank">refusal order</a> (PDF, 69kb).
+</p>
+
+
+<p>
+	If you want your divorce to continue, you'll need to amend and resubmit it.
+</p>
+
+<p>
+	You'll also need to pay a £95 amendment fee. The application will then be sent to your {{ petsHusbandOrWife() }} again so that they can respond.
+</p>
+
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+   Download and save all the documents for this application before you continue. You won’t be able to access any of these documents online after you have changed your application.
+  </strong>
+</div>
+
+<br>
+
+{% endblock %}

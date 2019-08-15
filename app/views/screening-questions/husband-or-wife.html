@@ -1,0 +1,49 @@
+{% extends "question.html" %}
+{% set question = 'Who are you divorcing?' %}
+{% block question %}
+{{ question }}
+
+{% endblock %}
+
+{% block form %}
+<div class="form-group">
+  <fieldset class="form-group" id="marriage-type">
+      <legend class="visually-hidden">{{ question }}</legend>
+        <div class="multiple-choice" data-target="confirmation">
+              <input id="husband" type="radio"
+                     name="divorceWho" value="husband" {{ checked(session.divorceWho, 'husband') }}>
+              <label for="husband">Your husband</label>
+        </div>
+        <div class="multiple-choice" data-target="confirmation">
+            <input id="wife" type="radio"
+                     name="divorceWho" value="wife" {{ checked(session.divorceWho, 'wife') }}>
+          <label for="wife">Your wife</label>
+          </div>
+  </fieldset>
+</div>
+<div class="form-group">
+  <fieldset id="currentNameCheck" class="inline {{ "error" if fields.nameOnCertificate.error }}">
+    <p>
+  <legend class="form-label-bold">
+     Select the following if it applies to you:
+  </legend>
+    </p>
+  {{ errorsFor(fields.nameOnCertificate) }}
+    <div class="multiple-choice" data-target="sameSexExplanation">
+  
+    <input id="were-a-ss-couple"
+           type="checkbox"
+           name="sameSexCouple"
+           value="Yes"
+           {{ checked(fields.nameOnCertificate.value, 'Yes') }}>
+   <label for="were-a-ss-couple"> We were a same-sex couple when we got married.</label>
+  </div>
+  <!-- <div class="panel panel-border-narrow js-hidden" id="sameSexExplanation">
+        <strong class="normal-small">
+            The court needs to know this so that the correct legislation is used when processing the divorce
+        </strong>
+      </div> -->
+  </fieldset>
+</div>
+{% endblock %}
+

@@ -1,0 +1,47 @@
+{% extends "question.html" %}
+  {% set question = 'Where is your nearest divorce centre?' %}
+{% block question %}
+  {{ question }}
+{% endblock %}
+
+{% block form %}
+
+<p class="text">
+</p>
+<p class="text">
+The divorce centre is where your application will be processed.
+</p>
+<p class="text">
+If you’re not sure then pick the one you think is closest.
+</p>
+
+<div class="form-group">
+    <fieldset>
+    <div class="multiple-choice" >
+        <input id="divorceCourt2" type="radio"
+               name="divorceCourt" value="Nottingham" {{ checked(session.divorceCentre, 'Nottingham') }}>
+        <label for="divorceCourt2">East Midlands Regional Divorce Centre, Nottingham</label>
+    </div>
+    <div class="multiple-choice">
+        <input id="divorceCourt0" type="radio"
+               name="divorceCourt" value="Stoke" {{ checked(session.divorceCentre, 'Stoke') }}>
+        <label for="divorceCourt0">West Midlands Regional Divorce Centre, Stoke-on-Trent</label>
+    </div>
+    <div class="multiple-choice" >
+        <input id="divorceCourt1" type="radio"
+               name="divorceCourt" value="Southampton" {{ checked(session.divorceCentre, 'Southampton') }}>
+        <label for="divorceCourt1">South West Regional Divorce Centre, Southampton</label>
+    </div>
+      <div id="custom-split" class="panel js-hidden">
+            <label for="case-details-textarea" class="form-label-bold">How would you like to split the costs?
+            </label>
+            <textarea class="form-control" id="case-details-textarea" rows="4" name="custom-split-arrangements" type="text" style="width: 100%"></textarea>
+      </div>
+    </fieldset>
+    </div>
+
+
+
+{% endblock %}
+
+

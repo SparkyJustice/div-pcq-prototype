@@ -1,0 +1,113 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Paying for the divorce
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  The applicant asked the court that you pay some or all of the costs of the divorce. It's up to the court to decide if you should pay any costs and how much.
+</p>
+
+  <div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    A costs order will only cover the divorce costs, and won't include any costs related to financial settlements.
+  </strong>
+</div>
+
+
+<br>
+  <details>
+  <summary><span class="summary">Read more about costs orders</span></summary>
+  <div class="panel panel-border-narrow">
+
+  <h3 class="heading-small">How much you may have to pay</h3>
+
+<p class="text">
+  The applicant's costs usually include the £550 fee. They could also include other court fees and costs. The costs could be much higher if the applicant has legal fees (eg a solicitor) and these are also included. 
+</p>
+
+<p>
+  If the court decides that you should also pay the applicant's legal costs, it will usually order that you only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order you to pay more. 
+</p>
+
+
+
+  <h3 class="heading-small">What happens now</h3>
+
+    <p>
+     The applicant will be asked to confirm that they want to claim their costs when they apply for a decree nisi. 
+   </p> 
+
+    <p>
+     The court will then make its decision on whether you should pay any costs.
+    </p>
+
+    <p>
+      You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.
+    </p>
+
+      <h3 class="heading-small">Objecting to the costs order</h3>
+
+    <p>
+      If the court grants a costs order, you can dispute it if you don't think that you should pay it. You'll need to send a letter to the court stating why you don't think you should pay at least 14 days before the hearing.
+    </p>
+ 
+
+  </div>
+</details>
+
+
+     
+      <h2 class="heading-medium">Do you agree to pay the costs?</h2>
+  <div class="form-group">
+    <fieldset>
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice">
+        <input id="yes" type="radio"
+               name="coRespAgreesToPayCosts" value="Yes" {{ checked(session.claimCosts.coRespAgreesToPayCosts, 'Yes') }}>
+        <label for="yes">I agree to pay the costs as decided by the court</label>
+      </div>
+     <!-- 
+      <div class="multiple-choice" data-target="other-details">
+        <input id="other" type="radio"
+               name="respAgreesToPayCosts" value="Other" {{ checked(session.claimCosts.respAgreesToPayCosts, 'Other') }}>
+        <label for="other">I suggest I pay a specific amount</label>
+      </div>
+        <div id="other-details" class="form-group js-hidden panel" >
+            <div class="form-group">
+            <label class="form-label-bold" for="otherAmount">Enter amount</label>
+            <span style="padding-right:6px;">£</span><input class="form-control" id="otherAmount" type="text" name="otherAmount">
+            </div>
+            <div class="form-group">
+            <label class="form-label-bold" for="otherDetails">
+                Provide brief details of why you want to pay this much
+            </label>
+            <textarea class="form-control form-control-3-4" id="otherDetails" rows="4" name="otherDetails" type="text"></textarea>
+            </div>
+        </div>
+     -->
+      <div class="multiple-choice" data-target="no-reason">
+      
+        <input id="continue-no" type="radio"
+               name="coRespAgreesToPayCosts" value="No" {{ checked(session.coRespAgreesToPayCosts, 'No') }}>
+        <label for="continue-no">I should not pay any costs, and will give my reasons</label>
+      </div>
+
+    <div id="no-reason" class="form-group js-hidden panel" >
+    <label class="form-label-bold" for="noDetails">
+        Provide a brief explanation of why you should not pay     </label>
+    <textarea class="form-control form-control-3-4" id="noDetails" rows="4" name="noDetails" type="text"></textarea>
+    </div>
+      </fieldset>
+  </div>
+
+
+{% endblock %}

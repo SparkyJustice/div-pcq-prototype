@@ -1,0 +1,130 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block proposition_header %}
+<!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block header_class %}
+<!-- blank to remove the proposition header -->
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  {% include "includes/phase_banner_beta.html" %}
+  <div class="breadcrumbs">
+    <ol>
+      <li><a href="http://www.gov.uk">Home</a></li>
+      <li>
+        <a href="https://www.gov.uk/browse/births-deaths-marriages">
+          Births, deaths, marriages and care
+        </a>
+      </li>
+      <li>
+        <a href="https://www.gov.uk/browse/births-deaths-marriages/marriage-divorce">
+          Marriage, civil partnership and divorce
+        </a>
+      </li>
+    </ol>
+  </div>
+
+  <div class="grid-row">
+    <div class="column-two-thirds">
+
+      <h1 class="heading-xlarge">
+        Apply for a divorce
+      </h1>
+
+      <p class="text">
+        You can use this service to apply for a divorce in England and Wales.
+      </p>
+
+      <p class="text">
+        You can only use this service to apply for a divorce for yourself. If you’re a solicitor or want to end a civil partnership you must apply by post.
+      </p>
+
+      <p class="text">
+        It costs £550 to apply online or by post.
+      </p>
+
+      <div class="panel panel-border-wide">
+       <p class="text">
+        The process is different in <a href="https://www.scotcourts.gov.uk/taking-action/divorce-and-dissolution-of-civil-partnership" target="_blank">Scotland</a> and <a href="http://www.courtsni.gov.uk/en-GB/Services/Matrimonial/Pages/default.aspx" target="_blank">Northern Ireland</a>.
+      </p>
+    </div>
+
+    <p class="text">
+      <a class="button button-start" href="/screening-questions/temp-interstitial" role="button">Apply for a divorce</a>
+    </p>
+
+    <h2 class="heading-medium">Return to an existing application</h2>
+
+    <a href="/screening-questions/temp-interstitial">
+      Sign in to continue your application</a>.
+
+      <h2 class="heading-medium">Before you apply</h2>
+
+      <p class="text">To apply for a divorce you'll need:</p>
+
+      <ul class="list-bullet list">
+        <li>your husband or wife’s full name and address</li>
+        <li>your original marriage certificate or a <a href="https://www.gov.uk/order-copy-birth-death-marriage-certificate" target="_blank">certified copy</a> (and a <a href="https://www.gov.uk/certifying-a-document" target="_blank">certified translation</a> if it’s not in English)</li>
+        <li>proof of your name change if you changed it since you got married - for example your marriage certificate or a <a href="https://www.gov.uk/change-name-deed-poll">deed poll</a>
+        </li>
+      </ul>
+
+      <h2 class="heading-medium">Apply by post</h2>
+
+      <p class="text">
+        You can apply for a divorce by post by downloading and filling in <a href="https://www.gov.uk/divorce/file-for-divorce" target="_blank">divorce application form D8</a> ('divorce petition').</p>
+
+  </div>
+  <div class="column-third">
+
+    <aside class="govuk-related-items" role="complementary">
+      <h2 class="heading-medium" id="subsection-title">
+        Marriage, civil partnership and divorce
+      </h2>
+      <nav role="navigation" aria-labelledby="subsection-title">
+        <ul class="font-xsmall">
+          <li>
+            <a href="/legal-separation">
+              Get a legal separation
+            </a>
+          </li>
+          <li>
+            <a href="/how-to-annul-marriage">Annul a marriage</a>
+          </li>
+          <li>
+            <a href="/looking-after-children-divorce">
+              Looking after children if you divorce or separate
+            </a>
+          </li>
+          <li>
+            <a href="/money-property-when-relationship-ends">
+              Money and property when a relationship ends
+            </a>
+          </li>
+          <li class="related-topic bold-xsmall">
+            <a href="/browse/births-deaths-marriages/marriage-divorce">
+              More
+              <span class="visuallyhidden">
+                in Marriage, civil partnership and divorce
+              </span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+  </div>
+</div>
+
+</main>
+
+{% endblock %}
+

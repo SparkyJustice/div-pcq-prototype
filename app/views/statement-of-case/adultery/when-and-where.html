@@ -1,0 +1,54 @@
+{% extends "question.html" %}
+{% set question = 'About the adultery' %}
+{% block question %}
+{{ question }}
+{% endblock %}
+{% block form %}
+
+  <p class="text">
+    In this part of the form, you'll be asked what you know about the adultery, including when and where it happened.
+  </p>
+
+
+<h3 class="heading-medium">Do you know when the adultery took place?</h3>
+
+<fieldset class="inline form-group">
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice" data-target="divorce-know-where">
+    <input id="knowWhen-yes" type="radio"
+           name="knowWhen" value="Yes" {{ checked(session.adultery.knowWhen, 'Yes') }}>
+    <label for="knowWhen-yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="divorce-know-where">
+    <input id="knowWhen-no" type="radio"
+           name="knowWhen" value="No" {{ checked(session.adultery.knowWhen, 'No') }}>
+    <label for="knowWhen-no">No</label>
+  </div>
+</fieldset>
+
+<div class="js-hidden" id="divorce-know-where">
+    
+<h3 class="heading-medium">Do you know where the adultery took place?</h3>
+
+
+<fieldset class="inline form-group">
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <div class="multiple-choice" >
+    <input id="knowWhere-yes" type="radio"
+           name="knowWhere" value="Yes" {{ checked(session.adultery.knowWhere, 'Yes') }}>
+    <label for="knowWhere-yes">Yes</label>
+  </div>
+  <div class="multiple-choice">
+    <input id="knowWhere-no" type="radio"
+           name="knowWhere" value="No" {{ checked(session.adultery.knowWhere, 'No') }}>
+    <label for="knowWhere-no">No</label>
+  </div>
+</fieldset>
+
+</div>
+
+
+{% endblock %}
+

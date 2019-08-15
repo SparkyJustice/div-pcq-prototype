@@ -1,0 +1,60 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+You have been signed out
+
+{% endblock %}
+
+{% block exit_reason %}
+
+
+<p class="text">
+    Start a new application and pay the £95 amendment fee to continue.    You'll complete the same online application as before.
+
+</p>
+
+ <div class="notice">
+      <i class="icon icon-important">
+        <span class="visually-hidden">Warning</span>
+      </i>
+      <strong class="bold-small">
+        You'll only have to pay a £95 fee when you submit the application, not the full £550 fee as stated at the start.    
+     </strong>
+   </div>
+   <br>
+    <p class="text">
+    <a href="/start">Start a new application</a>
+    </p>
+<!-- <p class="text">
+    Your progress has not been saved.
+</p> -->
+
+<!-- <p class="text">
+	Your progress will be saved for 6 months. A link to your application has been sent to 
+
+
+      
+        <strong class="bold-small">
+            {% if session.emailAddress %}
+            {{ session.emailAddress }}
+            {% else %}
+                zoe.elizabeth.dante@gmail.com
+            {% endif %}
+        </strong>.
+  </p> -->
+
+
+
+
+	<p class="text">
+	If you need help with this service you can call or email us.<br>
+	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+	Email: divorce@justice.gov.uk<br>
+</p>
+
+
+
+
+
+</form>
+{% endblock %}

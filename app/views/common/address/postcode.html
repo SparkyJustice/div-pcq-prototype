@@ -1,0 +1,15 @@
+{% import "../components/findAddressComponent.html" as address %}
+{% extends "question.html" %}
+
+{% block question %}
+{{ title }}
+{% endblock %}
+{% block form %}
+<p class="text">{{ instructionText }}</p>
+{% if instructionText2 %}
+<p class="text">{{ instructionText2 }}</p>
+{% endif %}
+
+{{ address.findAddressComponent(addresses) }}
+
+{% endblock %}

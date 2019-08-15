@@ -1,0 +1,31 @@
+{% extends "genericError.html" %}
+
+{% block error_heading %}
+Application submitted
+{% endblock %}
+{% block error_content %}
+
+<p class="text">
+	Your divorce application has been submitted to ((RDC name)).
+</p>
+
+<p class="text">
+	Your temporary reference number is ((CCD reference)). You’ll be given a full case number when your application has been accepted and issued (sent out).
+</p>
+
+<p class="text">
+	You can contact us if you don’t hear anything back after 3 weeks.
+</p>
+
+<div class="panel panel-border-wide">
+       <p class="text">
+       	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br />
+       	Email: <a href="mailto:divorce@justice.gov.uk">divorce@justice.gov.uk</a>
+       </p>
+    </div>
+
+<p class="text">
+	Please help us improve this service by <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/email">leaving your feedback</a>.
+</p>
+
+{% endblock %}

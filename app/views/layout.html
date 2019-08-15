@@ -1,0 +1,28 @@
+{% extends "divorce_govuk_template.html" %}
+{% from "lib/macros/reform-progress-list/macro.njk" import reformProgressList %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+  <p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+  {% include "includes/propositional_navigation.html" %}
+{% endblock %}
+
+{% block header_class %}
+  with-proposition
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% block extra_scripts %}{% endblock %}
+  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}

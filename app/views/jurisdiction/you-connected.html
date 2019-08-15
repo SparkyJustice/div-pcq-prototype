@@ -1,0 +1,90 @@
+{% extends "question.html" %}
+
+{% block question %}
+How are you connected to England and Wales?
+{% endblock %}
+
+{% block form %}
+
+<div class="text">
+
+  <p class='text'>You must be able to show that you or your {{ petsHusbandOrWife() }} have a connection to England and Wales
+    to apply for a divorce here.</p>
+
+  <p class='text'>The courts here can only consider your divorce if you fall within their jurisdiction.</p>
+
+  <fieldset class="form-group">
+    <label class="form-label-bold">Select all of the following statements which apply to you
+    </label>
+    <br>
+    <label class="form-label-bold block-label"
+           for="unreasonable-behaviour">
+      <input id="unreasonable-behaviour"
+             type="checkbox"
+             name="reason"
+             value="unreasonable-behaviour">
+      
+      <span class="font-small">
+        You consider England and Wales to be your home and spend most of your life here either in work, education, or with your family.
+        <br>
+        <strong class="bold-small">This indicates that you're 'habitually resident' here.</strong>
+
+
+      </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="separation-2-years" data-target="separation-2-years-warning">
+      <input id="separation-2-years"
+             type="checkbox"
+             name="reason"
+             value="separation-2-years">
+              
+              <span class="font-small">
+                  You consider England and Wales to be your permanent home. You may be living here or abroad but plan to return here in the future.
+              <br>
+        <strong class="bold-small">This indicates that you're 'domiciled' here.</strong>
+              </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="adultery">
+      <input id="adultery"
+             type="checkbox"
+             name="reason"
+             value="adultery">
+     
+              <span class="font-small">
+                  You now live outside of England and Wales, but consider it to be the last home that you shared with your husband. You spent most of your life here either in work, education, or with your family.
+            <br>
+            <strong class="bold-small">This indicates that you were 'last habitually resident' here.</strong>
+
+
+        </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="separation-5-years">
+      <input id="separation-5-years"
+             type="checkbox"
+             name="reason"
+             value="separation-5-years">
+      
+        <span class="font-small">
+        <p>None of the above</p>  
+        </span>
+    </label>
+
+
+  </fieldset>
+</div>
+{% endblock %}
+
+<label class="block-label" for="nationalities-other" data-target="example-different-country">
+  <input id="nationalities-other" name="nationalities" type="checkbox" value="Citizen of a different country">
+  Citizen of a different country
+</label>
+<div class="panel panel-border-narrow js-hidden" id="example-different-country">
+  <label class="form-label" for="nationalities-other-country">Country name</label>
+  <input class="form-control" type="text" id="nationalities-other-country" name="nationalities-other-country">
+</div>

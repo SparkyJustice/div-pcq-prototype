@@ -1,0 +1,230 @@
+{% extends "question.html" %}
+
+{% set question = 'Your claim for the divorce costs' %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+
+{% block form %}
+
+<p class="text">
+  In your divorce application you asked the court that your {{ petsHusbandOrWife() }} 
+  {% if session.claimCosts.claimFromCoRespondent == "Yes" %}
+  and the co-respondent
+  {% endif %}
+  pay
+  {% if session.claimCosts.splitMethod == "even" %}
+  half the costs of the divorce. 
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysAll" %}
+  all the costs of the divorce. 
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysSpecific" %}
+  £52 towards the costs of the divorce. 
+  {% endif %}
+  {% if session.claimCosts.splitMethod == "respondentPaysPercentage" %}
+  75% of the costs of the divorce. 
+  {% endif %}
+  
+  </p>
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    The decision on costs is the courts to make, but it will take into account any suggestions you and your {{ petsHusbandOrWife() }}  make.
+  </strong>
+</div>
+
+<br>
+
+<p class="text">
+
+  {% if session.claimCosts.response == "Agrees" %}
+      Your {{ petsHusbandOrWife() }} has agreed to pay the 
+      {% if (not session.adultery.wishToName) or (session.adultery.wishToName == "No") %}
+      suggested 
+      {% endif %}
+      costs.
+      </p>
+  {% endif %}
+  {% if session.claimCosts.response == "Other" %}
+    Your {{ petsHusbandOrWife() }} has suggested paying a different amount and made the following statement:</p>
+        <div class="panel panel-border-wide">
+            <p class="text">
+                  "I'll pay you £50 but not a penny more."
+            </p>
+        </div>
+  {% endif %}
+  {% if session.claimCosts.response == "No" %}
+    Your {{ petsHusbandOrWife() }} has objected to paying the costs of the divorce.</p>
+  {% endif %}
+
+  {% if session.claimCosts.claimFromCoRespondent == "Yes" %}
+<p class="text">
+  The co-respondent has
+  {% if session.claimCosts.coRespondentResponse == "Agrees" %}
+      agreed to pay the costs of the divorce.
+      </p>
+  {% endif %}
+  {% if session.claimCosts.coRespondentResponse == "No" %}
+  objected to paying the costs and made the following statement. 
+  </p>
+    <div class="panel panel-border-wide">
+        <p class="text">
+              "Why should I have to, I did nothing wrong?"
+        </p>
+    </div>
+  {% endif %}
+  {% if session.claimCosts.coRespondentResponse == "NoResponse" %}
+  did not respond to the divorce application.</p>
+  {% endif %}
+  {% endif %}
+
+
+<details>
+  <summary><span class="summary">What happens now</span></summary>
+  <div class="panel panel-border-narrow">
+
+    <!-- <h3 class="heading-small">What happens now</h3> -->
+
+<p>
+  The court will make its decision on whether your {{ petsHusbandOrWife() }}  (or co-respondent if they have been named) should pay any costs. It will take all your circumstances into account, including your conduct, and your husband/wife's conduct, before and during the divorce.
+</p>
+<p>
+  You'll be given the court's decision at the same time as you find out if the divorce will be granted, and the date of the hearing that the decree nisi will be made.
+</p>
+
+  <p class="text">
+  {% if session.facts.reason == "separation-2-years" %}
+  <p class="text">
+    In divorces based on 2 years separation, the court will usually make an order that the respondent pay half of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+  </p>
+{% endif %}
+
+{% if session.facts.reason == "separation-5-years" %}
+  <p class="text">
+  In divorces based on 5 years separation, the court usually won't order the respondent to pay any of the applicant's costs. However, it does order the applicant to pay costs under some circumstances. 
+</p>
+{% endif %}
+
+{% if session.facts.reason == "unreasonable-behaviour" %}
+  <p class="text">
+  In divorces based on the respondent's behaviour, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+
+
+{% endif %}
+
+{% if session.facts.reason == "adultery" %}
+  <p class="text">
+  In divorces based on adultery, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+
+{% endif %}
+
+{% if session.facts.reason == "desertion" %}
+  <p class="text">
+  In divorces based on desertion, the court will usually order the respondent to pay all of the applicant's costs, unless the applicant has asked for less, or the respondent makes a case as to why they should not pay anything.
+</p>
+
+{% endif %}
+
+
+    <p>
+      If the court rules in your favour, your  {{ petsHusbandOrWife() }} <!-- [, and the co-respondent if applicable] --> will be ordered to pay you back your costs within 14 days of the order being made.
+    </p>
+
+    <p>
+      Your {{ petsHusbandOrWife() }} can dispute the costs order. They'll need to tell the court why they don't think they should pay at least 14 days before the hearing.
+    </p>
+ 
+
+
+
+<!--     <h3 class="heading-small">What you can claim</h3>
+
+<p>
+  You can claim your court fees, legal costs (for example solicitor fees) and other expenses related to the divorce.
+</p>
+
+<p>
+  If the court decides that your {{ petsHusbandOrWife() }} should pay your legal costs, it will usually order that they only pay what it judges to be a reasonable amount of these. However, under certain circumstances it could order them to pay more. 
+</p> -->
+
+  </div>
+</details>
+<!--   <legend class="heading-medium">
+      Do you still want to claim your costs?
+    </legend>
+<p class="text">
+  You can change how much to claim if you want.
+</p>
+
+
+  <div class="form-group">
+    <fieldset id="lived-together" class="inline">
+      <legend class="visually-hidden">{{ question }}</legend>
+      <div class="multiple-choice" data-target="extra-info">
+        <input id="continue-yes" type="radio"
+                 name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+        <label for="continue-yes">Yes</label>
+      </div>
+      <div class="multiple-choice">
+        <input id="continue-no" type="radio"
+                 name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+        <label for="continue-no"> No</label>
+      </div>
+    </fieldset>
+  </div>
+  
+
+  <div id="extra-info" class="js-hidden"> -->
+
+    <h3 class="heading-medium" style="margin-top: 0px;">What do you want to claim?</h3>
+    <div class="form-group">
+      <fieldset class="form-group">
+        {% if session.claimCosts.response == "Other" %}
+        <div class="multiple-choice">
+           <input id="respondentPays" type="radio"
+                 name="revisedClaim" value="respondentPaysAll" {{ checked(fields.revisedClaim.value, 'respondentPaysAll') }}>
+           <label for="respondentPays">I will accept the amount my {{ petsHusbandOrWife() }} has suggested</label>
+        </div>
+        {% endif %}
+        <div class="multiple-choice">
+           <input id="splitEven" type="radio"
+                 name="revisedClaim" value="even" {{ checked(fields.revisedClaim.value, 'even') }}>
+            <label for="splitEven" class="block-label">I still want to claim the original amount
+          </label>
+        </div>
+        <div class="multiple-choice" data-target="custom-split">
+          <input id="customSplitradio" type="radio"
+                 name="revisedClaim" value="customSplit" {{ checked(fields.revisedClaim.value, 'customSplit') }}>
+          <label for="customSplitradio">I want to claim a different amount</label>
+        </div> 
+        <div id="custom-split" class="panel panel-border-narrow js-hidden">
+              <label for="case-details-textarea" class="form-label-bold">State what you want to claim and why
+              </label>
+              <textarea class="form-control" id="case-details-textarea" rows="4" name="custom-split-arrangements" type="text" style="width: 100%"></textarea>
+        </div>
+
+                  <div class="multiple-choice">
+           <input id="respondentPays" type="radio"
+                 name="revisedClaim" value="respondentPaysAll" {{ checked(fields.revisedClaim.value, 'respondentPaysAll') }}>
+           <label for="respondentPays">I don't want to claim my costs anymore</label>
+        </div>
+
+
+      </fieldset>
+<!--     </div> -->
+    <!-- <fieldset class="form-group">
+        <label for="case-details-textarea" class="form-label-bold">Explain why you're making this change
+        </label>
+        <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+    </fieldset> -->
+  </div>
+
+{% endblock %}

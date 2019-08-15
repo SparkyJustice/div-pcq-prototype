@@ -1,0 +1,248 @@
+{% extends "layout.html" %}
+{% from "lib/macros/reform-progress-list/macro.njk" import reformProgressList %}
+{% block content %}
+
+<main id="content" role="main">
+	{% include "includes/phase_banner_beta.html" %}
+	<div class="grid-row">
+		<div class="column-two-thirds">
+
+			<div class="govuk-box-highlight">
+
+                <h1 class="bold-large">{% block heading %}Application complete{% endblock %}</h1>
+
+<p class="text-reference">
+        Your reference number is <br>
+  <strong class="text-reference-number">{% block reference_number %}1234 - 5678 - 9012 - 4567{% endblock %}</strong>
+</p>
+
+</div>
+
+  {% if session.paymentMethod == "by-card" %}Payment has been taken. Your reference number and receipt have been emailed to <span class="bold-small"> zoe1971@gmail.com </span>. {% endif %} 
+
+ <p class="text">Your reference number has been emailed to <span class="bold-small">zoe1971@gmail.com</span>.</p> 
+
+{{ reformProgressList({
+  one: {
+  label: "You have applied",
+  complete: true
+},
+two: {
+label: "Your " + husbandOrWife() + " responds",
+current: true
+},
+three: {
+label: "You apply to continue the divorce",
+current: false
+},
+four: {
+label: "The divorce is finalised"
+}
+})
+}}
+
+<!-- ONLY IF NO DOCS UPLOADED!
+
+      <h2 class="heading-medium">What to do now</h2>
+
+
+      <h3 class="heading-small">1. Write your reference number on each document</h3>
+
+
+      <p class="text">Write your reference number on the back of each of the following:</p>
+
+    <ul class="list list-bullet">
+     <li>your original marriage certificate or a certified copy</li>
+     <li>proof of your name change, for example a deed poll. Include proof of each change if you've done it more than once since you got married</li>
+     <li>an English translation of your marriage certificate</li>
+   </ul>
+   <p class="text">If you can’t write the reference number on each document, you can print this screen and include it in the envelope.</p>
+
+
+      <h3 class="heading-small">2. Post your documents</h3>
+
+    </ol>
+
+    <p class="text">
+      You must send your original marriage certificate or a certified copy. Don't send a photocopy. Your certificate will be kept by the court and won't be returned to you.
+    </p>
+
+
+    <p class"text">
+     Post all your documents to:
+   </p>
+
+   <ul class="list bold-small">
+     <li>East Midlands Regional Divorce Centre</li>
+     <li>PO Box 10447</li>
+     <li>Nottingham</li>
+     <li>NG2 9QN</li>
+   </ul>
+
+-->
+   <h2 class="heading-medium">What happens next</h2>
+   
+
+
+   <p class="text">
+    Your application will be checked. If it's correct, you'll be sent a notice saying that your application has been issued (sent out). You'll also get a case number and a copy of the application stamped by the divorce centre.
+  </p>
+
+<p class="text">
+  Your {{ petsHusbandOrWife() }} will also receive a copy of the application and a form to return. If you have used adultery as your reason for divorce, and named the person that your {{ petsHusbandOrWife() }} committed adultery with, they will also get a copy and a form to return.
+</p> 
+
+<!--   <p class="text">
+    You can find more information about the entire divorce process in the email that's been sent to you.
+  </p> -->
+
+  <p class="text">
+    Contact the divorce centre if you don't hear anything back after 2 weeks.
+  </p>
+
+  <!-- <h2 class="heading-medium">Send your documents to the court</h2> -->
+
+			<!-- <p class"text">The divorce application pack includes:</p>
+
+			<ul class="list list-bullet">
+				<li>3 copies of the D8 divorce application form (the court will send 1 copy to your {{ petsHusbandOrWife() }}, keep 1 copy, and return 1 copy to you)</li>
+				<li>Credit/Debit Card payment request form</li>
+				<li>Confidential address form (C8)</li>
+			</ul> -->
+
+			<!-- <p class"text">
+				You don’t need to sign any of the printed documents.
+			</p> -->
+
+			<!-- <h2 class="heading-medium">2. Gather what you need to send to the court</h2> -->
+
+          <!-- <p class"text">
+            You now need to post the following to the court:
+         </p>
+
+         <ul class="list list-bullet">
+             <li>your original marriage certificate or a <a href="https://www.gov.uk/order-copy-birth-death-marriage-certificate" target="_blank">certified copy</a></li>
+             <li>proof of your name change, for example a <a href="https://www.gov.uk/change-name-deed-poll/overview" target="_blank">deed poll</a>. Include proof of each change if you've done it more than once since you got married
+             </li>
+             {% if not cardPayment() and not hasAppliedForFees() %}
+             <li>a cheque for £{{ divorceFee }} made out to HM Courts and Tribunals Service</li>
+             {% endif %}
+         </ul>
+
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+    The court won't process your divorce application until it receives your documents and payment.
+  </strong>
+</div>
+<br> -->
+
+
+        <!-- <p class"text">
+         Post your documents and payment to:
+     </p>
+
+     <ul class="list bold-small">
+         <li>East Midlands Divorce Unit</li>
+         <li>PO Box 10447</li>
+         <li>Nottingham</li>
+         <li>NG2 9QN</li>
+       </ul> -->
+
+      
+
+      {% if financialOrder() %}
+
+      <h2 class="heading-medium">Dividing your money and property</h2>
+
+      <p class="text">
+        To formally start financial proceedings, you'll also need to complete another form (known as Form A) and pay another fee of £255. Read the <a href="https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order">guidance on financial orders</a>. 
+      </p>
+
+      <p class="text">
+        The court won’t start processing your request for a financial order until you submit Form A and pay the fee.
+      </p>
+
+      {% else %}
+
+      <h2 class="heading-medium">Getting a financial order</h2>
+
+      <p class="text">
+        To formally start financial proceedings, you'll need to complete another form (known as Form A) and pay a fee. Read the <a href="https://www.gov.uk/money-property-when-relationship-ends/">guidance on financial orders</a> to find out more. 
+      </p>
+
+      <p class="text">
+        The court won’t start processing your request for a financial order until you submit Form A and pay the fee.
+      </p>
+
+       <p class="text">
+        Once you have submitted Form A, the court will usually expect a financial order to be in place before it will allow you to finalise your divorce. 
+      </p>
+
+
+      <!-- <p class="text">
+        If you agree with your {{ petsHusbandOrWife() }} on how your money and property will be split, and want it to be legally binding, you can <a href="https://www.gov.uk/money-property-when-relationship-ends/apply-for-consent-order">apply for a consent order</a>.
+      </p>
+      <p class="text">
+        If in the future you want the court to settle your financial arrangements with your {{ petsHusbandOrWife() }}, you can only <a href="https://www.gov.uk/money-property-when-relationship-ends/apply-for-a-financial-order">apply for a financial order</a> until you remarry. Once you've married someone else, you will lose the right to do so.
+      </p> -->
+
+      {% endif %}
+
+
+      <h2 class="heading-medium">Help with fees</h2>
+
+      <p class="text">
+        How much financial help you get with your fee depends on your individual circumstances. Court staff will check if your help with fees application has been successful, and if you still need to pay anything.
+      </p>
+
+      <p class="text">
+        You’ll be contacted if you need to pay anything.
+      </p>
+
+     
+      <h2 class="heading-medium">If you need help</h2>
+
+      <p class"text">
+        You can contact the divorce centre if you need help with your application. Court staff can’t give you legal advice however, and you should speak to a <a href="https://www.gov.uk/find-a-legal-adviser"target="blank">solicitor or legal adviser</a> if you need help with that.
+      </p>
+
+      <p class"text">
+        Email: eastmidlandsdivorce@hmcts.gsi.gov.uk
+        <br>
+        Phone: 0115 955 8186
+        <br>
+        Call between 10:00am to 2:00pm, Monday to Friday 
+      </p>
+
+        <h2 class="heading-medium">Help us improve this service</h2>
+
+       <p class"text">
+         If you haven’t already, please <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done">provide feedback</a> on what you think of this service and how it can be improved.
+      </p>
+
+      <form method="POST" accept-charset="utf-8" class="form" id="form" enctype="application/x-www-form-urlencoded">
+
+                <!-- <p>
+                    Download your copy
+                </p>
+
+
+                <div class="form-group">
+                    <input type="submit" class="button" value="Download">
+                </div>
+
+              </form> -->
+
+            </div>
+            <div class="column-third">
+    {% embed "lib/partials/sidebar.html" %}
+    {% endembed %}
+            </div>
+
+    {% include "report-error.html" %}
+          </main>
+
+          {% endblock %}

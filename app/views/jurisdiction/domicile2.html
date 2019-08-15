@@ -1,0 +1,87 @@
+{% extends "question.html" %}
+
+{% block question %}
+Your domicile
+{% endblock %}
+{% block form %}
+<!-- <p class="text">
+  You may be able to get a divorce in England and Wales depending on where your 'domicile' is.
+</p> -->
+
+<p class="text">
+  Your domicile is usually the place in which you were born, regard as your permanent home and to which you have the closest ties.
+</p>
+
+<p class="text">
+    However, domicile can be more complex, for example if you or your parents have moved countries in the past. 
+</p>
+
+
+<details>
+  <summary><span class="summary">Read more about domicile</span></summary>
+  <div class="panel panel-border-narrow">
+   
+        <p class="text">
+      You should select yes if you have either of the following types of domicile in England or Wales.
+     </p>
+
+    <p class="text">
+      When you're born, you acquire a <strong class="bold-small">domicile of origin</strong>. This is usually:
+    </p>
+    <ul class="list-bullet list">
+        <li>
+          the country your father was domiciled in if your parents were married
+        </li>
+        <li>
+          the country your mother was domiciled in if your parents were unmarried, or your father had died before you were born
+        </li>
+     </ul>
+     <p class="text">
+      If you leave your domicile of origin and settle in another country as an adult, the new country may become your <strong class="bold-small">domicile of choice</strong>.
+     </p>
+
+     <p class="text">
+      If you're not sure about your domicile you should get legal advice.
+      </p>
+  </div>
+</details>
+
+<h3 class="heading-medium">Is your domicile in England and Wales?</h3>
+<div class="form-group">
+<fieldset class ="inline">
+  <legend class="visually-hidden">Is your domicile in England and Wales?
+</legend>
+  <div class="multiple-choice" data-target="respDomiciled">
+    <input id="domiciled-yes" type="radio"
+           name="domiciled" value="Yes" {{ checked(session.jurisdiction.domiciled, 'Yes') }}>
+    <label for="domiciled-yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="respDomiciled">
+    <input id="domiciled-no" type="radio"
+           name="domiciled" value="No" {{ checked(session.jurisdiction.domiciled, 'No') }}>
+    <label for="domiciled-no">No</label>
+  </div>
+
+
+</fieldset>
+</div>
+
+<div id="respDomiciled" class="js-hidden">
+
+<fieldset class="form-group inline">
+
+<h3 class="heading-medium" style="margin-top: 0px;">Is your {{ petsHusbandOrWife() }}'s domicile in England and Wales?</h3>
+  <div class="multiple-choice">
+    <input id="respDomiciled-yes" type="radio"
+           name="respDomiciled" value="Yes" {{ checked(session.jurisdiction.respDomiciled, 'Yes') }}>
+    <label for="respDomiciled-yes">Yes</label>
+  </div>
+  <div class="multiple-choice">
+    <input id="respDomiciled-no" type="radio"
+           name="respDomiciled" value="No" {{ checked(session.jurisdiction.respDomiciled, 'No') }}>
+    <label for="respDomiciled-no">No</label>
+  </div>
+</fieldset>
+</div>
+
+{% endblock %}

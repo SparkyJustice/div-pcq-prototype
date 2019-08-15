@@ -1,0 +1,40 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  complete: true
+},
+three: {
+label: "Get a decree nisi",
+  current: true
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+
+<h4 class="heading-medium">You need to provide more information</h4>
+
+<p class="text">
+	The court has reviewed your case and is not yet satisfied that you're entitled to a decree of divorce.
+</p>
+
+<p>
+	You need to provide more information or evidence before your application can proceed.
+</p>
+
+
+<!-- 
+<p>
+	Select 'Continue' for further instructions.
+</p> -->
+
+
+{% endblock %}

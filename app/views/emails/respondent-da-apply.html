@@ -1,0 +1,39 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}You can apply for a decree absolute
+{% endblock %}
+{% block content %}
+<p>
+Reference no: 12345678
+</p>
+<p>
+Dear {{ petsName() }},
+</p>
+
+
+<p class="text">
+	You can now complete the divorce and get a decree absolute.
+</p>
+
+<p class="text">
+	 Three months have passed since your {{ respsHusbandOrWife() }} was able to apply for a decree absolute. As they haven't applied yet, you can now apply for the decree absolute yourself to complete the divorce.
+</p>
+
+<p class="text">
+	Sign in to your account for further details.
+</p>
+
+<p class="text">
+	<a href="/IDAM/login?continue_url=/progress-bar/respondent-apply-for-decree-absolute">https://www.divorce.reform.hmcts.net/sign-in</a>
+</p>
+
+{% endblock %}
+

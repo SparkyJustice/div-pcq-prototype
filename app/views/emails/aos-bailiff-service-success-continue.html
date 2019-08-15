@@ -1,0 +1,57 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your {{ petsHusbandOrWife() }} has missed the deadline to submit their response 
+
+{% endblock %}
+{% block content %}
+<!-- <p>
+Reference no: 12345678
+</p> -->
+<p>
+Dear {{ petsName() }},
+</p>
+
+<p>
+	Your {{ petsHusbandOrWife() }} has missed the deadline to respond to your divorce application.
+	</p>
+
+<p>
+	You can now continue using the bailiff's 'endorsement of service' as proof that your {{ petsHusbandOrWife() }} received the application. The court already has a copy of the endorsement, so you don't need to do anything with it. 
+</p>
+
+<p>
+	Sign in to your account to continue to the next stage.
+</p>
+
+<p>
+	 <a href="/IDAM/login?continue_url=/progress-bar/defended-without-answer">https://www.divorce.reform.hmcts.net/sign-in</a>
+</p>
+
+
+<h2 class="heading-medium">
+	If you need help
+</h2>
+<p>
+	You can contact the court if you need help. Court staff can’t give you legal advice. If you need a legal adviser you can find one at <a href="https://www.gov.uk/find-a-legal-adviser">https://www.gov.uk/find-a-legal-adviser</a>.
+</p>
+<p>
+East Midlands Regional Divorce Centre</br>
+Email: <a href="">eastmidlandsdivorce@hmcts.gsi.gov.uk<a/></br>
+Phone: 0300 303 0642 (from 8.30am to 5pm)</br>
+<a href="https://courttribunalfinder.service.gov.uk/courts/east-midlands-divorce-unit">https://courttribunalfinder.service.gov.uk/courts/east-midlands-divorce-unit</a></br>
+</p>
+
+<h2 class="heading-medium"> HM Courts & Tribunals Service </h2>
+<p>
+This is an automated message, please don’t reply to this email.
+</p>
+{% endblock %}
+

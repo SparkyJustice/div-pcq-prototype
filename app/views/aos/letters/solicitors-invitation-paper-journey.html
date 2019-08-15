@@ -1,0 +1,93 @@
+{% extends "layout-letter.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<!-- <p>
+Reference no: 12345678
+</p> -->
+<div class="logo">
+
+
+        <!-- <img src="/public/images/royal-arms.svg" width="100px;" style="float:left; margin-right: 15px;"> -->
+        <img src="/public/images/HMCTS_BLK_SML_AW.svg" width="200px;" style=" margin-right: 15px; margin-bottom: 30px;">
+    </div>
+
+<div align="right">
+	<ul class="list">
+		Courts and Tribunals Service Centre<br>
+		c\o East Midlands Regional Divorce Centre<br>
+		PO Box 10447<br>
+		Nottingham<br>
+		NG2 9QN<br>
+		Email: divorce@justice.gov.uk</br>
+		Phone: 0300 303 0642<br>
+		(Monday to Friday, 8.30am to 5pm)</br></li>
+	</ul>
+
+</div>
+
+<ul class="list">
+	Smyth and Smyth Law firm<br>
+	82 Hill St<br>
+	Farringdon<br>
+	UK<br>
+	EC1M 3HE<br>
+</ul>
+
+<div align="right">
+	<p>
+		<span class="bold-small">Notice of proceedings</span><br>
+		Case number: DIV 123 456 789 <br>
+	</p>
+</div>
+
+<p class="text">
+	13 October 2017
+</p>
+
+<p class="text">
+Dear Benjamin Smyth,
+</p>
+
+<p>
+	You've been named as the legal representative of {{ respsName() }} in {{ respsSpouseName() }}'s application for divorce. Please find a copy of the application included with this letter.
+</p>
+
+<p>
+	You need to respond within 7 days. If you don’t respond, the applicant can ask the court to move the divorce forwards without a response. Your client may have to pay extra fees if this happens.
+</p>
+
+<p>
+	Please contact us if you can't respond for any reason, or if the 7 days have passed.
+</p>
+
+<p class="bold-small">
+	How to respond
+</p>
+
+<ol class="list list-number">
+    <li>1. Read the application for divorce.</li>
+	<li>2. Complete the 'Respond to a divorce application' form included with this letter.</li>
+	<li>3. Return the form to the divorce centre within 7 days.</li>
+</ol>
+
+<p class="bold-small">
+	You must only respond if you are Benjamin Smyth or someone they have appointed to respond for them. You could be fined or imprisoned for contempt of court if you respond falsely.
+</p>
+
+<h2 class="heading-small">Polygamous marriages</h2>
+
+<p>
+	You must tell us if your client has been married to more than one person during this marriage.
+</p>
+
+<p class="bold-small">
+	HM Courts and Tribunals Service
+</p>
+
+
+{% endblock %}
+

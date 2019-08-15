@@ -1,0 +1,25 @@
+{% extends "../onboarding/dirvorce_govuk_template.html" %}
+
+{% block page_title %}
+  {{ serviceName }}
+{% endblock %}
+
+{% block head %}
+  {% include "includes/head.html" %}
+{% endblock %}
+
+{% block cookie_message %}
+  <p>{{cookieText | safe }}</p>
+{% endblock %}
+
+{% block proposition_header %}
+{% endblock %}
+
+{% block header_class %}
+{% endblock %}
+
+{% block body_end %}
+  {% include "includes/scripts.html" %}
+  {% block extra_scripts %}{% endblock %}
+  <!-- GOV.UK Prototype kit {{releaseVersion}} -->
+{% endblock %}

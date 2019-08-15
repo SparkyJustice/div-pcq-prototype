@@ -1,0 +1,53 @@
+{% extends "progress-bar/landing_page_template.html" %}
+{% block core_content %}
+
+{{ reformProgressList({
+  one: {
+  label: "You apply",
+  complete: true
+},
+two: {
+label: "Your " + petsHusbandOrWife() + " must respond",
+  current: true
+},
+three: {
+label: "Get a decree nisi"
+},
+four: {
+label: "The divorce is complete"
+}
+})
+}}
+
+<h4 class="heading-medium">Your {{ petsHusbandOrWife() }} has said that they intend to defend the divorce </h4>
+
+<p>
+  Your {{ petsHusbandOrWife() }} has responded to your application and said that they want to try to prevent the divorce (they intend to defend it).
+</p>
+
+<h2 class="heading-medium">What happens next</h2>
+
+<p>
+
+  Your {{ petsHusbandOrWife() }} now has 21 days from the date they first signed into their divorce account to submit another form. This form is legally known as an 'answer', and they'll need to complete it to make their case for defending the divorce.
+</p>
+
+<p>
+ You'll usually then both have to go to a court hearing where a judge will make a decision on the divorce. You’ll also need to carry out the rest of your divorce offline.
+</p>
+
+<h2 class="heading-medium">If your {{ petsHusbandOrWife() }} doesn't submit an answer</h2>
+
+<p>
+  If the court doesn't receive your {{ petsHusbandOrWife() }}'s answer by the deadline, it will assume that they don't want to take their defence any further. You'll be able to continue your divorce as if they hadn't said that they intended to defend.
+</p>
+
+<p>
+  You'll be sent an email once your {{ petsHusbandOrWife() }} has responded or the deadline has passed telling you what to do next.
+</p>
+  
+<p>
+Read you're {{ husbandOrWife() }}'s response on the next page.
+</p>
+
+  {% endblock %}

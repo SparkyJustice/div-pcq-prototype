@@ -1,0 +1,13 @@
+site_name: Divorce design (Jan 2018 release)
+theme:
+  name: 'material'
+nav:
+- Home: 'index.md'
+- Claim costs:
+    - 'Claim costs journey': 'claim-costs.md'
+- Petitioner Front-end (PFE):
+    - 'Docs to follow': 'xxx.md'
+- Respond to a Divorce (AOS):
+    - 'Docs to follow': 'xxx.md'
+- Apply for DN:
+    - 'Review AOS Response': 'review-aos-response.md'

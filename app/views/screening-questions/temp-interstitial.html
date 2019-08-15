@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="column-two-thirds">
+        {% include "includes/phase_banner_beta.html" %}
+
+        <h1 class="heading-large">
+            This is a new service
+        </h1>
+        <p>
+You’ll fill in the application online. The court will send you the rest of the forms to complete the divorce by email.
+        </p><p>
+We’re working to bring the rest of the process online.
+
+        </p><p>
+Please help us make this service better for everyone by leaving feedback when you’re finished.
+        </p>
+<form method="POST" accept-charset="utf-8" class="form" id="form"
+              enctype="{% block encoding %}application/x-www-form-urlencoded{% endblock %}">
+            {% block form %}{% endblock %}
+
+            <div class="form-group">
+                <input id="continue-button" type="submit" class="button" value="{% block button %}Continue{% endblock %}">
+            </div>
+            {% block help %}{% endblock %}
+        </form>
+    </div>
+
+</main>
+{% endblock %}

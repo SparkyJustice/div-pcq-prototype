@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="column-two-thirds">
+        {% include "includes/phase_banner_beta.html" %}
+        <a class="link-back" href="#" onclick="javascript:history.go(-1)">Back</a>
+
+        <h1 class="heading-large">
+            Your application has been deleted
+        </h1>
+        <p class="text">
+        	You will need to enter all your information again if you apply again in future.
+        </p>
+
+        <p class="text">
+         Your HM Courts and Tribunals sign in details are still active. To have your email address and password deleted you need to contact the Courts and Tribunals Service Centre.
+        </p>
+
+
+<strong class="bold-small">
+Courts and Tribunals Service Centre
+	</strong>
+	
+<p class="text">
+	Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br>
+	Email: divorce@justice.gov.uk<br>
+</p>
+
+
+        <a href="/start">Start a new application.</a>
+
+
+
+    </div>
+</main>
+{% endblock %}

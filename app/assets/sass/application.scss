@@ -1,0 +1,343 @@
+// Import GOV.UK elements, this will import the frontend toolkit and some base styles.
+// Take a look in _govuk-elements.scss to see which files are imported.
+@import 'govuk-elements';
+// Take a look at patterns.scss to see which files are imported.
+@import 'patterns';
+@import 'file-upload';
+@import 'jurisdiction-concepts';
+@import 'problem-with-this-page';
+@import 'local/banners';
+@import 'local/lists';
+@import 'local/dropzone';
+@import 'local/accountDetails';
+@import 'local/payment';
+@import 'local/addresses';
+@import 'components/manifest';
+
+// If you need to create a page as part of your journey, but without GOV.UK branding
+// See localhost:3000/examples/unbranded/
+.unbranded {
+  background: $white;
+  // Use the universal selector and !important to *ALWAYS OVERRIDE* GDS Transport
+  * {
+    font-family: Arial !important;
+  }
+  // Remove GOV.UK footer styles
+  #footer {
+    border: 0;
+    background: $white;
+  }
+}
+
+// Related items
+// (These styles will be moved to GOV.UK elements, duplicating here for now.)
+.govuk-related-items {
+  margin-top: $gutter;
+  border-top: 10px solid $govuk-blue;
+  padding-top: 5px;
+
+  .heading-medium {
+    margin-top: 0.3em;
+    margin-bottom: 0.5em
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
+
+ul.downloads-sidebar li a {
+    background-image: url(/public/images/icons/icon-file-download-bullet.png);
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    line-height: 32px;
+    background-position-y: center;
+}
+
+ul.downloads-sidebar li {
+    margin-bottom: 0px;
+}
+
+.email-wrapper {
+
+  .heading-medium {
+    font-size: 27px;
+    margin-top: 0;
+    margin-bottom: 0.5em
+  }
+
+  li {
+    margin-bottom: 10px;
+    list-style-type: none;
+  }
+}
+// Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
+details {
+  margin-bottom: 10px;
+}
+
+// expandable content sections for exit pages, modified to make it look more like https://www.gov.uk/guidance/content-design/content-types
+// Set text-indent to make multiple lines look better, replaced link underline with heavier font weight.
+// Increase bottom-margin
+.exit-guidance {
+    margin-left: 24px;
+    border-bottom: 1px solid grey;
+    padding-bottom: 6px;
+    padding-top: 12px;
+}
+
+.exit-guidance summary {
+    text-indent: -24px;
+    span {
+        text-decoration: none;
+        font-weight: 700;
+    }
+}
+
+
+.second-text-input {
+  margin-top: 15px;
+}
+
+.link-back {
+  margin-bottom: 0;
+  margin-top: $gutter;
+}
+
+.heading-large {
+  margin-top: $gutter;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.panel {
+  .icon {
+    margin-top: -17px; // Half the height of the important icon
+  }
+}
+
+
+.certificate-details-confirm {
+  display: inline-block;
+  max-width: 825px;
+  margin-bottom: 60px;
+  width: 100%;
+
+  p {
+    @include bold-19();
+    background: white;
+    border: 2px solid black;
+    padding: (18px $gutter $gutter-half $gutter*1.8);
+  }
+
+  span {
+    border-bottom: thin dotted black;
+    display: inline-block;
+    width: 210px;
+    text-align: center;
+    @include core-19;
+  }
+
+  a {
+    @include button ($grey-2);
+    @include box-sizing (border-box);
+    padding: em(10) em(15) em(5) em(15);
+    vertical-align: top;
+
+    @include media (mobile) {
+      width: 100%;
+    }
+
+    float: right;
+    border: 1px solid darken(white, 15%);
+  }
+
+}
+
+.certificate-details-confirm-solemnised {
+  width: 50% !important;
+}
+
+.secondary-button {
+  @include button ($grey-2);
+  @include box-sizing (border-box);
+  padding: em(10) em(15) em(5) em(15);
+  vertical-align: top;
+  @include media (mobile) {
+    width: 100%;
+  }
+}
+
+// Fix unwanted button padding in Firefox
+.secondary-button::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+.secondary-button:focus {
+  outline: 3px solid $focus-colour;
+}
+
+b {
+  font-weight: bold;
+}
+
+.image-cert-example {
+  width: 100%;
+}
+
+.notice-cert {
+  margin: 50px 0 50px;
+}
+
+.postcode {
+  width: 8.5em;
+  @include media(mobile) {
+    width: 100%;
+  }
+}
+
+#enter-manually {
+  margin-top: 20px;
+}
+
+.error {
+  & .form-group-day,
+  & .form-group-year,
+  & .form-group-month {
+    padding-left: 0px;
+    border-left: 0px;
+    .form-control {
+      margin-top: 2px;
+      border: 2px solid $grey-1;
+    }
+    &.error {
+      .form-control {
+        margin-top: 0px;
+        border: 4px solid $error-colour;
+      }
+    }
+  },
+& .char-count{
+  color: $error-colour;
+}
+}
+
+.financial-orders {
+  @include media(tablet) {
+    width: 80%;
+  }
+}
+.form-help-with-fees-reference {
+  input {
+    width: 50px;
+  }
+}
+.char-count {
+  color: $grey-1;
+  clear: both;
+  float: left;
+  margin-top: 10px;
+}
+
+.check-your-answers {
+  
+    th {
+  vertical-align: top;
+  width: 25%;
+  font-weight: normal; }
+
+    td {
+  vertical-align: top;
+   }
+  .form span.error-message {
+      margin-bottom: 7px;
+  }
+
+  .confirmation-container {
+    background: #dee0e2;
+    padding: 25px;
+    .multiple-choice [type=checkbox] + label::before {
+      background: #fff;
+    }
+  
+    .list-bullet {
+      padding-left: 70px;
+    }
+    .text {
+      margin-left: 50px;
+    }
+
+    details {
+      margin-left: 52px;
+    }
+  }
+}
+
+@media (min-width: 641px) {
+  .check-your-answers .form ul.list-bullet {
+    margin-top: 70px;
+  }
+}
+
+@media (max-width: 640px) {
+  .check-your-answers .form ul.list-bullet {
+    margin-top: 30px;
+  }
+}
+
+//Reason for divorce new styles
+
+#reasonForDivorce {
+
+  .multiple-choice {
+    border: 1px solid #dee0e2;
+    padding: 11px 20px 8px 54px;
+    background: #dee0e2;
+    margin-bottom: 10px;
+    &:hover {
+      border: 1px solid #0b0c0c;
+    }
+    label {
+      padding-left: 16px;
+    }
+
+  }
+
+  .selected-reason-state {
+      background: #fff;
+      border-color: #0b0c0c
+  }
+
+  .multiple-choice [type=radio] + label::before {
+    border: 2px solid;
+    width: 34px;
+    height: 34px;
+    top: 18px;
+    left: 15px;
+  }
+
+  .multiple-choice [type=radio] + label::after {
+    border: 10px solid;
+    width: 0;
+    height: 0;
+    top: 27px;
+    left: 24px;
+
+  }
+
+  .panel .notice .icon {
+    top:0;
+    margin-top: -3px;
+  }
+
+}
+
+
+
+
+
+

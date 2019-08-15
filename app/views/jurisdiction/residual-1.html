@@ -1,0 +1,51 @@
+{% extends "question.html" %}
+{% block question %}
+Residual Jurisdiction
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+
+<p class="text">
+  Your answers indicate that the main grounds under which the courts of England and Wales have jurisdiction to consider your divorce application don't apply. However, you may still be able to apply for a divorce in England or Wales based on the court’s ‘residual jurisdiction’.
+</p>
+
+<p class="text">
+  Usually, to be eligible for residual jurisdiction, you or your {{ petsHusbandOrWife() }} must be domiciled in England or Wales, and neither of you must be nationals of, or habitually resident in, another country in the EU (except Denmark).
+</p>
+
+<p class="text">
+  However, residual jurisdiction can be more complex. If you’re not sure if this might apply to you, you should seek legal advice.
+</p>
+
+<h3 class="heading-medium">Are you eligible for residual jurisdiction? </h3>
+
+<fieldset class="form-group inline">
+
+
+  <legend class="visually-hidden">{{ question }}</legend>
+  <label for="legal-proceedings-yes" class="block-label" data-target="case-details">
+    <input id="legal-proceedings-yes" type="radio"
+           name="legalProceedings" value="Yes" {{ checked(fields.legalProceedings.value, 'Yes') }}a>
+    Yes
+</label>
+
+  <label for="legal-proceedings-no" class="block-label">
+    <input id="legal-proceedings-no" type="radio"
+           name="legalProceedings" value="No" {{ checked(fields.legalProceedings.value, 'No') }}>
+    No
+  </label>
+</fieldset>
+
+
+{% endblock %}
+
+{% macro reference(refId) %}
+<input class="form-control"
+       name="r{{ refId }}"
+       type="text"
+       value="{{ fields[refId].value }}"
+       maxlength="1"
+       title="reference number {{ refId }}">
+{% endmacro %}

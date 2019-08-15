@@ -1,0 +1,37 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}Your {{ petsHusbandOrWife() }} has missed the deadline to submit their answer{% endblock %}
+{% block content %}
+<p>
+Reference no: 12345678
+</p>
+<p>
+Dear {{ petsName() }},
+</p>
+
+<p class="text">
+	Your {{ petsHusbandOrWife() }} has missed the deadline to submit the form which would have made their case for defending the divorce (trying to prevent it).
+</p>
+
+<p class="text">
+	You can now continue with your divorce as if they hadn't said that they intended to defend.
+</p>
+
+<p class="text">
+	Sign in to your account to continue to the next stage.
+</p>
+
+<p class="text">
+	 <a href="/IDAM/login?continue_url=/progress-bar/defended-without-answer">https://www.divorce.reform.hmcts.net/sign-in</a>
+</p>
+
+{% endblock %}
+

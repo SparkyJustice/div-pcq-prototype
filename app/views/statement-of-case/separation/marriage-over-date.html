@@ -1,0 +1,52 @@
+{% extends "question.html" %}
+
+{% block question %}
+  When did you, or your {{ petsHusbandOrWife() }}, decide that the marriage was over?
+{% endblock %}
+<p class="text">
+  <ul class="list list-bullet text">
+    <li></li>
+  </ul>
+</p>
+
+<p class="text">Provide the date that you, or your {{ petsHusbandOrWife() }}, decided that the marriage was over. </p>
+
+{% block form %}
+
+  <fieldset class="form-group "
+            id="marriageDate">
+    <legend class="visuallyhidden">When did you, or your {{ petsHusbandOrWife() }}, decide that the marriage was over?</legend>
+    <div class="form-date">
+      <p class="text">If you're not sure, use the closest date you remember.</p>
+      <p class="form-hint">For example, 31 3 2002</p>
+
+
+      <div class="form-group form-group-day {{ "error" if fields.day.error }}">
+        <label for="day">Day</label>
+        <input class="form-control"
+               id="day"
+               name="day"
+               value="{{ fields.day.value }}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-month {{ "error" if fields.month.error }}">
+        <label for="month">Month</label>
+        <input class="form-control"
+               id="month"
+               name="month"
+               value="{{ fields.month.value }}"
+               maxlength="2" oninput="dateSlice(this)">
+      </div>
+
+      <div class="form-group form-group-year {{ "error" if fields.year.error }}">
+        <label for="year">Year</label>
+        <input class="form-control"
+               id="year"
+               name="year"
+               value="{{ fields.year.value }}"
+               maxlength="4" oninput="dateSlice(this)">
+      </div>
+    </div>
+  </fieldset>
+{% endblock %}

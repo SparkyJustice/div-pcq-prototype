@@ -1,0 +1,88 @@
+{% extends "question.html" %}
+
+{% block question %}
+How is your husband connected to England and Wales?
+{% endblock %}
+
+{% block form %}
+
+<div class="text">
+
+  <p>You must make your case for having your divorce fall within the jurisdiction of a court in England and Wales.</p>
+
+
+  <fieldset class="form-group">
+    <label class="form-label-bold">Select all of the following statements which you believe apply to your husband
+    </label>
+    <br>
+    <label class="form-label-bold block-label"
+           for="unreasonable-behaviour">
+      <input id="unreasonable-behaviour"
+             type="checkbox"
+             name="reason"
+             value="unreasonable-behaviour">
+      
+      <span class="font-small">
+        Your husband considers England and Wales to be his home and spends most of his life here either in work, education, or with his family.
+        <br>
+        <strong class="bold-small">This indicates that your husband is 'habitually resident'.</strong>
+
+
+      </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="separation-2-years" data-target="separation-2-years-warning">
+      <input id="separation-2-years"
+             type="checkbox"
+             name="reason"
+             value="separation-2-years">
+              
+              <span class="font-small">
+                  Your husband considers England and Wales to be his permanent home. He may be living here or abroad but plans to return here in the future.
+              <br>
+        <strong class="bold-small">This indicates that your husband is 'domiciled'.</strong>
+              </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="adultery">
+      <input id="adultery"
+             type="checkbox"
+             name="reason"
+             value="adultery">
+     
+              <span class="font-small">
+                  Your husband now lives outside of England and Wales, but you consider it to be the last home that he shared with you. He spent most of his life here either in work, education, or with his family.
+            <br>
+            <strong class="bold-small">This indicates that your husband was 'last habitually resident' here.</strong>
+
+
+        </span>
+    </label>
+
+    <label class="form-label-bold block-label"
+           for="separation-5-years">
+      <input id="separation-5-years"
+             type="checkbox"
+             name="reason"
+             value="separation-5-years">
+      
+        <span class="font-small">
+        <p>None of the above</p>  
+        </span>
+    </label>
+
+
+  </fieldset>
+</div>
+{% endblock %}
+
+<label class="block-label" for="nationalities-other" data-target="example-different-country">
+  <input id="nationalities-other" name="nationalities" type="checkbox" value="Citizen of a different country">
+  Citizen of a different country
+</label>
+<div class="panel panel-border-narrow js-hidden" id="example-different-country">
+  <label class="form-label" for="nationalities-other-country">Country name</label>
+  <input class="form-control" type="text" id="nationalities-other-country" name="nationalities-other-country">
+</div>

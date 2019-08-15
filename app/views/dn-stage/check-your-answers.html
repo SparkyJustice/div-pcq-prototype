@@ -1,0 +1,108 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main id="content" class="check-your-answers" role="main">
+
+  <h1 class="heading-large">
+    Check your answers
+  </h1>
+
+  <table>
+    <tbody>
+        <h2 class="heading-medium"></h2>
+        <tr>
+      <tr>
+          <td>
+Have you read your husband/wife's response?
+          </td>
+          <td>Yes</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>
+Do you want to continue with your divorce and apply for a 'decree nisi'?
+          </td>
+          <td>Yes</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>
+              Changes you've made to your application
+          </td>
+          <td>I have not changed any of the details in my application.</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>
+Have you lived together as a married couple since you found out about the adultery?
+          </td>
+          <td>No</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+ {% if session.ClaimCosts.claim == "Yes" %}
+      <tr>
+          <td>
+Do you still want to claim the costs of the divorce?
+          </td>
+          <td>Yes</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+{% endif %}
+      <tr>
+          <td>
+              Do you need to upload any other documents?
+          </td>
+          <td>No</td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+   </tbody>
+  </table>
+  <br />
+    <div class="column-three-thirds" style="padding: 15 0px">
+        <form method="POST" accept-charset="utf-8" class="form">
+  <h1 class="heading-large">
+    Confirm the following
+  </h1>
+
+    <div class="column-three-thirds" style="padding: 15 0px">
+        <form method="POST" accept-charset="utf-8" class="form">
+            <p>You could be fined or imprisoned for contempt of court if you deliberately submit false information.</p>
+            <div class="form-group confirmation-container">
+              <div class="multiple-choice">
+                <input id="confirm" type="checkbox" name="confirm"> 
+                <label for="confirm">I confirm that:</label>
+              </div>
+              <ul class="list list-bullet">
+                <li>
+                   I’m asking the court to grant a decree which will dissolve my marriage, and to order my {{ petsHusbandOrWife() }} to pay some or all of the divorce costs.
+                </li>
+                  <li>I believe that the facts stated in this application are true.</li>
+<!--                   <li>My {{ petsHusbandOrWife() }}'s signature appears on the response to my divorce application.</li> -->
+              </ul>
+
+<br>
+<details>
+
+  <summary><span class="summary">What these statements are</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+    <p>
+      The first statement is your formal application to the court. The second is your statement of truth. <!-- The third is your confirmation that the signature on the response to your divorce application is your {{ petsHusbandOrWife() }}’s.  -->
+    </p>
+
+  </div>
+
+</details>
+
+
+
+            </div>
+  </div> 
+
+            <div class="form-group">
+              <input type="submit" class="button" value="Continue">
+        </form>
+    </div>
+</main>
+{% endblock %}

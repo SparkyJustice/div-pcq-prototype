@@ -1,0 +1,112 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Read the co-respondent's response
+{% endblock %}
+
+{% block form %}
+
+
+<p class="text">
+  You need to read the co-respondents's response before you continue. The response is legally known as the 'acknowledgement of service'
+</p>
+
+<h2 class="heading-medium">Acknowledgement of service</h2>
+
+<h3 class="heading-small">Applicant</h3>
+
+<p class="text">
+{{ petsName() }}
+</p>
+
+<h3 class="heading-small">Respondent</h3>
+
+<p class="text">
+{{ respsName() }}
+</p>
+
+<h3 class="heading-small">Co-respondent</h3>
+
+<p class="text">
+Melissa Hardy
+</p>
+
+<h3 class="heading-small">
+  The co-respondent's response to the adultery allegations
+</h3>
+<p class="text">
+  {%- if (session.corespondent.aos.admitAdultery == "No") or (not session.corespondent.aos.admitAdultery ) -%}
+  The co-respondent does not admit to committing the adultery.
+  {% elif session.corespondent.aos.admitAdultery == "Yes" -%}
+  The co-respondent admits to committing the adultery.
+  {%- endif -%}
+</p>
+
+
+<h3 class="heading-small">
+  How the co-respondent wants to proceed
+</h3>
+
+<p class="text">
+  {% if (session.corespondent.aos.defend == "No") or (not session.corespondent.aos.defend) %}
+  The co-respondent will let the divorce proceed (doesn't intend to 'defend' it)
+  {%- elif (session.corespondent.aos.defend == "Yes") %}
+  The co-respondent has stated in their response that they will defend the divorce
+  .<!-- don't miss the period here -->
+  {%- endif -%}
+</p>
+
+
+<h3 class="heading-small">
+  Who pays for the divorce 
+</h3>
+<p class="text">
+  The co-respondent {{ session.adultery.corespondent.firstName | capitalize }} {{ session.adultery.corespondent.lastName | capitalize }}  has
+    {% if (session.corespondent.claimCosts.coRespAgreesToPayCosts == "Yes") or (not session.corespondent.claimCosts.coRespAgreesToPayCosts) %} 
+        agreed to pay some or all of the costs of the divorce.
+    {% endif %}
+    {% if session.corespondent.claimCosts.coRespAgreesToPayCosts == "No" %}
+        does not agree to pay any costs and has given the following explanation:
+        <div class="panel panel-border-wide">
+            <p class="text">
+                  "{{ session.corespondent.claimCosts.coRespReasonTheyWontPay }}"
+        </div>
+    {% endif %}
+</p>
+<details>
+  <summary>
+    <span class="summary">What this means</span>
+  </summary>
+  <div class="panel panel-border-narrow">
+
+   <p class="text">
+   The co-respondent was asked if they agreed to pay the costs that you claimed.
+  </p>
+
+  <p class="text">
+    They were given the following options:
+  </p>
+
+  <ul class="bullet list-bullet">
+    <li>to agree to pay some or all of the costs of the divorce</li>
+    <li>to not agree to paying any of the costs</li>
+  </ul>
+
+  <br>
+
+  <p class="text">
+    You'll be given a chance to change your mind about claiming costs later in the application. It is up to the court to decide how the costs will be split.
+  </p>
+
+</div>
+
+</details>
+
+<br />
+
+
+
+
+
+{% endblock %}

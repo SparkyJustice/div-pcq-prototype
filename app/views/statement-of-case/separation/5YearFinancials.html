@@ -1,0 +1,113 @@
+{% extends "question.html" %}
+{% set question = 'Financial support for your husband and children' %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+  <p class="text">
+    The court will send your divorce application to your {{ petsHusbandOrWife() }} and give them a chance to respond.
+</p>
+ 
+  <p class="text">
+    If they choose to defend (disagree with) the divorce, then the court may need to know if you have any arrangements to help them, or your children, to avoid any hardship.
+  </p>
+
+  <p class="text">
+    This could be financially, for example, by paying maintenance.
+  </p>
+
+<details>
+    <summary>
+      <span class="summary font-small">Why the court needs to know this</span>
+    </summary>
+    <div class="panel panel-border-narrow font-small text">
+
+      <p class="text">
+        By law, your {{ petsHusbandOrWife() }} can defend the divorce on the grounds that it will cause them serious financial or other hardship, and that it would in all the circumstances be wrong to end the marriage. This rule only applies to the ‘5 year separation’ rule (which you are using), and it doesn’t apply to any of the other facts.
+      </p>
+
+      <p class="text">
+        If your {{ petsHusbandOrWife() }} chooses to defend the divorce on this basis, then the court will need to know if you have any arrangements to help them, or your children, to avoid any hardship.
+      </p>
+
+      <p class="text">
+        You’ll usually also need to go to a court hearing for the court to decide whether you can get a divorce. 
+      </p>
+
+      <p class="text">
+        The court will take all your circumstances into account when making its decision, including how you have both behaved and your individual circumstances, and the circumstances of any children or anyone else involved.
+      </p>
+    </div>
+  </details>
+
+
+
+
+  <h3 class="heading-medium">Do you plan to arrange, or have you already arranged financial support?</h3>
+  
+  <fieldset class="inline"
+            id="financialSupport">
+    <legend class="visually-hidden">
+Do you plan to arrange, or have you already arranged financial support?
+    </legend>
+
+  <div class="form-group  {{"error" if fields.financialSupport.error }}">
+    {{ errorsFor(fields.financialSupport) }}
+
+    <label for="yes" class="block-label" data-target="financial-support">
+      <input id="yes"
+             type="radio"
+             name="financialSupport"
+             value="Yes"
+             {{ checked(fields.financialSupport.value, 'Yes') }}>
+      Yes
+    </label>
+
+    <label for="no" class="block-label">
+      <input id="no"
+             type="radio"
+             name="financialSupport"
+             value="No"
+             {{ checked(fields.financialSupport.value, 'No') }}>
+      No
+    </label>
+
+    
+<div class="panel panel-border-narrow js-hidden" id="financial-support">
+       <p class="form-label-bold">Who will the financial support be for?</p>
+  <legend class="visually-hidden">
+  Who will the financial support be for?
+  </legend>
+
+  <p class="form-hint">
+Select all that apply
+  </p>
+  <label class="block-label"
+         for="petitioner">
+    <input id="petitioner"
+           name="claimFrom"
+           type="checkbox"
+           value="petitioner"
+           {{ checked(fields.financialSupportFor.value, 'petitioner') }}>
+    Your {{ petsHusbandOrWife() }}
+  </label>
+
+  <label class="block-label"
+         for="children">
+    <input id="children"
+           name="claimFrom"
+           type="checkbox"
+           value="children"
+           {{ checked(fields.financialSupportFor.value, 'children') }}>
+    Your children
+  </label>
+
+   </div>
+
+
+  </fieldset>
+
+
+{% endblock %}

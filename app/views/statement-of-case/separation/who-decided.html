@@ -1,0 +1,33 @@
+{% extends "question.html" %}
+{% block question %}
+Who decided first that the marriage was over?
+{% endblock %}
+
+{% block form %}
+
+<fieldset class="form-group" id="who-decided">
+    <legend class="visually-hidden">{{ question }}</legend>
+
+    
+        <label for="me" class="block-label">
+            <input id="me" type="radio"
+                   name="whoDecided" value="petitioner" {{ checked(session.whoDecided, 'petitioner') }}>
+            I did
+        </label>
+        <label for="spouse" class="block-label">
+            <input id="spouse" type="radio"
+                   name="whoDecided" value="respondent" {{ checked(session.whoDecided, 'respondent') }}>
+            My {{ petsHusbandOrWife() }} did
+        </label>
+
+        <label for="both" class="block-label">
+            <input id="both" type="radio"
+                   name="whoDecided" value="both" {{ checked(session.whoDecided, 'both') }}>
+            We decided at the same time
+        </label>
+
+</fieldset>
+
+
+
+{% endblock %}

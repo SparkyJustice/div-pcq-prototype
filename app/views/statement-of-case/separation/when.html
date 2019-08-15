@@ -1,0 +1,81 @@
+{% extends "question.html" %}
+
+{% set question = 'Are you separated from your ' + petsHusbandOrWife() +'?' %}
+{% block question %}
+  {{ question }}
+{% endblock %}
+
+{% block form %}
+
+  <fieldset class="form-group inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+
+
+
+    <label>This can mean that you either:</label>
+    <ul class="list list-bullet">
+      <li>live separately in different homes</li>
+      <li class="text">live in the same home, but live separate lives, for example you don't eat, sleep or cook together</li>
+    </ul>
+    <label for="separated-yes" class="block-label" data-target="separation-date">
+      <input id="separated-yes"
+             type="radio"
+             name="separated"
+             value="Yes"
+        {{ checked(session.separation.separated.value, 'Yes') }}>
+      Yes
+    </label>
+
+    <label for="separated-no" class="block-label">
+      <input id="separated-no"
+             type="radio"
+             name="separated"
+             value="No"
+        {{ checked(session.separation.separated.value, 'No') }}>
+      No
+    </label>
+  </fieldset>
+
+  <div class="panel panel-border-narrow js-hidden" id="separation-date">
+    <fieldset class="form-group">
+      <legend class="form-label-bold">When did you separate?</legend>
+      <label class="form-hint">
+          Provide the date that you, or your {{ petsHusbandOrWife() }}, decided that the marriage was over. If you're not sure, use the nearest date you remember, but be aware that you must have been separated for 
+
+        {% if session.facts.reason == "separation-5-years" %}
+        5 years
+        {% endif %} 
+        {% if session.facts.reason == "separation-2-years" %}
+        2 years
+        {% endif %} 
+        to use this fact.
+
+      </label>
+
+
+
+      <div class="form-date">
+
+        <div class="form-group form-group-day">
+          <label for="when-leave-day">Day</label>
+          <input class="form-control" id="when-leave-day" name="whenLeaveDay" type="number" pattern="[0-9]*"
+                 min="0" max="31" value="{{ session.separation.dateLeave.day }}" maxlength = "2" oninput="dateSlice(this)">
+        </div>
+
+        <div class="form-group form-group-month">
+          <label for="when-leave-month">Month</label>
+          <input class="form-control" id="when-leave-month" name="whenLeaveMonth" type="number" pattern="[0-9]*"
+                 min="0" max="12" value="{{ session.separation.dateLeave.month }}" maxlength = "2" oninput="dateSlice(this)">
+        </div>
+
+        <div class="form-group form-group-year">
+          <label for="when-leave-year">Year</label>
+          <input class="form-control" id="when-leave-year" name="whenLeaveYear" type="number" pattern="[0-9]*"
+                 min="0" max="2016" value="{{ session.separation.dateLeave.year }}" maxlength = "4" oninput="dateSlice(this)">
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+
+{% endblock %}

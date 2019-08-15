@@ -1,0 +1,44 @@
+{% extends "question.html" %}
+{% set question = 'How long have you lived in England or Wales?' %}
+
+{% block question %}
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+<fieldset class="form-group">
+  <legend class="visually-hidden"> {{ question }}</legend>
+  <label for="howLong-12-plus" class="block-label">
+    <input id="howLong-12-plus"
+           type="radio"
+           name="howLongHasPetLivedHere"
+           value="12MonthsOrMore" {{ checked(session.jurisdiction.howLongHasPetLivedHere, '12MonthsOrMore') }}>
+    1 year or more
+  </label>
+
+  <label for="howLong-6-plus" class="block-label">
+    <input id="howLong-6-plus"
+           type="radio"
+           name="howLongHasPetLivedHere"
+           value="6MonthsOrMore" {{ checked(session.jurisdiction.howLongHasPetLivedHere, '6MonthsOrMore') }}>
+    6 months or more
+  </label>
+  <label for="howLong-less-than-6" class="block-label">
+    <input id="howLong-less-than-6"
+           type="radio"
+           name="howLongHasPetLivedHere"
+           value="lessThan6" {{ checked(session.jurisdiction.howLongHasPetLivedHere, 'lessThan6') }}>
+    Less than 6 months
+  </label>
+  <label for="howLong-not-living-here" class="block-label">
+    <input id="howLong-not-living-here"
+           type="radio"
+           name="howLongHasPetLivedHere"
+           value="notLivingHere" {{ checked(session.jurisdiction.howLongHasPetLivedHere, 'notLivingHere') }}>
+    I do not live here
+  </label>
+</fieldset>
+
+{% endblock %}
+

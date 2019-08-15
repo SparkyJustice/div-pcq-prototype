@@ -1,0 +1,414 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{{ serviceName }}
+{% endblock %}
+
+{% block proposition_header %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div>
+    {% include "includes/phase_banner_beta.html" %}
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-large">Divorce prototype</h1>
+<!--
+        <h2 class="heading-medium">Version 33</h2>
+        <p class="text">To be tested on 14th June 2018, Research round 40</p>
+-->
+{% if query.errorMessage %}
+<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+    {{ query.errorMessage }}
+  </div>
+{% endif %}
+        <p class="text">
+          {% include "parameters_include.html" %}
+        </p>
+
+</ul>
+<p class="form-hint">Set husband/wife and Reason for divorce parameters before continuing</p>
+
+<h1 class="heading-large">Generic pages</h1>
+
+<ul class="list list-bullet">
+  <li><strong><a href="emails/generic">Email: Generic email to invite applicant to sign-in</a></strong></li>
+  <li><strong><a href="/progress-bar/generic">Landing page: Generic scenario 'mid-flight'</a> </li>
+   <li><strong><a href="/aos/progress-bar/multiple-respond">Landing page: multiple cross-jurisdiction cases + new contact section</a> </li>
+   <li><strong><a href="/aos/progress-bar/multiple-divorce">Landing page: multiple divorce + new contact section</a> </li>
+
+<li>Sign out screens - before submission of petition</li>
+<li>Sign out screens - after submission</li>
+<li>Delete screens before and after</li>
+
+</ul>
+
+
+
+
+<h1 class="heading-large">Applicant</h1>
+
+    <h2 class="heading-medium">Petition stage - Applicant</h2>
+
+<h3 class="heading-small">Apply for a divorce</h3>
+
+<ul class="list list-bullet">
+  <li><strong><a href="start.html">Start page: Apply for a divorce</a> </li>
+  <li><strong><a href="/IDAM/login?continue_url=/save-return/check-your-answers">Resume a saved divorce application</a> </li>
+  <li><strong><a href="emails/petition-submitted">Email: Application submitted</a></strong></li>
+  <li><strong><a href="/progress-bar/application-submitted-awaiting-response">Landing page: Waiting for court to issue application</a></strong></li>
+</ul>
+
+<h3 class="heading-small">Application issued</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="emails/petition-issued">Email: Application issued</a></strong></li>
+  <li><strong><a href="/progress-bar/application-issued">Landing page: Application issued</a> </li>
+</ul>
+
+<h2 class="heading-medium">AOS stage - Applicant</h2>
+
+<h3 class="heading-small">Undefended - apply for decree nisi</h3>
+<p class="form-hint">You can find the undefended response in the Decree nisi stage</p>
+
+
+<h3 class="heading-small">Defended</h3>
+<ul class="list list-bullet">
+   <li><a href="/emails/aos-defended">Email: "Your husband is defending, and the court is waiting for the answer"</a></li>
+   <li><a href="/emails/defended-answer">Email: "Your husband's answer has been submitted"</a></li>
+  <li><strong><a href="/progress-bar/resp-defends-with-answer">Landing page: "Your husband's answer has been submitted"</a> </li>
+  <li><a href="/emails/defended-no-answer">Email: "Your husband's answer was not received in time by the court"</a></li>
+</ul>
+
+<h3 class="heading-small">Co-respondent responds</h3>
+<ul class="list list-bullet">
+   <li>Placeholder for email about CR intending to defend</li>
+   <li>Placeholder for email about CR submitting Answer</li>
+   <li>Placeholder for email about CR missing deadline to submit Answer</li>
+    <li><strong><a href="emails/aos-co-respondent-responds-wait">Email: "The co-respondent has responded and will not defend (wait)"</a></strong></li>
+  <li><strong><a href="emails/aos-co-respondent-responds-continue">Email: "The co-respondent has responded and will not defend (continue)"</a></strong></li>
+  <li><strong><a href="emails/aos-co-respondent-responds-generic">Email: "The co-respondent has responded and will not defend (generic)"</a></strong></li>
+</ul>
+
+
+<h3 class="heading-small">Amend petition as no consent/adultery not admitted</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-not-admitting-adultery">Email: "Your husband didn't admit the adultery"</a></strong></li>
+  <li><a href="/emails/aos-no-consent">Email: "Your husband didn't consent to the divorce"</a></li>
+</ul>
+
+<h3 class="heading-small">No response</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-no-response">Email: "Your husband didn't respond"</a></strong></li>
+  <li><strong><a href="/progress-bar/no-response">Landing page: Your husband didn't respond</a></strong></li>
+ </ul>
+
+<h2 class="heading-medium">Decree nisi stage - Applicant</h2>
+
+<h3 class="heading-small">Undefended - apply for decree nisi</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="emails/aos-not-defending">Email: "Your husband has responded and will not defend"</a></strong></li>
+  <li><strong><a href="emails/aos-consent-given">Email: "Your husband has responded and consents to the divorce"</a></strong></li>
+  <li><a href="/progress-bar/undefended">Landing page: "Apply for decree nisi"</a></li>
+</ul>
+
+<h3 class="heading-small">DN application accepted</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-coe">Email: "Your application for decree nisi has been accepted" (Certificate of Entitlement)</a> </li>
+  <li><a href="/progress-bar/date-of-your-decree-nisi-announcement">Landing page: "Your application for decree nisi has been accepted"</a></li>
+</ul>
+
+<h3 class="heading-small">DN application refused</h3>
+<ul class="list list-bullet">
+    <li><a href="/emails/dn-rejected-by-la">Email: "Court asks for an amended application"</a></li>
+    <li><a href="/progress-bar/rejected-by-legal-advisor">Landing page: You need to amend your application</a></li>
+     <li><a href="/emails/la-needs-more-info">Email: "Court asks for more information"</a></li>
+     <li><a href="/progress-bar/more-information-needed">Landing page: You need to provide more information</a></li>
+  <li><a href="/progress-bar/application-refused">Landing page: Application rejected</a></li>
+</ul>
+
+<h3 class="heading-small">DN granted</h3>
+<ul class="list list-bullet">
+  <li><a href="/emails/dn-announced">Email: "Decree nisi has been granted"</a></li>
+  <li><a href="/progress-bar/decree-nisi-granted">Landing page: Decree nisi has been granted"</a></li>
+</ul>
+
+
+<h2 class="heading-medium">Decree absolute stage - Applicant</h2>
+<h3 class="heading-small">Apply for DA</h3>
+
+<ul class="list list-bullet">
+  <li><a href="/emails/da-apply">Email: "You may now apply for your decree absolute"</a></li>
+  <li><a href="/progress-bar/apply-for-decree-absolute">Landing page: You can apply for a decree absolute</a></li>
+  <li><a href="/emails/da-blocked-fr">Email: "You cannot apply for your decree absolute until your financial order has been finalised"</a></li>
+</ul>
+
+<h3 class="heading-small">DA granted</h3>
+
+<ul class="list list-bullet">
+  <li><a href="/emails/DA-granted">Email: "Your decree absolute has been granted, your divorce is now complete"</a></li>
+  <li><a href="/progress-bar/divorce-finalised">Landing page: You are now divorced</a></li>
+</ul>
+
+
+<h1 class="heading-large">Respondent</h1>
+
+<h2 class="heading-medium">Acknowledgement of Service stage - Respondent</h2>
+
+<h3 class="heading-small">Digital AOS</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/letters/invitation">Letter: "Your wife has applied for a divorce"</a> </li>
+  <li><strong><a href="/aos/start-page">Start page: Respond to a divorce</a> </li>
+  <li><strong><a href="/aos/progress-bar/respond">Landing page: Respond to a divorce</a> </li> 
+  <li><strong><a href="/aos/progress-bar/answer-submitted">Landing page: "Your answer has been submitted" (if they chose to defend)</a> </li>
+</ul>
+
+<h3 class="heading-small">Digital AOS submitted</h3>
+<ul class="list list-bullet">
+  <li><strong>placeholder for AOS submitted undefended email (already in notify)</li> 
+ <li><strong>placeholder for AOS submitted defended email (already in notify)</li> 
+</ul>
+
+
+
+<h3 class="heading-small">Paper AOS</h3>
+<ul class="list list-bullet">
+   <li><a href="/aos/letters/invitation-paper-journey">Letter: "Your wife has applied for a divorce" (paper journey)</a></li>
+  <li><strong><a href="https://tools.hmcts.net/confluence/display/DIV/New+AOS+paper+forms">Paper journey: New forms for responding offline</a></strong></li>
+  <li><strong><a href="/aos/letters/solicitors-invitation-paper-journey">Letter: If a solicitor asks to submit the response (paper journey)</a> </li> 
+</ul>
+
+<h2 class="heading-medium">Decree nisi stage - Respondent</h2>
+
+<h3 class="heading-small">DN applied for</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/emails/dn-p-has-applied">Email: "Your wife has applied for a decree nisi"</a> </li>
+</ul>
+
+<h3 class="heading-small">DN application accepted</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/emails/dn-p-has-applied">Email: "Your wife has applied for a decree nisi"</a> </li>
+  <li><strong><a href="/aos/emails/dn-coe">Email: "Your wife's application for decree nisi has been accepted" (Certificate of Entitlement)</a> </li>
+   <li><a href="/aos/progress-bar/date-of-your-decree-nisi-announcement">Landing page: "Your husband/wife's decree nisi application has been accepted"</a></li>
+ </ul>
+
+<h3 class="heading-small">DN granted</h3>
+
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/emails/dn-granted">Email: "The decree nisi (court order) for a divorce was granted"</a> </li>
+  <li><strong><a href="/aos/progress-bar/decree-nisi-granted">Landing page: Your husband/wife has been granted a decree nisi</a> </li>
+</ul>
+
+<h3 class="heading-small">DN application refused</h3>
+
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/letters/invitation-amended-application">Letter: "Your wife has had to amend their application"</a> </li>
+</ul>
+
+<h2 class="heading-medium">Decree absolute stage - Respondent</h2>
+
+<h3 class="heading-small">Applicant applies for DA</h3>
+
+<ul class="list list-bullet">
+<li><a href="/emails/respondent-DA-granted">Email: "Your decree absolute has been granted, your divorce is now complete"</a></li>
+<li><a href="/progress-bar/divorce-finalised">Landing page: You are now divorced</a></li>
+
+</ul>
+
+<h3 class="heading-small">Respondent applies for DA</h3>
+
+<ul class="list list-bullet">
+  <li><a href="/emails/respondent-da-apply">Email: "You may now apply for your decree absolute"</a></li>
+  <li><a href="/progress-bar/respondent-apply-for-decree-absolute">Landing page: You may now apply for your decree absolute</a></li>
+  <li><a href="/progress-bar/respondent-apply-for-decree-absolute-paper-forms">Landing page: You may now apply for your decree absolute (paper forms)</a></li>
+  <li><a href="/emails/respondent-da-blocked-fr">Email: "You cannot apply for your decree absolute until your financial order has been finalised"</a></li>
+</ul>
+
+
+<h1 class="heading-large">Co-respondent</h1>
+
+<h2 class="heading-medium">Acknowledgement of service stage - Co-respondent</h2>
+
+<h3 class="heading-small">Digital AOS</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/corespondent-aos/letters/invitation">Letter: "You have been named in the divorce application..."</a> </li>
+  <li><strong><a href="/corespondent-aos/start-page">Start page: Respond to a divorce</a> </li>
+  <li><strong><a href="/corespondent-aos/progress-bar/respond">Landing page: Respond to a divorce</a> </li>
+</ul>
+
+<h3 class="heading-small">Digital AOS submitted</h3>
+<ul class="list list-bullet">
+  <li><strong>placeholder for AOS submitted undefended email</li> 
+ <li><strong>placeholder for AOS submitted defended email</li> 
+</ul>
+
+
+
+<h3 class="heading-small">Paper AOS</h3>
+
+<ul class="list list-bullet">
+  <li><strong><a href="/corespondent-aos/letters/invitation-paper-journey">Letter (paper journey): "You have been named in the divorce application..."</a> </li>
+    <li><strong><a href="https://tools.hmcts.net/confluence/display/DIV/New+AOS+paper+forms">Paper journey: New forms for responding offline</a></strong></li>
+</ul>
+
+
+
+<h2 class="heading-medium">Decree nisi stage - Co-respondent</h2>
+
+<h3 class="heading-small">DN application accepted</h3>
+
+<ul class="list list-bullet">
+    <li><strong><a href="/corespondent-aos/emails/dn-coe">Email: DN approved - date of hearing</a></li>
+    <li><strong><a href="/corespondent-aos/progress-bar/date-of-decree-nisi">Landing page: DN approved - date of hearing</a> </li>
+</ul>
+
+<h3 class="heading-small">DN application refused</h3>
+
+<p>???</p>
+
+
+<h2 class="heading-medium">Alternative service routes (Theme 5/6)</h2>
+
+<details>
+
+  <summary><span class="summary">Other services</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+    
+
+<h3 class="heading-small">Applicant - Husband/wife didn't respond to the application</h3>
+
+<p class="form-hint">Emails and landing pages bringing applicants back to digital after using paper forms</p>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-deemed-service">Email: "Your application for deemed service has been accepted"</a></strong></li>
+  <li><strong><a href="/emails/aos-dispensed-with-service">Email: "Your application for dispensed with service accepted"</a></strong></li>
+  <li><strong><a href="/emails/aos-bailiff-service-success">Email: "The bailiff has successfully served your application"</a></strong></li>
+  <li><strong><a href="/emails/aos-bailiff-service-success-continue">Email: "The bailiff successfully served your application, but your husband never responded</a></strong></li>
+</ul>
+
+<h3 class="heading-small">Bailiff service</h3>
+
+<p class="form-hint">Early version of a digital bailiff service</p>
+
+ <li><strong><a href="/bailiff/introduction">Bailiff - start</a></strong></li>
+
+</ul>
+
+
+
+
+
+  </div>
+
+</details>
+
+<h2 class="heading-medium">Previous versions</h2>
+
+
+<details>
+
+  <summary><span class="summary">Previous versions</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+
+    <h2 class="heading-medium">Previous versions:</h2>
+    <ul class="list list-bullet">
+                    <!-- I know why you're here! If you want to add new version numbers,
+                    make sure you update the variables in config.js and routes.js -->
+                    <li><a href="{{herokuV31Url}}">v31</a ><br/> Tested on 28th March 18, Research round 38, Sprint 32-33</li
+                      <li><a href="{{herokuV30Url}}">v30</a ><br/> Tested on 15th March 18, Research round 37, Sprint 31-32</li>
+                      <li><a href="{{herokuV29Url}}">v29</a ><br/> Tested on 1st March 18, Research round 36, Sprint 30-31</li>
+                      <li><a href="{{herokuV28Url}}">v28</a ><br/> Tested on 17 Jan 18, Research round 35, Sprint 28-30</li>
+                      <li><a href="{{herokuV27Url}}">v27</a ><br/> Tested on 14 Dec 17, Research round 34, Sprint 26-28</li>
+                      <li><a href="{{herokuV26Url}}">v26</a ><br/> Tested on 30 Nov 17, Research round 33, Sprint 25-27</li>
+                      <li><a href="{{herokuV25Url}}">v25</a ><br/> Tested on 8 Nov 17, Research round 32, Sprint 24-25</li>
+                      <li><a href="{{herokuV24Url}}">v24</a ><br/> Tested on 25 October 17, Research round 31, Sprint 23-24</li>
+                      <li><a href="{{herokuV23Url}}">v23</a ><br/> Tested on 11 October 17, Research round 30, Sprint 23</li>
+                      <li><a href="{{herokuV22Url}}">v22</a ><br/> Tested on 8 September 17, Research round 29, Sprint 19-20</li>
+                      <li><a href="{{herokuV21Url}}">v21</a ><br/> Tested on 9 August 17, Research round 28, Sprint 18</li>
+                      <li><a href="{{ herokuV20Url }}">v20</a ><br/> Tested on 26 July 17, Research round 27, Sprint 15-17</li>
+                      <li><a href="{{ herokuV19Url }}">v19</a ><br/> Tested on 07 June 17, Research round 26, Sprint 14</li>
+                      <li><a href="{{ herokuV18Url }}/start">v18 </a><br/> Tested on 24 May 17, Research round 25, Sprint 13</li>
+                      <li><a href="{{ herokuV17Url }}/start">v17</a ><br/> Tested on 10 May 17, Research round 24, Sprint 11/12</li>
+                      <li><a href="{{ herokuV16Url }}/start">v16</a ><br/> Tested on 19 April 17, Research round 23, Sprint 11</li>
+                      <li><a href="{{ herokuV15Url }}/start">v15</a ><br/> Tested on 05 April 17, Research round 22, Sprint 10</li>
+                      <li><a href="{{ herokuV14Url }}/start">v14</a ><br/> Tested on 22 March 17, Research round 21, Sprint 9</li>
+                      <li><a href="{{ herokuV13Url }}/start">v13</a>  <br/>Tested on 09 March 17, Research Round 20, Sprint 8</li>
+                      <li><a href="{{ herokuV12Url }}/start">v12</a>  <br/>Tested on 22 February 17, Research Round 19, Sprint 7</li>
+                      <li><a href="{{ herokuV11Url }}/start">v11</a>  <br/>Tested on 08 February 17, Research Round 18, Sprint 6</li>
+                      <li><a href="{{ herokuV10Url }}/start">v10</a>  <br/>Tested on 11 January 17, Research Round 17, Sprint 5</li>
+                      <li><a href="{{ herokuV9Url }}/start">v9</a>  <br/>  Tested on 21 December 16, Research Round 16, Sprint 4</li>
+                      <li><a href="{{ herokuV8Url }}/start">v8</a>  <br/>Tested on 07 December 16, Research Round 15, Sprint 3</li>
+                      <li><a href="{{ herokuV7Url }}/start">v7</a>  <br/>Tested on 23 November 16, Research Round 14, Sprint 2</li>
+                      <li><a href="{{ herokuV6Url }}/start">v6</a></li>
+                      <li><a href="{{ herokuV5Url }}/start">v5</a></li>
+                      <li><a href="{{ herokuV4Url }}/start">v4</a></li>
+                      <li><a href="{{ herokuV3Url }}/start">v3</a></li>
+                      <li><a href="{{ herokuV2Url }}/start">v2</a></li>
+                      <li><a href="{{ herokuV1Url }}/v1/start/divorce">v1</a></li>
+                    </ul>
+
+                  </div>
+                </details>
+
+              </div>
+              <div class="column-third">
+
+                <aside class="govuk-related-items" role="complementary">
+                  <h2 class="heading-medium" id="subsection-title">Controls</h2>
+                  <nav role="navigation" aria-labelledby="subsection-title">
+                    <ul class="font-xsmall">
+                      <li><a class="secondary-button" href="/clear-session">Clear the session</a></li>
+                      <li>
+                        <form action="/flags" method="post">
+                          {% if flags.validation %}
+                          <input type="hidden" name="validation" value="false">
+                          <input type="submit" value="Disable Validation" class="secondary-button">
+                          {% else %}
+                          <input type="hidden" name="validation" value="true">
+                          <input type="submit" value="Enable Validation" class="secondary-button">
+                          {% endif %}
+                        </form>
+                      </li>
+                    </ul>
+                  </nav>
+                </aside>
+
+               
+
+                
+            </aside>
+<aside class="govuk-related-items" role="complementary">
+                  <h2 class="heading-medium" id="subsection-title">Previous Releases</h2>
+                  <!--<p class="form-hint">No release snapshots are available</p>-->
+
+                <h3 class="heading-small">Print and Post</h3>
+                  <p class="form-hint">January 2017</p>
+                <nav role="navigation" aria-labelledby="subsection-title">
+                  <ul class="font-xsmall">
+                      <li><a href="{{herokuPrintAndPostRelease}}/start">Prototype</a></li>
+                  </ul>
+                </nav>
+                <hr />
+                <h3 class="heading-small">Submit online + Pay</h3>
+                  <p class="form-hint">April 2017</p>
+                  <ul class="font-xsmall">
+                      <li><a href="{{herokuSubmitOnlinePayRelease}}/start">Prototype</a></li>
+                  </ul>
+                <hr />
+                
+            </aside>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {% endblock %}
+    {% macro checked(isChecked, answer) %}
+    {%if isChecked == answer %}
+    checked
+    {% endif %}
+    {% endmacro %}

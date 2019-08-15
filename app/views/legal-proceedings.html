@@ -1,0 +1,123 @@
+{% extends "question.html" %}
+{% block question %}
+Other court cases related to your marriage, property or children
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+
+<p class="text">
+	The court needs to know if there are, or have ever been, any other legal proceedings related to your marriage, property or children. 
+</p>
+
+<p class="text">
+	This includes any proceedings that are still ongoing, have finished or which have been abandoned. 
+</p>
+
+<p class="text">
+	Include proceeedings that are between you and your {{ petsHusbandOrWife() }}, and between yourselves and third parties.
+</p>
+
+<h3 class="heading-medium">Have you ever been involved in any court cases relating to your marriage, property or children?</h3>
+
+<div class="form-group">
+	<fieldset class="inline">
+
+		<legend class="visually-hidden">{{ question }}</legend>
+		<div class="multiple-choice" data-target="case-details">
+			<input id="legal-proceedings-yes" type="radio"
+						 name="legalProceedings" value="Yes" {{ checked(fields.legalProceedings.value, 'Yes') }}a>
+			<label for="legal-proceedings-yes" >Yes</label>
+		</div>
+		<div class="multiple-choice">
+			<input id="legal-proceedings-no" type="radio"
+						 name="legalProceedings" value="No" {{ checked(fields.legalProceedings.value, 'No') }}>
+			<label for="legal-proceedings-no">No</label>
+		</div>
+	</fieldset>
+</div>
+
+<div id="case-details" class="form-group panel js-hidden">
+
+ <h4 class="heading-small">Provide further details</h4>
+
+<p class="text">
+You should try to include:
+	</p>
+
+<ul class="list list-bullet">
+		<li>case numbers</li>				
+		<li>if they're still ongoing or if they've finished</li>	
+		<li>what they are or were about</li>
+		<li>names of those involved</li>
+		<li>name of the court and the country it's in</li>
+		<li>date that the proceedings began and of any future hearings</li>
+		<li>details of any orders that were made</li>
+
+</ul>
+
+	<!-- <label class="form-label-bold" for="case-numbers-textarea">
+			Case Numbers
+	</label>
+<textarea class="form-control" id="case-numbers-textarea" rows="1" name="case-numbers" type="text" style="width: 100%"></textarea>
+</br> -->
+	<label class="form-label-bold" for="case-details-textarea">
+			Details of the court cases
+	</label>
+<textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+<br />
+<div class="form-group">
+<fieldset class="form-group inline {{ 'form-group-error' if fields.legalProceedingsRelated.error }}" >
+                <legend class="form-label-bold text">The proceedings are related to our:</legend>
+                <div class="multiple-choice">
+                    <input id="{{content.marriage}}"
+                            name="legalProceedingsRelated[]"
+                            type="checkbox"
+                            value="marriage"
+                            {% for related in  fields.legalProceedingsRelated.value %}
+                              {{ 'checked' if related === content.marriage }}
+                            {% endfor %}/>
+                    <label for="{{content.marriage}}">
+                        marriage
+                    </label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="{{content.children}}"
+                            name="legalProceedingsRelated[]"
+                            type="checkbox"
+                            value="{{content.children}}"
+                            {% for related in  fields.legalProceedingsRelated.value %}
+                              {{ 'checked' if related === content.children }}
+                            {% endfor %}/>
+                    <label for="{{content.children}}">
+                        children
+                    </label>
+                </div>
+                <div class="multiple-choice">
+                    <input id="{{content.property}}"
+                            name="legalProceedingsRelated[]"
+                            type="checkbox"
+                            value="{{content.property}}"
+                            {% for related in  fields.legalProceedingsRelated.value %}
+                              {{ 'checked' if related === content.property }}
+                            {% endfor %}/>
+                    <label for="{{content.property}}">
+                        property
+                    </label>
+                </div>
+
+            </fieldset>
+</div>
+</div>
+
+{% endblock %}
+
+{% macro reference(refId) %}
+<input class="form-control"
+			 name="r{{ refId }}"
+			 type="text"
+			 value="{{ fields[refId].value }}"
+			 maxlength="1"
+			 title="reference number {{ refId }}">
+{% endmacro %}

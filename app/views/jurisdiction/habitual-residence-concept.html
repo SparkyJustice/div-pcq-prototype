@@ -1,0 +1,74 @@
+{% extends "question.html" %}
+
+{% block question %}
+Check if you can get a divorce in England and Wales
+{% endblock %}
+{% block form %}
+
+
+<p class="text">
+  You must have some connection to England or Wales for the court to have the jurisdiction (the legal power) to grant you a divorce.
+</p>
+
+<p class="text">
+  Answer the following questions to find out your connections.    
+</p>
+
+
+<!-- <p class="text">
+  You must be legally connected to England or Wales for the court to be able to grant you a divorce (known as 'jurisdiction').
+</p> 
+
+<p class="text">
+  Answer the following questions to find out how you're legally connected to England or Wales.    
+</p> -->
+
+  <h3 class="heading-medium">Is your life mainly based in England or Wales?</h3>
+
+<div class="form-group">
+  <fieldset class="inline">
+
+    <legend class="visually-hidden">Is your life mainly based in England or Wales?</legend>
+
+  <p class="text">
+    This may include working, owning property, having children in school, and your main family life taking place in England or Wales.
+  </p>
+
+  <div class="multiple-choice" data-target="habitual-residency-respondent">
+      <input id="habitualResidence-yes" type="radio"
+             name="habitualResidence" value="Yes" {{ checked(session.jurisdiction.habitualResidence, 'Yes') }}>
+      <label for="habitualResidence-yes">Yes</label>
+  </div>
+  <div class="multiple-choice" data-target="habitual-residency-respondent">
+      <input id="habitualResidence-no" type="radio"
+             name="habitualResidence" value="No" {{ checked(session.jurisdiction.habitualResidence, 'No') }}>
+      <label for="habitualResidence-no">No</label>
+  </div>
+  </fieldset>
+</div>
+
+
+<div id="habitual-residency-respondent" class="js-hidden">
+<div class="form-group">
+  <fieldset class="inline">
+      <legend class="visually-hidden">Is your {{ petsHusbandOrWife() }}'s life mainly based in England or Wales?</legend>
+      <h3 class="heading-medium" style="margin-top: 0px;">Is your {{ petsHusbandOrWife() }}'s life mainly based in England or Wales?</h3>
+  <p class="text">
+    This may include working, owning property, having children in school, and their main family life taking place in England or Wales.
+  </p>
+
+    <div class="multiple-choice">
+      <input id="respHabitualResidence-yes" type="radio"
+             name="respHabitualResidence" value="Yes" {{ checked(session.jurisdiction.respHabitualResidence, 'Yes') }}>
+      <label for="respHabitualResidence-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="respHabitualResidence-no" type="radio"
+             name="respHabitualResidence" value="No" {{ checked(session.jurisdiction.respHabitualResidence, 'No') }}>
+      <label for="respHabitualResidence-no">No</label>
+    </div>
+  </fieldset>
+</div>
+</div>
+
+{% endblock %}

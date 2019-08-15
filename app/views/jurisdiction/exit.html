@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block content %}
+<main id="content" role="main">
+    <div class="column-two-thirds">
+      <a class="link-back" href="#" onclick="javascript:history.go(-1)">Back</a>
+
+
+      <h1 class="heading-large">
+        You can't apply for a divorce in England or Wales
+      </h1>
+
+      <p class="text">
+        Your answers indicate that the courts of England and Wales do not have the jurisdiction to grant you a divorce.
+      </p>
+
+      <p class="text">
+      	If you or your husband or wife are habitually resident in, or are both nationals of, another country in the EU (except Denmark) one of you may be able to make an application for divorce there.
+      </p>
+
+     <p class="text">
+      	If you are in any doubt about this you should seek legal advice.
+      </p>
+
+
+    </div>
+</main>
+
+{% endblock %}

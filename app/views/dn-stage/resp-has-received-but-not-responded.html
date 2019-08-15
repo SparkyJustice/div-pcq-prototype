@@ -1,0 +1,41 @@
+{% extends "question.html" %}
+{% block question %}
+Do you think your {{ petsHusbandOrWife() }} is deliberately not responding?
+
+{{ question }}
+{% endblock %}
+
+{% block form %}
+
+
+
+<p class="text">
+</p>
+
+<div class="form-group">
+	<fieldset class="inline">
+
+		<legend class="visually-hidden">{{ question }}</legend>
+		<div class="multiple-choice">
+			<input id="has-received-but-not-responded-yes" type="radio"
+						 name="dnStageRespHasReceivedButNotResponded" value="Yes" {{ checked(fields.dnStageRespHasReceivedButNotResponded.value, 'Yes') }}a>
+			<label for="has-received-but-not-responded-yes" >Yes</label>
+		</div>
+		<div class="multiple-choice" data-target="case-details">
+			<input id="has-received-but-not-responded-no" type="radio"
+						 name="dnStageRespHasReceivedButNotResponded" value="No" {{ checked(fields.dnStageRespHasReceivedButNotResponded.value, 'No') }}>
+			<label for="has-received-but-not-responded-no">No</label>
+		</div>
+	</fieldset>
+</div>
+
+{% endblock %}
+
+{% macro reference(refId) %}
+<input class="form-control"
+			 name="r{{ refId }}"
+			 type="text"
+			 value="{{ fields[refId].value }}"
+			 maxlength="1"
+			 title="reference number {{ refId }}">
+{% endmacro %}

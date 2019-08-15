@@ -1,0 +1,23 @@
+{% extends "genericError.html" %}
+
+{% block error_heading %}
+Sorry, you can’t pay right now
+{% endblock %}
+{% block error_content %}
+
+<p class="text">
+	Your application has been submitted, but you can't pay right now.
+</p>
+
+<p class="text">
+	We’re working on fixing the problem. Please sign in to <a href="/start">your account</a> later on and try to pay again.
+
+<p class="text">
+	You can contact us if you need help with your divorce application.
+</p>
+<p class="text">
+<h2 class="heading-medium">Contact us</h2>
+Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br />
+Email: <a href="mailto:divorce@justice.gov.uk">divorce@justice.gov.uk</a>
+</p>
+{% endblock %}

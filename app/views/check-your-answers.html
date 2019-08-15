@@ -1,0 +1,371 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main id="content" class="check-your-answers" role="main">
+
+  <h1 class="heading-large">
+    Check your answers
+  </h1>
+
+  <table>
+    <tbody>
+        <h2 class="heading-medium"></h2>
+        <tr>
+            <td>Who you're divorcing</td>
+            <td>My {{ petsHusbandOrWife() }} </td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Date of marriage</td>
+            <td> {{ session.marriageDate }}</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr class="last-in-section">
+            <td>Married in England or Wales</td>
+            <td>England</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+            <tr><td colspan="3">
+  <h2 class="heading-medium">How you're connected to England and Wales</h2>
+                </td></tr>
+        <tr class="last-in-section">
+            <td>How you're connected to England and Wales</td>
+            <td>
+                <ul class="bullet list-bullet">
+                    {% if session.jurisdiction.habitualResidence == "Yes" %}
+                    <li>
+                        My life{% if session.jurisdiction.respHabitualResidence == "Yes" %} and my {{ petsHusbandOrWife() }}'s life{% endif %} is mainly based in England and Wales.
+                    </li>
+                    {% endif %}
+                    {% if session.jurisdiction.domiciled == "Yes" %}
+                    <li>My domicile{% if session.jurisdiction.respDomiciled == "Yes" %} and my {{ petsHusbandOrWife() }}'s domicile{% endif %} is in England and Wales.</li>
+                    {% endif %}
+                    {% if session.jurisdiction.howLongHasrespLivedHere == "12MonthsOrMore" %}
+                    <li>I have been living in England or Wales 12 months or more.</li>
+                    {% elif session.jurisdiction.howLongHasPetLivedHere == "6MonthsOrMore"%}
+                    <li>I have been living in England or Wales 6 months or more.</li>
+                    {% elif session.jurisdiction.howLongHasPetLivedHere == "lessThan6" %}
+                    <li>I have been living in England or Wales for less than 6 months.</li>
+                    {% elif session.jurisdiction.howLongHasPetLivedHere == "notLivingHere" %}
+                    <li>I do not live in England or Wales.</li>
+                    {% endif %}
+                    <!-- The following items are the plain English version of any of the additional checkboxes they might have ticked -->
+                    {% if session.jurisdiction.conditions.b == "Yes" %}
+                    <li>My {{ petsHusbandOrWife() }} and I were last habitually resident in England or Wales and 
+                    {% if session.jurisdiction.howLongHasPetLivedHere == "" %} one of us still lives there.</li>
+                    {% else %}
+                        <!-- If the petitioner has said they are not living here, then they will not be eligible to be the 
+                        'one' referred to in this question who still lives here.
+                         However, the condition could still be met if the respondent is the 'one of us' who still lives there.-->
+                        {% if session.jurisdiction.howLongHasPetLivedHere == "notLivingHere" %} my {{ petsHusbandOrWife() }} still lives there.</li>
+                        {% else %} I still live there.</li>
+                        {% endif %}
+                    {% endif %}
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.g == "Yes" %}
+                    <li>I or my {{ petsHusbandOrWife() }} are domiciled in England or Wales, and neither of us are nationals of, or habitually resident in, another country in the EU (except Denmark)</li>
+                    {% endif %}
+                    <!-- The following items are represented by the answers from the wizard and are deliberately omitted
+
+                    <li>My husband and I are both habitually resident in England or Wales</li>
+                    <li>My husband is habitually resident in England or Wales</li>
+                    <li>I'm habitually resident in England or Wales and have lived here for at least a year</li>
+                    <li>I'm domiciled and habitually resident in England or Wales and have lived here for at least six months</li>
+                    <li>My husband and I are both domiciled in England or Wales</li>
+
+                    -->
+                </ul>
+                <p>
+<details role="group">
+    <summary role="button" aria-controls="details-content-0" aria-expanded="true">
+    <span class="summary font-small">What this means</span>
+    </summary>
+    <div class="panel panel-border-narrow font-small text" id="details-content-0" aria-hidden="false"> 
+        <p class="text">
+       Your answers indicate that you have the following connections to England and Wales. You are the 'petitioner', and your {{ petsHusbandOrWife() }} is the 'respondent'.
+    <ul class="bullet list-bullet">
+                    {% if session.jurisdiction.conditions.a == "Yes" %}
+                    <li>The Petitioner and Respondent are habitually resident in England and Wales.</li>
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.b == "Yes" %}
+                    <li>The Petitioner and Respondent were last habitually resident in England and Wales and the 
+                        {% if session.jurisdiction.howLongHasPetLivedHere == "" %} [Petitioner*] [or] [the Respondent*] still reside there (*specify as appropriate).</li>
+                        {% else %}
+                            <!-- If the petitioner has said they are not living here, then they will not be eligible to be the 
+                            'one' referred to in this question who still lives here.
+                             However, the condition could still be met if the respondent is the 'one of us' who still lives there.-->
+                            {% if session.jurisdiction.howLongHasPetLivedHere == "notLivingHere" %} the respondent still resides there.</li>
+                            {% else %} the petitioner still resides there.</li>
+                            {% endif %}
+                        {% endif %}
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.c == "Yes" %}
+                    <li>The Respondent is habitually resident in England and Wales.</li>
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.d == "Yes" %}
+                    <li>The Petitioner is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the petition.</li>
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.e == "Yes" %}
+                    <li>The Petitioner is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the petition</li>
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.f == "Yes" %}
+                    <li>(in a matrimonial case only) The Petitioner and Respondent are both domiciled in England and Wales</li>
+                    {% endif %}
+                    {% if session.jurisdiction.conditions.g == "Yes" %}
+                    <li>The court has jurisdiction other than under the Council Regulation on the basis that no court of a Contracting State has jurisdiction under the Council Regulation and the Petitioner Respondent is domiciled in England and Wales on the date when this application is issued</li>
+                    {% endif %}
+    </ul>
+    </div>
+</details>
+                </p>
+            </td>
+            <td><a class="link" href="{% if session.jurisdiction.addMoreInterstitial == "Yes" %}/jurisdiction/last-resort{% else %}/jurisdiction/habitual-residence-concept{% endif %}">
+                Change
+            </a></td>
+        </tr>
+            <tr>
+                <td colspan="3">
+  <h2 class="heading-medium">About you and your {{ petsHusbandOrWife() }}</h2>
+                </td>
+            </tr>
+      <tr>
+        <td>Your current name</td>
+        <td>{{ session.petCurrentFirstName | capitalize }} {{ session.petCurrentLastName | capitalize }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Your name on the marriage certificate</td>
+          <td>{{ session.petMarriageCertFirstName | capitalize }} {{ session.petMarriageCertLastName | capitalize }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Current address</td>
+        <td>
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+        </td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Email address</td>
+          <td>{{ session.emailAddress }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Mobile phone number</td>
+          <td>{{ session.mobileNumber }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>How your contact details can be shared</td>
+        <td>Yes, share my contact details</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Your correspondence address
+        </td>
+        <td>
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+        </td>
+        <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Address last lived with {{ petsHusbandOrWife() }} at</td>
+        <td>
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+        </td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Your {{ petsHusbandOrWife() }}'s current name</td>
+        <td>{{ session.respCurrentFirstName | capitalize }} {{ session.respCurrentLastName | capitalize }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Your {{ petsHusbandOrWife() }}'s name on the marriage certificate</td>
+          <td>{{ session.respMarriageCertFirstName | capitalize }} {{ session.respMarriageCertLastName | capitalize }}</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Your {{ petsHusbandOrWife() }}'s home address</td>
+        <td>
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+        </td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Your {{ petsHusbandOrWife() }}'s correspondence address</td>
+        <td>
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+        </td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr class="last-in-section">
+        <!-- <td>Your {{ petsHusbandOrWife() }} 's solicitor's name, firm, and address</td>
+        <td>
+            John Morgan <br />
+            Morgan Stanton Associates <br />
+            <address>
+  {% for key, addressLine in session.petitioner.home %}
+    {{ addressLine }}
+    {{'<br>' | safe if addressLine }}
+  {% endfor  %}
+            </address>
+            <br />
+        </td><td><a class="link" href="">Change </a></td>
+      </tr> -->
+            <tr><td colspan="3">
+  <h2 class="heading-medium">About your divorce</h2>
+                </td></tr>
+      <tr>
+        <td>Reason for divorce</td>
+        <td>Behaviour</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Examples of your {{ petsHusbandOrWife() }}'s behaviour</td>
+        <td>
+            <ul class="list list-bullet">
+                <li>{{ session.unreasonable.unReasonableAllegation1 }} </li>
+                <li>{{ session.unreasonable.unReasonableAllegation2 }} </li>
+                <li>{{ session.unreasonable.unReasonableAllegation3 }} </li>
+            </ul>
+        </td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <!-- < --><!-- tr>
+          <td>Name of the person with whom the adultery was committed</td>
+          <td></td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Address of the person with whom the adultery was committed</td>
+          <td></td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>What you know about the adultery</td>
+          <td></td>
+          <td><a class="link" href="">Change </a></td>
+      </tr> -->
+      <!-- <tr>
+          <td>Separation date</td>
+          <td></td>
+          <td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+          <td>Description of the desertion</td>
+          <td></td>
+          <td><a class="link" href="">Change </a></td>
+      </tr> -->
+      <tr>
+        <td>Other court cases you've been involved in</td>
+        <td>No</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr>
+        <td>Applying for a financial order</td>
+        <td>Yes</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr class="last-in-section">
+        <td>Applying to claim the divorce costs</td>
+        <td>Yes</td><td><a class="link" href="">Change </a></td>
+      </tr>
+            <!-- <tr><td colspan="3"> -->
+  <!-- <h2 class="heading-medium">Payment</h2> -->
+                <!-- </td></tr> -->
+                {% if session.wantsHelpWithFees == "Yes" %}
+        <tr>
+            <td>Help with Fees reference number</td>
+            <td>{{ session.helpWithFeesReference }} </td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        {% else %}
+        <!-- <tr>
+            <td>Do you want help paying your application fee?</td>
+            <td>No</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr> -->
+        {% endif %}
+      <!-- <tr>
+        <td>How do you want to pay your application fee?</td>
+        <td>By card</td><td><a class="link" href="">Change </a></td>
+      </tr>
+      <tr class="last-in-section">
+        <td>What time of day would you prefer to be called?</td>
+        <td>In the morning (10am to 12pm)</td><td><a class="link" href="">Change </a></td>
+      </tr> -->
+<!-- Taking these out unless we really need them -->
+      
+   </tbody>
+  </table>
+  <br />
+    <div class="column-three-thirds" style="padding: 15 0px">
+        <form method="POST" accept-charset="utf-8" class="form">
+            <h2 class="heading-large">Confirm  the following</h2>
+            <p>You could be fined or imprisoned for contempt of court if you deliberately submit false information.</p>
+            <div class="form-group confirmation-container">
+              <div class="multiple-choice">
+                <input id="confirm" type="checkbox" name="confirm">
+                <label for="confirm">I confirm that:</label>
+              </div>
+                <ul class="list list-bullet">
+                    <li>I’m applying to the court for my marriage to be dissolved, to order my {{ petsHusbandOrWife() }} to pay some or all of the divorce costs, and to make financial orders to decide how our money and property will be split.</li>
+                  <li>I believe that the facts stated in this application are true.</li>
+                </ul>
+
+<br>
+<details>
+  <summary><span class="summary">What these statements are</span></summary>
+  <div class="panel panel-border-narrow">
+    <p>
+      The first statement is your formal application to the court (known as 'the prayer'). The second is your statement of truth.</p> 
+    </p>
+  </div>
+</details>
+
+            </div>
+            </div> 
+
+
+            <div class="form-group">
+<div class="notice">
+  <i class="icon icon-important">
+    <span class="visually-hidden">Warning</span>
+  </i>
+  <strong class="bold-small">
+Only submit your application if you can pay now. If you can’t pay now, save and close it and return to it later.
+  </strong>
+</div>
+              <input type="submit" class="button" value="Submit and pay">
+        </form>
+    </div>
+
+            {% if (session.isLoggedIn == "yes") %}
+            <div>
+                <a href="/save-return/goodbye/{{ path }}">Save and close </a>
+            </div>
+            {% endif %}
+    {% include "report-error.html" %}
+</main>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "question.html" %}
+{% block question %}
+Why did you change your application?
+{{ question }}
+{% endblock %}
+{% block form %}
+
+<p class="text">
+The court needs to know why you have made the following changes to your application:
+</p>
+
+<ul class="list list-bullet">
+    <li>Your examples supporting the reason for your divorce</li>
+    <li>The name of the co-respondent</li>
+</ul>
+
+
+<fieldset class="form-group">
+    <label for="case-details-textarea" class="form-label-bold">Explain the reasons for making these changes
+    </label>
+    <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+
+</fieldset>
+
+
+{% endblock %}

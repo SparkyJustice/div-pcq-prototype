@@ -1,0 +1,15 @@
+{% extends "exit.html" %}
+
+{% block heading %}
+You can't use desertion as your reason for divorce
+{% endblock %}
+
+{% block exit_reason %}
+<p class="text">
+    Your {{ petsHusbandOrWife() }} must have deserted you for at least 2 years for you to use it as your reason for divorce.
+</p>
+<p class="text">
+    If you want to proceed with your divorce application, you must <a href="../../reason-for-divorce">choose another
+    fact which applies to you</a>.
+</p>
+{% endblock %}

@@ -1,0 +1,556 @@
+<p class="text">
+{{ petsName() }} is applying for a decree of divorce from {{ respsName() }}, and for an order that {{ respsName() }} pay some or all of the divorce costs.
+</p>
+
+<h3 class="heading-small">Case number</h3>
+
+
+<p class="text">
+  12345678
+</p>
+
+
+<h3 class="heading-small">Applicant</h3>
+
+<p class="text">
+{{ petsName() }}
+</p>
+
+<h3 class="heading-small">Respondent</h3>
+
+<p class="text">
+{{ respsName() }}
+</p>
+
+
+{% if session.adultery.wishToName %}
+
+<h3 class="heading-small">Co-respondent</h3>
+
+<p class="text">
+  Melissa Hardy
+</p>
+
+{% endif %}
+<details>
+  <summary>
+    <span class="summary">What this means</span>
+  </summary>
+  <div class="panel panel-border-narrow">
+    <p class="text">
+      The applicant is the person who has applied for a divorce (legally known as the petitioner). The respondent is their husband or wife. 
+      {% if session.adultery.wishToName %}
+      The co-respondent is the person the applicant claims the respondent committed adultery with.
+      {% endif %}
+    </p>
+  </div>
+</details>
+
+<h2 class="heading-medium">About the marriage</h2>
+
+<h3 class="heading-small">Who the marriage is between</h3>
+
+<p class="text">
+  {{ petsName() }} (formerly {{ petsName() }} Jones) and {{ respsName() }} (as shown on the marriage certificate)
+</p>
+
+<h3 class="heading-small">Where the marriage took place</h3>
+
+<p class="text">
+  <!-- Marriage solemnized at  -->At the Holy Trinity Church, in the Parish of Normanton by Derby, in the County of Derby
+</p>
+
+<h3 class="heading-small">Date of marriage</h3>
+
+<p class="text">
+  10 October 2005
+</p>
+
+<details>
+  <summary>
+    <span class="summary">What this means</span>
+  </summary>
+  <div class="panel panel-border-narrow">
+    <p class="text">
+      These details are copied exactly from the marriage certificate, or a translation of the certificate if it's not in English. The names on the certificate are the names that the applicant and respondent used before the marriage. 
+    </p>
+  </div>
+</details>
+
+
+
+<h2 class="heading-medium">Why the court can deal with the case (jurisdiction)</h2>
+
+
+<!-- <h3 class="heading-small">Why the court can deal with the case</h3>
+ --><!-- 
+<p class="text">
+  {{ petsName() }} believes that they can apply for a divorce using this court because they have the following connections to England and Wales.
+</p> -->
+
+<p class="text">
+  The applicant and the respondent are both ‘habitually resident’ in England and Wales.
+</p>
+
+<p class="text">
+  There are no other ongoing, completed or abandoned court cases related to the marriage, property or children.
+</p>
+
+
+<details>
+  <summary>
+    <span class="summary">What this means</span>
+  </summary>
+  <div class="panel panel-border-narrow">
+
+    <p class="text">
+      The courts of England and Wales must have the jurisdiction (the legal power) to be able to grant a divorce. The applicant confirmed that the legal statement, or statements, given in the application apply to either, or both the applicant and respondent. 
+    </p>
+
+    <p class="text">
+      Each legal statement includes some or all of the following legal connections to England and Wales.
+    </p>
+
+    <!-- <ul class="bullet list-bullet">
+      <li>The applicant and the respondent are habitually resident in England and Wales.</li>
+      <li>The applicant and respondent were last habitually resident in England and Wales and the applicant or the respondent still reside there.</li>
+      <li>The applicant is habitually resident in England and Wales.</li>
+      <li>The applicant is habitually resident in England and Wales and has resided there for at least a year immediately prior to the presentation of the application.</li>
+      <li>The applicant is domiciled and habitually resident in England and Wales and has resided there for at least six months immediately prior to the petition.</li>
+      <li>The applicant and respondent are both domiciled in England and Wales.
+      </li>
+      <li>The courts of England and Wales have jurisdiction on a residual basis.</li>
+    </ul> -->
+
+    <h3 class="heading-small">Habitual residence</h3>
+
+    <p class="text">
+      If your lives are mainly based in England or Wales then you're what is legally known as 'habitually resident'. </p>
+      <p class="text">
+        This may include working, owning property, having children in school, and your main family life taking place in England or Wales.
+      </p>
+      <p class="text">
+        The examples above aren't a complete list of what makes up habitual residence, and just because some of them apply to you doesn’t mean you’re habitually resident. If you’re not sure, you should get legal advice.
+      </p>
+
+
+      <h3 class="heading-small">Domicile</h3>
+
+      <p class="text">
+        Your domicile is usually the place in which you were born, regard as your permanent home and to which you have the closest ties.
+      </p>
+      <p class="text">
+        However, domicile can be more complex if you or your parents have moved countries in the past. 
+      </p>
+      <p class="text">
+        When you're born, you acquire a <strong class="bold-small">domicile of origin</strong>. This is usually:
+      </p>
+      <ul class="list-bullet list">
+        <li>
+          the country your father considered his permanent home if your parents were married
+        </li>
+        <li>
+          the country your mother considered her permanent home if your parents were unmarried, or your father had died
+        </li>
+      </ul>
+      <p class="text">
+        If you leave your domicile of origin and settle in another country as an adult, the new country may become your <strong class="bold-small">domicile of choice</strong>.
+      </p>
+      <p class="text">
+        If you're not sure about your domicile you should get legal advice.
+      </p>
+
+     <h2 class="heading-small">Residual jurisdiction</h2>
+
+<p class="text">
+      The court may have residual jurisdiction if none of the other connections apply, and both of the following are true:
+    </p>
+
+    <ul class="list-bullet list">
+      <li>either the applicant or the respondent  are domiciled in England or Wales</li>
+      <li>neither the applicant nor the respondent are able to apply (on the basis of their nationality or residence) for a divorce in another member state of the EU</li>
+    </ul>
+
+    <p class="text">In addition, if the marriage is between a same-sex couple, the court may have residual jurisdiction if all the following apply:</p>
+
+    <ul class="list-bullet list">
+      <li>the applicant and the respondent married each other in England or Wales</li>
+      <li>neither the applicant nor the respondent is able to apply for a divorce in any other country</li>
+      <li>it would be in the interests of justice for the court to consider the application (for example, this may apply if the applicant’s or respondent’s home country doesn’t allow divorce between same-sex couples).</li>
+    </ul>
+
+        <p class="text">
+        However, residual jurisdiction can be more complex. If you’re not sure if this might apply to you, you should get legal advice.
+    </p>
+
+    </div>
+  </details>
+
+
+<h2 class="heading-medium">Reason for the divorce (and supporting information)</h2>
+
+<p class="text">
+  The marriage has broken down irretrievably. The applicant is relying on the following fact to support their application. 
+</p>
+
+{% if session.facts.reason == "adultery" %}
+
+<p class="text">
+The respondent committed adultery with the co-respondent, and the applicant finds it intolerable to live with the respondent.
+</p>
+
+{% endif %} 
+
+{% if session.facts.reason == "unreasonable-behaviour" %}
+
+
+<p class="text">
+The respondent has behaved in such a way that the applicant cannot reasonably be expected to live with the respondent.
+</p>
+
+{% endif %} 
+
+{% if session.facts.reason == "separation-2-years" %}
+
+<p class="text">
+The applicant and respondent have lived apart for a continuous period of at least two years immediately preceding the presentation of this application and the respondent consents to a decree being granted.
+</p>
+
+<p class="text">
+  The applicant stated that the respondent has not yet given their consent to a divorce.
+</p>
+
+<ul class="list-bullet list">
+  <li>
+    The applicant decided that the marriage was over on 3 September 2016.
+  </li>
+  <li>
+    The applicant and respondent started living apart on 2 September 2016.
+  </li>
+</ul>
+
+<p class="text">
+  The most recent date is considered legally to be the date of separation.
+</p>
+
+
+{% endif %} 
+
+{% if session.facts.reason == "separation-5-years" %}
+
+<p class="text">
+The applicant and respondent have lived apart for a continuous period of at least five years immediately preceding the presentation of this application.
+</p>
+
+<ul class="list-bullet list">
+  <li>
+    The applicant decided that the marriage was over on 3 September 2016.
+  </li>
+  <li>
+    The applicant and respondent started living apart on 2 September 2016.
+  </li>
+</ul>
+
+<p class="text">
+  The most recent date is considered legally to be the date of separation.
+</p>
+
+{% endif %} 
+
+{% if session.facts.reason == "desertion" %}
+
+<p class="text">
+  The respondent has deserted the applicant for a continuous period of at least two years immediately preceding the presentation of this application.
+</p>
+
+<p class="text">
+  The applicant has given the date of desertion as 2 September 2016.
+ </p>
+
+<p class="text">
+ The applicant stated that the respondent left without their agreement.
+</p>
+
+{% endif %}
+
+{% if session.facts.reason == "adultery" %}
+
+<p class="text">
+  This is supported by the following statement from the applicant.
+</p>
+
+<h3 class="heading-small">Where the adultery took place</h3>
+
+<p class="text">
+  "At a travelodge in Doncaster"
+</p>
+
+<h3 class="heading-small">When the adultery took place</h3>
+
+<p class="text">
+  "New years eve 2017"
+</p>
+
+<h3 class="heading-small">Description of the adultery</h3>
+
+<p class="text">
+  "I received several messages that night from Melissa Hardy boasting that she was with my husband and that they were having an affair. I confronted him about it the next day and he confessed and moved out of the house. We haven’t spoken since that day. I can provide text messages from both my Husband and Melissa Hardy confessing to the adultery."
+</p>
+
+<p class="text">
+  The applicant stated that some of this information was given to them by another person and provided the following details:
+</p>
+
+<p class="text">
+  "I was told by Melissa Hardy that they were in the travelodge."
+</p>
+
+
+{% endif %}
+
+{% if session.facts.reason == "unreasonable-behaviour" %}
+
+<p class="text">
+  This is supported by the following statement from the applicant.
+</p>
+
+<h3 class="heading-small">Description of the behaviour</h3>
+
+<p class="text">
+  "My {{ petsHusbandOrWife() }} is lazy and doesn't do anything around the house. He has refused to get a job and just sits watching TV all day. Despite the fact that I am the one who works to support us, my  {{ petsHusbandOrWife() }} controls the finances and will only give me money to buy food and things for the house. He not shown any affection towards me in years."  
+</p>
+
+{% endif %}
+
+{% if session.facts.reason == "desertion" %}
+
+<p class="text">
+  This is supported by the following statement from the applicant.
+</p>
+
+<h3 class="heading-small">Description of the desertion</h3>
+
+<p class="text">
+  "My {{ petsHusbandOrWife() }}  walked out on me 4 years ago. I don't why he left, or where he went. He has made no attempt to contact me since then"  
+</p>
+
+
+{% endif %}
+
+<details>
+    <summary>
+      <span class="summary">What this means</span>
+    </summary>
+    <div class="panel panel-border-narrow">
+      <p class="text">
+        The only legal ground for divorce in England and Wales is if the marriage has broken down irretrievably.
+      </p>
+
+      <p class="text">
+        The applicant had to choose a reason for the breakdown of the marriage (legally known as the 'fact') from the following list.
+      </p>
+
+      <h4 class="heading-small">Behaviour</h4>
+      <p>
+        The respondent has behaved in such a way that the applicant cannot reasonably be expected to live with them.
+      </p>
+
+      <p class="text">
+        The applicant must provide enough examples of the respondent's behaviour to satisfy the court that they can't reasonably be expected to live with them. The examples must be of the respondent's behaviour, and examples where the applicant and respondent are both at fault cannot be used. 
+      </p>
+
+      <p>
+        If the applicant lives with the respondent as a couple for more than 6 months after the most recent example of behaviour, the court will take this into account in its judgement of whether or not the marriage has broken down irretrievably. This could be over a single 6 month period, or if they live together on and off for several periods adding up to more than 6 months.
+      </p>
+
+
+      <h4 class="heading-small">Adultery</h4>
+
+      <p class="text">
+        The respondent committed adultery, and the applicant finds it intolerable to live with them.
+      </p>
+
+      <p class="text">
+        Adultery can only be used if it was with a member of the opposite sex.
+      </p>
+
+      <p>
+        The applicant has the option of naming the person with whom the respondent committed adultery (known as the co-respondent). Co-respondents are sent a copy of the divorce application and asked if they want to defend the allegations.
+      </p>
+
+      <p>
+        Adultery can't be used as a reason if the applicant and respondent lived together as a couple for more than 6 months after the applicant found out about it. This could have been in one go, or if they lived together on and off for several periods of time adding up to more than 6 months.
+      </p>
+
+      <h4 class="heading-small">Separated for 2 years with consent</h4>
+
+<!-- <p>
+     The applicant and respondent have lived apart for a continuous period of at least 2 years immediately preceding the presentation of the application, and the respondent consents to a decree being granted.
+   </p> -->
+
+   <p>
+    The applicant and respondent must have spent the past 2 years living apart to use this reason for divorce.
+  </p>
+
+  <p>
+    They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.
+  </p>
+
+  <p>
+    The respondent must give their consent to a divorce for this reason to be used.
+  </p>
+
+  <h4 class="heading-small">Separated for 5 years</h4>
+
+<!-- <p>
+      The applicant and respondent have lived apart for a continuous period of at least 5 years immediately preceding the presentation of the application.
+</p>
+-->
+<p>
+  The applicant and respondent must have spent the past 5 years living apart to use this reason for divorce.
+</p>
+
+<p>
+  They are allowed to have spent some time living together, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 5 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.
+</p>
+
+<h4 class="heading-small">Desertion</h4>
+<!-- <p>
+      The respondent has deserted the applicant for a continuous period of at least 2 years immediately preceding the presentation of the application.
+    </p> -->
+
+    <p>The respondent left the applicant without their agreement at least 2 years ago, and they have lived apart since.</p>
+
+    <p>
+      The applicant and respondent are allowed to have spent some time living together since the desertion, but only for up to 6 months (over one or more periods) and this time doesn’t count towards the 2 year period. They’ll need to have lived apart for longer to make up any time that they spent living together.
+    </p>
+
+    <p>
+      The respondent must have chosen to leave the applicant. For example, it can't be used if they have been sent to prison.
+    </p>
+
+  </div>
+</details>
+
+
+
+  <h2 class="heading-medium">Additional applications</h2>
+
+  <h3 class="heading-small">Costs order</h3>
+
+  <p class="text">
+    The applicant is also applying to the court to claim the costs of the divorce from the respondent
+  {% if session.claimCosts.claimFromCoRespondent == "Yes" %}
+  and the co-respondent {{ session.adultery.corespondent.firstName | capitalize }} {{ session.adultery.corespondent.lastName | capitalize }} 
+  {% endif %}
+  .
+  </p>
+
+  <details>
+    <summary>
+      <span class="summary">Help with costs orders</span>
+    </summary>
+    <div class="panel panel-border-narrow">
+
+      <h3 class="heading-small">Claiming costs</h3>
+
+      <p class="text">
+        You were asked if you want the court to order your husband (and the co-respondent if applicable) to pay some or all of the divorce costs. This could include the £550 application fee, other court fees, and their legal fees and expenses.</p>
+
+      <p class="text">
+         In divorces based on adultery, the applicant can also claim the costs from the person who allegedly committed adultery with the respondent (known as the co-respondent).
+      </p>
+
+    </div>
+
+  </details>
+
+
+  <h3 class="heading-small">Financial orders</h3>
+
+  <p class="text">
+ The applicant is also applying to the court for a financial order in which the court decides on the financial matters of the applicant and the respondent.
+  </p>
+
+  <details>
+    <summary>
+      <span class="summary">Help with financial orders</span>
+    </summary>
+    <div class="panel panel-border-narrow">
+
+      <p class="text">
+   You were asked if you want the court to decide how your property, money, pensions and assets will be split.
+
+      </p>
+
+      <p class="text">
+        These decisions are called 'financial orders'. Financial orders can also be made for children.
+      </p>
+
+
+      <p class="text">
+
+To formally start legal proceedings, you would need to complete another form (known as Form A) and pay a fee of £255. This means that you don't have to proceed with the financial order at this point.",
+      </p>
+
+      <h4 class="heading-small">Consent orders</h4>
+
+      <p class="text">
+        If both parties agree on how to split their money and property and want to make it legally binding, they can apply for a type of financial order called a 'consent order'.
+      </p>
+
+      <p class="text">
+       A solicitor would need to draft the consent order, and it would need to be sent to the court with a £50 fee.
+      </p>
+
+      <h4 class="heading-small">Orders for child maintenance</h4>
+
+      <p class="text">
+
+The court can only make financial orders for children under certain circumstances. You'll usually either need to come to an agreement with your husband (which you can then make legally binding with a consent order) or use the Child Maintenance Service.",
+
+      </p>
+    </div>
+  </details>
+
+
+<h2 class="heading-medium">Applicant's correspondence address</h2>
+<p class="response-text">
+<ul class="list">
+	29 Newham Road<br>
+	Doncaster<br>
+	UK<br>
+	DN9 4EX<br>
+</ul>
+</p>
+
+<h2 class="heading-medium">Respondent's correspondence address</h2>
+<p class="response-text">
+<ul class="list">
+	35 King St<br>
+	Doncaster<br>
+	UK<br>
+	DN3 2HG<br>
+</ul>
+</p>
+
+{% if session.adultery.wishToName %}
+<h2 class="heading-medium">Co-respondent's correspondence address</h2>
+<p class="response-text">
+<ul class="list">
+	3 Harrison Avenue<br>
+	Doncaster<br>
+	UK<br>
+	DN4 5AA<br>
+</ul>
+</p>
+{% endif %}
+{% block statement_of_truth %}
+  <h3 class="heading-medium">Statement of Truth</h3>
+<p class="text">
+"I believe that the facts stated in this application are true."
+</p>
+<p>
+<em>{{ petsName() }}</em>
+</p>
+{% endblock %}

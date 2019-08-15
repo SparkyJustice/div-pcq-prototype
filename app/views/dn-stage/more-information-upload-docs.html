@@ -1,0 +1,247 @@
+{% extends "question.html" %}
+
+{% block question %}
+Respond to the court's feedback
+{% endblock %}
+
+
+{% block form %}
+
+<p>
+  You need to respond to the court's feedback before your application can proceed.
+</p>
+
+<h3 class="heading-small">
+The court's feedback
+</h3>
+
+<div class="form-group-error">
+  <p>"Please provide more detail about the desertion. Also, upload another photo of your marriage certificate. I can't make out the detail on this one."
+  </p>
+</div>
+
+<!--   <h2 class="heading-medium">Provide more information</h2>
+ -->
+<label class="form-label-bold" for="case-details-textarea">
+      Your response
+  </label>
+<textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+<br />
+
+
+<!-- <h2 class="heading-medium">
+  Do you need to upload anything?
+</h2>
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="upload-documents">
+      <input id="continue-yes" type="radio"
+      name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+      <label for="continue-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="continue-no" type="radio"
+      name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+      <label for="continue-no">No</label>
+    </div>
+  </fieldset>
+</div>
+<div id="upload-documents" class="js-hidden"> -->
+ 
+ <h2 class="heading-medium">Do you need to upload more documents?</h2>
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="upload-documents">
+      <input id="continue-yes" type="radio"
+      name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+      <label for="continue-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+      <input id="continue-no" type="radio"
+      name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+      <label for="continue-no">No</label>
+    </div>
+  </fieldset>
+</div>
+
+
+<div id="upload-documents" class="js-hidden">
+  <h2 class="heading-medium">Upload documents</h2>
+
+
+  <p>
+    You can upload digital copies here, or take a picture with your phone if it has a camera.
+  </p>
+
+  <details>
+    <summary>
+      <span class="summary">How to take the picture</span>
+    </summary>
+    <div class="panel panel-border-narrow text">
+      <ol class="list list-number">
+        <li>
+          Place your certificate on a flat service in a well lit room. Use a flash if you need to.
+        </li>
+        <li>
+          Take a good quality picture of the entire certificate. You should be able to see its edges.
+        </li>
+        <li>
+          Check that the image is in focus. You must be able to read all the writing on the certificate, including the handwriting. Zoom in if you need to check this.
+        </li>
+        <li>
+          Send the picture to this device (eg by email) and save it.
+        </li>
+      </ol>
+    </div>
+  </details>
+
+<p>
+    The image must be of the entire document and has to be readable by court staff. You can upload most types of image.
+</p>
+
+
+
+
+
+  <div class="dropzone" id="doc_upload_zone" tabindex="0">
+    <div class="dz-default dz-message grid-row">
+      <div class="column-one-third arrow-icon">
+        <p></p>
+      </div>
+      <div class="column-one-half">
+        <p class="dz-message-copy">
+          <a href="#" class="faux-link" tabindex="-1">Choose a file or take a photo</a>
+                <span class="bold">or</span><br>
+                drag and drop files here
+        </p>
+      </div>
+    </div>
+  </div>
+  <h2 class="heading-small">Uploaded files</h2>
+  <div class="uploaded-files-wrapper">
+    <ol class="list uploaded-files">
+      <li class="no-files">No files uploaded</li>
+    </ol>
+  </div>
+
+
+  <div>
+    <details>
+      <summary>
+        <span class="summary">I can't upload my documents</span>
+      </summary>
+      <div class="panel panel-border-narrow text">
+
+
+       <h4 class="heading-small">How to send in your documents by post</h4>
+
+
+       <ol class="list list-number">
+        <li>Continue with this application. When you're finished you'll be given a reference number and the address of the Courts and Tribunals Service Centre.</li>
+        <li>Write the reference number on the back of each document.</li>
+        <li>Post all your documents to the service centre.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+<br />
+</div>
+
+
+
+
+<!-- 
+  <h2 class="heading-medium">Upload documents</h2>
+
+
+  <p>
+    You can upload digital copies here, or take a picture with your phone if it has a camera.
+  </p>
+
+  <details>
+    <summary>
+      <span class="summary">How to take the picture</span>
+    </summary>
+    <div class="panel panel-border-narrow text">
+      <ol class="list list-number">
+        <li>
+          Place your certificate on a flat service in a well lit room. Use a flash if you need to.
+        </li>
+        <li>
+          Take a good quality picture of the entire certificate. You should be able to see its edges.
+        </li>
+        <li>
+          Check that the image is in focus. You must be able to read all the writing on the certificate, including the handwriting. Zoom in if you need to check this.
+        </li>
+        <li>
+          Send the picture to this device (eg by email) and save it.
+        </li>
+      </ol>
+    </div>
+  </details>
+
+  <p>
+    The image must be of the entire document and has to be readable by court staff. You can upload most types of image.
+  </p> -->
+<!-- 
+
+  <div class="dropzone" id="doc_upload_zone" tabindex="0">
+    <div class="dz-default dz-message grid-row">
+      <div class="column-one-third arrow-icon">
+        <p></p>
+      </div>
+      <div class="column-one-half">
+        <p class="dz-message-copy">
+          <a href="#" class="faux-link" tabindex="-1">Choose a file or take a photo</a>
+          <span class="bold">or</span><br>
+          drag and drop files here
+        </p>
+      </div>
+    </div>
+  </div>
+  <h2 class="heading-small">Uploaded files</h2>
+  <div class="uploaded-files-wrapper">
+    <ol class="list uploaded-files">
+      <li class="no-files">No files uploaded</li>
+    </ol>
+  </div>
+ -->
+<!-- 
+  <div>
+    <details>
+      <summary>
+        <span class="summary">I can't upload my documents</span>
+      </summary>
+      <div class="panel panel-border-narrow text">
+
+
+       <h4 class="heading-small">How to send in your documents by post</h4>
+
+
+       <ol class="list list-number">
+        <li>Continue with this application. When you're finished you'll be given a reference number and the address of the Courts and Tribunals Service Centre.</li>
+        <li>Write the reference number on the back of each document.</li>
+        <li>Post all your documents to the service centre.</li>
+      </ol>
+    </div>
+  </details>
+</div>
+<br />
+</div> -->
+
+<!-- <div class="form-group">
+  <form method="POST" accept-charset="utf-8" class="form">
+    <input type="submit" class="button" value="Submit">
+  </form>
+</div> -->
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+<script src="/public/javascripts/custom-file-upload.js"></script>
+{% endblock %}

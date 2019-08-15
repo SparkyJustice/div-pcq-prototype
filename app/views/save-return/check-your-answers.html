@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<main id="content" class="check-your-answers" role="main">
+
+    <h1 class="heading-large">
+        Check your answers so far
+    </h1>
+
+    <h2 class="heading-medium">
+        Your divorce application
+    </h2>
+
+    <table>
+        <tbody>
+        <tr>
+            <td>Application type</td>
+            <td>Divorce</td>
+            <td><a class="link" href="/screening-questions/husband-or-wife">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Has your marriage broken down irretrievably (it can't be saved)?</td>
+            <td>Yes</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Do you have an address for your husband/wife?</td>
+            <td>Yes</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Who are you divorcing?</td>
+            <td>My husband</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>When did you get married?</td>
+            <td>13th January 2000</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Where did you marry your husband?</td>
+            <td>London</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Is your life mainly based in England or Wales?</td>
+            <td>Yes</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        <tr>
+            <td>Is your husband's life mainly based in England or Wales?</td>
+            <td>Yes</td>
+            <td><a class="link" href="">
+                Change
+            </a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <form method="POST" accept-charset="utf-8" class="form">
+        <div class="form-group">
+            <input type="submit" class="button" value="Continue">
+        </div>
+        <a href="/save-return/delete-application">Delete application</a>
+    </form>
+</main>
+{% endblock %}

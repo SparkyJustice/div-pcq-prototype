@@ -1,0 +1,27 @@
+{% extends "genericError.html" %}
+
+{% block error_heading %}
+Sorry, there’s a problem with this service
+{% endblock %}
+{% block error_content %}
+
+<p class="text">
+	We can’t confirm if your payment has been successful right now.
+</p>
+
+<p class="text">
+	Please wait for email confirmation that your payment has been successful. If you don't get the email, you'll need to sign in to <a href="/start">your account</a> again to pay the fee. 
+</p>
+
+<p class="text">
+	You can contact us if you need help with your divorce application.
+</p>
+
+
+
+<h2 class="heading-medium">Contact us</h2>
+<p class="text">
+Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm)<br />
+Email: <a href="mailto:divorce@justice.gov.uk">divorce@justice.gov.uk</a>
+</p>
+{% endblock %}

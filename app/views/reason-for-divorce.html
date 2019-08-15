@@ -1,0 +1,262 @@
+{% extends "question.html" %}
+
+{% block question %}
+  Choose a reason for your divorce
+{% endblock %}
+
+{% block form %}
+
+  <div class="text">
+
+    <p>
+
+    You must choose one of the following reasons (legally known as the 'facts') for your divorce. 
+  </p>
+
+    <!-- <p>
+    You've been separated for <strong class="bold-small">x year and x months</strong> and so can use the following reasons (legally known as the 'facts') for your divorce.</p> -->
+
+    <!-- <p class="text">
+      More reasons are available if you've been separated for 2 years.</p>
+       <p class="text"> -->
+
+    {% if showTwoYearsSeparation or showFiveYearsSeparation %}
+      <details>
+        <summary>
+        <span class="summary">What if we lived together after we separated?
+        </span>
+        </summary>
+
+        <div class="panel panel-border-narrow">
+
+          <h4 class="heading-small">Living in the same residence while separated</h4>
+
+          <p class="text">
+            You can still live in the same residence while separated, as long you're not living together as a couple, for example, you don't
+            eat, sleep or cook together.
+          </p>
+
+          <h4 class="heading-small">Living together as a couple after separating</h4>
+
+          </p>
+
+          <p class="text">
+            If you have lived together as a couple after separating, you can't use the
+            {% if showFiveYearsSeparation %}
+              2 years separation with consent, 5 years separation and desertion
+              {% elif showTwoYearsSeparation %}
+              2 years separation with consent, and desertion
+            {% endif %}
+            facts if it was for more than 6 months, during or after the separation period. This can have been either in a single period or
+            over several periods.
+          </p>
+          <p class="text">
+            Any time you spent living as a couple doesn't count towards the separation period, and you'll need to make up any time you were
+            together before you apply for a divorce.
+          </p>
+        </div>
+
+      </details>
+    {% endif %}
+
+    <div id="reasonForDivorce" class="form-group">
+    <fieldset>
+      <legend class="form-label-bold">Select one of the following reasons:</legend>
+
+       <div class="multiple-choice" data-target="unreasonable-behaviour-warning">
+        <input id="unreasonable-behaviour"
+               type="radio"
+               name="reason"
+               value="unreasonable-behaviour" 
+               {% if session.facts.reason == "unreasonable-behaviour" %}checked{% endif %}
+               >
+         <label class="form-label-bold block-label"
+             for="unreasonable-behaviour" >Behaviour<br>
+          <span class="font-small">
+            Your {{ petsHusbandOrWife() }} has behaved in such a way that you can't reasonably be expected to live with them any more
+          </span>
+         </label>
+      </div>
+
+      <!-- <div class="panel panel-border-narrow js-hidden" id="unreasonable-behaviour-warning">
+        <div class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="normal-small">
+            You can still use this reason if you continued to live together as a married couple afterwards; eg you still ate, slept, and cooked together. However, this can only have been for up to 6 months after the most recent example of behaviour - you'll have to choose another reason if it's more.
+
+          </strong>
+        </div>
+      </div> -->
+      {% if session.state != "dn-stage-resp-does-not-admit-adultery" %}
+      <div class="multiple-choice" data-target="adultery-warning">
+     
+        <input id="adultery"
+               type="radio"
+               name="reason"
+               value="adultery"
+               {% if session.facts.reason == "adultery" %}checked{% endif %}
+               >
+         <label class="form-label-bold block-label"
+             for="adultery">Adultery<br>
+        <span class="font-small">
+            Your {{ petsHusbandOrWife() }} has committed adultery <!-- with a {% if petsHusbandOrWife() == 'wife' %} man {% else %} woman {% endif %}  -->and you find it intolerable (unbearable) to live with them. You can only use adultery if it was with a member of the opposite sex
+
+        </span>
+      </label>
+      </div>
+      {% endif %}
+      <!-- <div class="panel panel-border-narrow js-hidden" id="adultery-warning">
+        <div class="notice">
+          <i class="icon icon-important">
+            <span class="visuallyhidden">Warning</span>
+          </i>
+          <strong class="normal-small">
+            You can still use this reason if you continued to live together as a married couple afterwards; eg you still ate, slept, and cooked together. However, this can only have been for up to 6 months after you found out about the adultery - you'll have to choose another reason if it's more.
+          </strong>
+        </div>
+      </div> -->
+
+      {% if showTwoYearsSeparation %}
+      {% if session.state != "dn-stage-resp-does-not-consent" %}
+      <div class="multiple-choice" data-target="separation-2-years-warning">
+        
+          <input id="separation-2-years"
+                 type="radio"
+                 name="reason"
+                 value="separation-2-years"
+               {% if session.facts.reason == "separation-2-years" %}checked{% endif %}
+               >
+          <label class="form-label-bold block-label"
+               for="separation-2-years" >Separated for 2 years with consent<br>
+              <span class="font-small">
+                  Your {{ petsHusbandOrWife() }} agrees to a divorce and you’ve been separated for the past 2 years
+              </span>
+        </label>
+        </div>
+
+        <div class="panel panel-border-narrow js-hidden" id="separation-2-years-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+              The court will ask your {{ petsHusbandOrWife() }} if they agree to a divorce. If they don't agree, your application will be rejected and you'll need to choose another reason.
+            </strong>
+
+          </div>
+        </div>
+      {% endif %}
+      {% endif %}
+      {% if showFiveYearsSeparation %}
+      <div class="multiple-choice">
+          <input id="separation-5-years"
+                 type="radio"
+                 name="reason"
+                 value="separation-5-years"
+               {% if session.facts.reason == "separation-5-years" %}checked{% endif %}
+               >
+           <label class="form-label-bold block-label"
+               for="separation-5-years">Separated for 5 years<br>
+        <span class="font-small">
+          You’ve been separated from your {{ petsHusbandOrWife() }} for the past 5 years
+        </span>
+        </label>
+      </div>
+      {% endif %}
+      {% if showDesertion %}
+        <div class="multiple-choice" data-target="desertion-warning">
+        
+          <input id="desertion"
+                 type="radio"
+                 name="reason"
+                 value="desertion"
+               {% if session.facts.reason == "desertion" %}checked{% endif %}
+               >
+          <label class="form-label-bold block-label"
+               for="desertion" >Desertion<br>
+      <span class="font-small">
+      Your {{ petsHusbandOrWife() }} abandoned you (left without your agreement) more than 2 years ago
+      </span>
+        </label>
+        </div>
+        <div class="panel panel-border-narrow js-hidden" id="desertion-warning">
+          <div class="notice">
+            <i class="icon icon-important">
+              <span class="visuallyhidden">Warning</span>
+            </i>
+            <strong class="normal-small">
+                Your {{ petsHusbandOrWife() }} must have chosen to leave you for this reason to be valid. For example, you can't use it if they have been sent to prison. </strong>
+
+          </div>
+        </div>
+      {% endif %}
+    </fieldset>
+    </div>
+    
+  <details>
+
+    <summary><span class="summary">
+        None of these apply to my situation
+</span></summary>
+
+    <div class="panel panel-border-narrow">
+
+      <p>
+      If you can't use any of the above reasons, you may be able to get a
+      <a href="https://www.gov.uk/legal-separation" target="_blank">legal separation</a> or
+      <a href="https://www.gov.uk/how-to-annul-marriage" target="_blank">annul your marriage</a>.
+    </p>
+
+{% if not showTwoYearsSeparation or not showFiveYearsSeparation %}
+
+<p class="bold-small">
+  Alternatively, in future you may be able to use the following
+
+</p>
+        {% if not showTwoYearsSeparation %}
+
+        <p class="text">
+
+        From {{ dateReasonsAvailable }}:</p>
+
+        <ul class="list list-bullet text">
+            <li><span class="text">Separated for 2 years with consent</span> - 
+            if you've been separated for at least 2 years, and your {{ petsHusbandOrWife() }} agrees to a divorce</li>
+            <li><span class="text">Desertion</span> - if your {{ petsHusbandOrWife() }} abandoned you (left without your agreement) more than 2 years ago</li>
+          </ul>
+
+        {% endif %}
+        {% if not showFiveYearsSeparation %}
+
+        <p class="text">
+          From {{ fiveYearsFromMarriage }}:
+        </p>
+
+        <ul class="list list-bullet text">
+          <li><span class="text">Separated for 5 years</span> - 
+            if you've been separated for 5 years or more
+          </li>
+        </ul>
+        {% endif %}
+
+    </div>
+    {% endif %}
+
+  </details>
+
+  </div>
+
+{% endblock %}
+
+{% macro reasonInfo(summary, details, id) %}
+
+  <details id={{ id }}>
+    <summary>{{ summary }}</summary>
+    <div>
+      <p class="text">{{ details }}</p>
+    </div>
+  </details>
+{% endmacro %}
+

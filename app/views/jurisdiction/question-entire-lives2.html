@@ -1,0 +1,41 @@
+{% extends "question.html" %}
+
+{% block question %}
+Do all of the following apply to you and your {{ petsHusbandOrWife() }}?
+{% endblock %}
+
+{% block form %}
+
+<div class="panel-border-wide">
+
+  <p class="bold-small">
+    You and your {{ petsHusbandOrWife() }}:
+  </p>
+
+  <ul class="list list-bullet">
+    <li class="bold-small">
+      were born in England or Wales
+    </li>
+    <li class="bold-small">
+      have lived your entire lives in England or Wales
+    </li>
+    <li class="bold-small">
+      intend to live in England or Wales for the rest of your life
+    </li>
+
+</div>
+<fieldset class="form-group inline">
+  <label for="livingquestion-yes" class="block-label">
+    <input id="livingquestion-yes" type="radio"
+           name="livingQuestion" value="Yes" {{ checked(session.jurisdiction.havelivedentirelife, 'Yes') }}>
+    Yes
+  </label>
+
+  <label for="livingquestion-no" class="block-label">
+    <input id="livingquestion-no" type="radio"
+           name="livingQuestion" value="No" {{ checked(session.jurisdiction.havelivedentirelife, 'No') }}>
+    No
+  </label>
+</fieldset>
+
+{% endblock %}

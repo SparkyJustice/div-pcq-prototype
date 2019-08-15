@@ -1,0 +1,37 @@
+{% extends "layout-email.html" %}
+
+{% block page_title %}
+{% if serviceName %} {{ serviceName }} {% endif %} - GOV.UK
+{% endblock %}
+
+{% block email_sender %}{{ super() }}{% endblock %}
+{% block email_date_time %}01 January 2017 at 11:08am{% endblock %}
+{% block email_recipient_name %}{{ petsName() }} {% endblock %}
+{% block email_recipient_email %}{{ petsEmail() }}{% endblock %}
+{% block email_subject %}The court has accepted your application
+{% endblock %}
+{% block content %}
+<!-- <p>
+Reference no: 12345678
+</p> -->
+<p>
+Dear {{ petsName() }},
+</p>
+
+<p class="text">
+	The court has accepted your application to 'dispense with service' and that your {{ petsHusbandOrWife() }} doesn’t have to be served the divorce application.
+</p>
+
+<p class="text">
+	You can now continue the divorce without their response.
+</p>
+
+<p class="text">
+	Sign in to your account to find out what you can do next.
+</p>
+<p>
+	 <a href="/IDAM/login?continue_url=/progress-bar/dispensed-with-service">https://www.divorce.reform.hmcts.net/sign-in</a>
+</p>
+
+{% endblock %}
+

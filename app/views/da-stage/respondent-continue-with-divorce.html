@@ -1,0 +1,40 @@
+{% extends "question.html" %}
+
+
+{% block question %}
+Do you want to finalise your divorce?
+{% endblock %}
+
+
+
+{% block form %}
+
+<p class="text">
+  The decree nisi made on 13 October 2017 will be made absolute and the marriage between Zoe Elizabeth Dante and John James Dante will be ended.
+</p>
+
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice">
+      <input id="continue-yes" type="radio"
+      name="continueWithDivorce" value="Yes" {{ checked(session.continueWithDivorce, 'Yes') }}>
+      <label for="continue-yes">Yes</label>
+    </div>
+    <div class="multiple-choice">
+
+      <input id="continue-no" type="radio"
+      name="continueWithDivorce" value="No" {{ checked(session.continueWithDivorce, 'No') }}>
+      <label for="continue-no">No</label>
+    </div>
+  </fieldset>
+</div>
+
+
+
+{% endblock %}
+
+{% block buttonValue %}
+Submit
+
+{% endblock buttonValue %}

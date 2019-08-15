@@ -1,0 +1,36 @@
+{% extends "question.html" %}
+{% block question %}
+How many children do you have?
+{{ question }}
+{% endblock %}
+
+{% block form %}
+<p class="text">
+      This information is optional and is gathered for the Office of National Statistics.
+</p>
+
+<fieldset class="form-group ">
+    <legend class="visually-hidden">
+        Number of children aged under 18
+    </legend>
+  <label class="form-label-bold" for="txt-number-children-under">
+        Number of children aged under 18
+    </label>
+    
+    <input class="form-control" id="txt-number-children-under" name="numberChildrenUnder" type="text" value="">
+  </fieldset>
+
+<fieldset class="form-group ">
+    <legend class="visually-hidden">
+        Number of children aged over 18
+    </legend>
+  <label class="form-label-bold" for="txt-number-children-over">
+        Number of children aged over 18
+    </label>
+    
+    <input class="form-control" id="txt-number-children-over" name="numberChildrenOver" type="text" value="">
+  </fieldset>
+
+
+{% endblock %}
+

@@ -1,0 +1,249 @@
+{% extends "layout.html" %}
+
+{% block page_title %}
+{{ serviceName }}
+{% endblock %}
+
+{% block proposition_header %}
+{% endblock %}
+
+{% block content %}
+
+<main id="content" role="main">
+  <div>
+    {% include "includes/phase_banner_beta.html" %}
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <h1 class="heading-large">Divorce Prototype</h1>
+<!--
+        <h2 class="heading-medium">Version 33</h2>
+        <p class="text">To be tested on 14th June 2018, Research round 40</p>
+-->
+{% if query.errorMessage %}
+<div class="error-summary" role="alert" aria-labelledby="error-summary-heading-example-1" tabindex="-1">
+    {{ query.errorMessage }}
+  </div>
+{% endif %}
+        <p class="text">
+          {% include "parameters_include.html" %}
+        </p>
+
+        <h3 class="heading-small">Work for January release</h3>
+
+        <ul class="list list-bullet">
+
+          <li><strong><a href="emails/generic">Generic email</a></strong></li>
+          <li><strong><a href="/progress-bar/generic">Generic landing page</a> </li>
+          <li><strong><a href="/progress-bar/application-submitted-awaiting-response">Landing page - petition submitted</a> </li>
+          <li><strong><a href="/progress-bar/application-issued">Landing page - petition issued</a> </li>
+          <li><strong><a href="/progress-bar/resp-defends-with-answer">Landing page for petitioner- answer submitted</a> </li>
+          <li><strong><a href="/aos/progress-bar/answer-submitted">Landing page for respondent- answer submitted</a> </li>
+          <li><a href="/emails/aos-no-consent">Respondent won't consent - Amendment journey</a></li>
+          <li><strong><a href="/emails/aos-not-admitting-adultery">DN - Respondent won't admit adultery - Amendment journey</a></strong></li>
+        </ul>
+
+</ul>
+<h3 class="heading-small">Petitioner - Application (D8)</h3>
+<ul class="list list-bullet">
+
+  <li>Application <strong><a href="start.html">Start</a> | </strong><a href="/IDAM/login?continue_url=/save-return/check-your-answers">Resume</a></li>
+  <li><strong><a href="emails/petition-submitted">Submitted</a></strong></li>
+  <li><strong><a href="emails/petition-issued">Issued</a></strong></li>
+  <li><strong><a href="/progress-bar/application-submitted-awaiting-response">Waiting for response (progress bar)</a></strong></li>
+</ul>
+<h3 class="heading-small">Respondent - AOS</h3>
+<ul class="list list-bullet">
+
+  <li><strong><a href="/aos/letters/invitation">Letter to the respondent</a> </li>
+  <li><strong><a href="/aos/start-page">Start page</a> </li>
+  <li><strong><a href="/aos/emails/confirm-email-address">Email - verify your email address</a> </li>
+  <li><strong><a href="/aos/progress-bar/respond">Progress bar / continue page</a> </li>
+  <li><strong><a href="https://tools.hmcts.net/confluence/pages/viewpage.action?pageId=616595704">New paper forms for AOS</a></strong></li>
+  <li><strong><a href="/emails/aos-no-response">DN - No response from respondent - Bailiff journey</a></strong></li>
+</ul>
+
+<h3 class="heading-small">Co-respondent - AOS (online version)</h3>
+<ul class="list list-bullet">
+
+  <li><strong><a href="/corespondent-aos/letters/invitation">Letter to the co-respondent</a> </li>
+  <li><strong><a href="/corespondent-aos/start-page">Start page</a> </li>
+  <li><strong><a href="/corespondent-aos/emails/confirm-email-address">Email - verify your email address</a> </li>
+  <li><strong><a href="/corespondent-aos/progress-bar/respond">Progress bar / continue page</a> </li>
+</ul>
+
+
+<h3 class="heading-small">Other AOS letters</h3>
+
+<ul class="list list-bullet">
+  <li><a href="/aos/letters/invitation-co-respondent">Letter to the co-respondent</a></li>
+  <li><a href="/aos/letters/invitation-paper-journey">Letter to the respondent (paper and AD journeys)</a></li>
+  <li><strong><a href="/aos/letters/solicitors-invitation-paper-journey">Letter to solicitor (paper journey)</a> </li> 
+</ul>
+
+<h3 class="heading-small">Respondent - rest of undefended journey</h3>
+
+<ul class="list list-bullet">
+  <li><strong><a href="/aos/emails/dn-p-has-applied">DN - P has applied</a> </li>
+  <li><strong><a href="/aos/emails/dn-coe">DN - application accepted (Cert of entitlement)</a> </li>
+  <li><strong><a href="/aos/emails/dn-granted">DN granted</a> </li>
+</ul>
+
+<h3 class="heading-small">Petitioner - Decree Nisi (Undefended)</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="emails/aos-not-defending">DN - R not defending (all other facts)</a></strong></li>
+  <li><strong><a href="emails/aos-consent-given">DN - R gives consent (2yrs-with-consent fact)</a></strong></li>
+</ul>
+<h3 class="heading-small">Petitioner - Decree Nisi (Defended)</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-not-admitting-adultery">DN - R not admitting adultery</a></strong></li>
+  <li><a href="/emails/aos-no-consent">DN - R not consenting (2yrs-with-consent fact)</a></li>
+  <li><a href="/emails/aos-defended">DN - R defending, waiting for answer</a></li>
+  <li><a href="/emails/defended-answer">DN - R defending, answer received</a></li>
+  <li><a href="/emails/defended-no-answer">DN - R defending, answer never arrived</a></li>
+</ul>
+<h3 class="heading-small">Petitioner - Decree Nisi (R not responding)</h3>
+<ul class="list list-bullet">
+  <li><strong><a href="/emails/aos-no-response">DN - No response from respondent</a></strong></li>
+  <li><strong><a href="/emails/aos-deemed-service">DN - application for deemed service accepted</a></strong></li>
+  <li><strong><a href="/emails/aos-dispensed-with-service">DN - application for dispensed with service accepted</a></strong></li>
+  <li><strong><a href="/emails/aos-bailiff-service-success">DN - bailiff successfully served</a></strong></li>
+  <li><strong><a href="/emails/aos-bailiff-service-success-continue">DN - bailiff successfully served, but respondent never responded</a></strong></li>
+</ul>
+<h3 class="heading-small">Petitioner - Decree Nisi (outcomes)</h3>
+<ul class="list list-bullet">
+  <li><a href="/emails/dn-submitted">DN - Application submitted</a></li>
+  <li><a href="/emails/dn-rejected-by-la">DN - Rejected by legal advisor</a></li>
+  <li><a href="/emails/aos-coe">DN - Application accepted (Cert of Entitlement)</a></li>
+  <li><a href="/emails/dn-announced">DN - Decree Nisi granted</a></li>
+</ul>
+
+<h3 class="heading-small">Petitioner - Decree Absolute</h3>
+<ul class="list list-bullet">
+  <li><a href="/emails/da-apply">DA - Apply for Decree Absolute</a></li>
+  <li><a href="/emails/da-blocked-fr">DA - Blocked due to ongoing financial remedy</a></li>
+  <li><a href="/emails/DA-granted">DA - Decree Absolute granted, divorce finalised</a></li>
+</ul>
+</ul>
+
+<h3 class="heading-small">Respondent - Decree Absolute</h3>
+
+<ul class="list list-bullet">
+  <li><a href="/emails/respondent-da-apply">DA - R can apply for DA</a></li>
+  <li><a href="/emails/respondent-da-blocked-fr">DA - Blocked due to ongoing financial remedy</a></li>
+  <li><a href="/emails/respondent-DA-granted">DA - R's DA granted</a></li>
+</ul>
+
+<details>
+
+  <summary><span class="summary">Previous versions</span></summary>
+
+  <div class="panel panel-border-narrow">
+
+
+    <h2 class="heading-medium">Previous versions:</h2>
+    <ul class="list list-bullet">
+                    <!-- I know why you're here! If you want to add new version numbers,
+                    make sure you update the variables in config.js and routes.js -->
+                    <li><a href="{{herokuV31Url}}">v31</a ><br/> Tested on 28th March 18, Research round 38, Sprint 32-33</li
+                      <li><a href="{{herokuV30Url}}">v30</a ><br/> Tested on 15th March 18, Research round 37, Sprint 31-32</li>
+                      <li><a href="{{herokuV29Url}}">v29</a ><br/> Tested on 1st March 18, Research round 36, Sprint 30-31</li>
+                      <li><a href="{{herokuV28Url}}">v28</a ><br/> Tested on 17 Jan 18, Research round 35, Sprint 28-30</li>
+                      <li><a href="{{herokuV27Url}}">v27</a ><br/> Tested on 14 Dec 17, Research round 34, Sprint 26-28</li>
+                      <li><a href="{{herokuV26Url}}">v26</a ><br/> Tested on 30 Nov 17, Research round 33, Sprint 25-27</li>
+                      <li><a href="{{herokuV25Url}}">v25</a ><br/> Tested on 8 Nov 17, Research round 32, Sprint 24-25</li>
+                      <li><a href="{{herokuV24Url}}">v24</a ><br/> Tested on 25 October 17, Research round 31, Sprint 23-24</li>
+                      <li><a href="{{herokuV23Url}}">v23</a ><br/> Tested on 11 October 17, Research round 30, Sprint 23</li>
+                      <li><a href="{{herokuV22Url}}">v22</a ><br/> Tested on 8 September 17, Research round 29, Sprint 19-20</li>
+                      <li><a href="{{herokuV21Url}}">v21</a ><br/> Tested on 9 August 17, Research round 28, Sprint 18</li>
+                      <li><a href="{{ herokuV20Url }}">v20</a ><br/> Tested on 26 July 17, Research round 27, Sprint 15-17</li>
+                      <li><a href="{{ herokuV19Url }}">v19</a ><br/> Tested on 07 June 17, Research round 26, Sprint 14</li>
+                      <li><a href="{{ herokuV18Url }}/start">v18 </a><br/> Tested on 24 May 17, Research round 25, Sprint 13</li>
+                      <li><a href="{{ herokuV17Url }}/start">v17</a ><br/> Tested on 10 May 17, Research round 24, Sprint 11/12</li>
+                      <li><a href="{{ herokuV16Url }}/start">v16</a ><br/> Tested on 19 April 17, Research round 23, Sprint 11</li>
+                      <li><a href="{{ herokuV15Url }}/start">v15</a ><br/> Tested on 05 April 17, Research round 22, Sprint 10</li>
+                      <li><a href="{{ herokuV14Url }}/start">v14</a ><br/> Tested on 22 March 17, Research round 21, Sprint 9</li>
+                      <li><a href="{{ herokuV13Url }}/start">v13</a>  <br/>Tested on 09 March 17, Research Round 20, Sprint 8</li>
+                      <li><a href="{{ herokuV12Url }}/start">v12</a>  <br/>Tested on 22 February 17, Research Round 19, Sprint 7</li>
+                      <li><a href="{{ herokuV11Url }}/start">v11</a>  <br/>Tested on 08 February 17, Research Round 18, Sprint 6</li>
+                      <li><a href="{{ herokuV10Url }}/start">v10</a>  <br/>Tested on 11 January 17, Research Round 17, Sprint 5</li>
+                      <li><a href="{{ herokuV9Url }}/start">v9</a>  <br/>  Tested on 21 December 16, Research Round 16, Sprint 4</li>
+                      <li><a href="{{ herokuV8Url }}/start">v8</a>  <br/>Tested on 07 December 16, Research Round 15, Sprint 3</li>
+                      <li><a href="{{ herokuV7Url }}/start">v7</a>  <br/>Tested on 23 November 16, Research Round 14, Sprint 2</li>
+                      <li><a href="{{ herokuV6Url }}/start">v6</a></li>
+                      <li><a href="{{ herokuV5Url }}/start">v5</a></li>
+                      <li><a href="{{ herokuV4Url }}/start">v4</a></li>
+                      <li><a href="{{ herokuV3Url }}/start">v3</a></li>
+                      <li><a href="{{ herokuV2Url }}/start">v2</a></li>
+                      <li><a href="{{ herokuV1Url }}/v1/start/divorce">v1</a></li>
+                    </ul>
+
+                  </div>
+                </details>
+
+              </div>
+              <div class="column-third">
+
+                <aside class="govuk-related-items" role="complementary">
+                  <h2 class="heading-medium" id="subsection-title">Controls</h2>
+                  <nav role="navigation" aria-labelledby="subsection-title">
+                    <ul class="font-xsmall">
+                      <li><a class="secondary-button" href="/clear-session">Clear the session</a></li>
+                      <li>
+                        <form action="/flags" method="post">
+                          {% if flags.validation %}
+                          <input type="hidden" name="validation" value="false">
+                          <input type="submit" value="Disable Validation" class="secondary-button">
+                          {% else %}
+                          <input type="hidden" name="validation" value="true">
+                          <input type="submit" value="Enable Validation" class="secondary-button">
+                          {% endif %}
+                        </form>
+                      </li>
+                    </ul>
+                  </nav>
+                </aside>
+
+                <aside class="govuk-related-items" role="complementary">
+                  <h2 class="heading-medium" id="subsection-title">Release Snapshots</h2>
+                  <p class="form-hint">No release snapshots are available</p>
+                <!-- HIDDEN ALL THESE OLD ONES
+                <h3 class="heading-small">Print and Post</h3>
+                <p class="text">This prototype reflects approximately what private beta users will see until the 'Submit Online & Pay' release (below) launches.</p>
+                  <br />
+                <nav role="navigation" aria-labelledby="subsection-title">
+                  <ul class="font-xsmall">
+                      <li><a href="{{herokuPrintAndPostRelease}}/start">Prototype Start</a></li>
+                      <p class="form-hint">username: divorce
+                      <br />password: access123</p>
+                  </ul>
+                </nav>
+                <hr />
+                <h3 class="heading-small">Submit online + Pay</h3>
+                <p class="text">This prototype reflects how the product should look when the following releases have been completed: </p>
+                <p class="text">Includes online submission, online payment, foreign marriage certificates, and document upload</p>
+                  <ul class="font-xsmall">
+                      <li><a href="https://tools.hmcts.net/jira/projects/DIV/versions/30554">Version Online Submission (Jira)</a></li>
+                      <li><a href="https://tools.hmcts.net/jira/projects/DIV/versions/30575">Version Online Payment (Jira)</a></li>
+                  </ul>
+                  <br />
+                <nav role="navigation" aria-labelledby="subsection-title">
+                  <ul class="font-xsmall">
+                      <li><a href="{{herokuSubmitOnlinePayRelease}}/start">Prototype Start</a></li>
+                      <p class="form-hint">username: divorce
+                      <br />password: access123</p>
+                  </ul>
+                </nav>
+              -->
+            </aside>
+
+          </div>
+        </div>
+      </div>
+    </main>
+
+    {% endblock %}
+    {% macro checked(isChecked, answer) %}
+    {%if isChecked == answer %}
+    checked
+    {% endif %}
+    {% endmacro %}

@@ -1,0 +1,181 @@
+{% extends "lib/layouts/done.html" %}
+{% block heading %}Response sent{% endblock %}
+{% block reference_number %}1234 - 5678 - 9012 - 4567{% endblock %}
+{% block confirmation_email_address %}{{ respsEmail() }}{% endblock %}
+{% block paymentConfirmation %} {% endblock %}
+{% block progress_list %}
+    {{ reformProgressList({
+      one: {
+      label: "Your husband/wife applied",
+      complete: true
+    },
+    two: {
+    label: "You responded",
+    complete: true
+    },
+    three: {
+    label: "Your husband/wife applies for a decree nisi",
+    current: true
+    },
+    four: {
+    label: "The divorce is finalised"
+    }
+    })
+    }}
+{% endblock %}
+{% block whatToDoNow %}
+    {% if session.aos.defend != "No" %}
+        <h2 class="heading-medium">What to do now</h2>
+        <p class"text">
+            To defend the divorce you need to submit the '<a href="http://hmctsformfinder.justice.gov.uk/HMCTS/GetForm.do?court_forms_id=2651" target="_blank">answer to a divorce application</a>' form. The deadline for this is 21 days from the date that you first signed in to respond to the application.
+        </p>
+
+        <p class"text">
+        Download and fill in the paper form.
+        </p>
+
+        <p class"text">
+        Post the form to:
+        </p>
+
+        <ul class="list bold-small">
+        <li>East Midlands Regional Divorce Centre</li>
+        <li>PO Box 10447</li>
+        <li>Nottingham</li>
+        <li>NG2 9QN</li>
+        </ul>
+
+        <p class"text">
+        You'll have to pay a £245 fee when you submit the form.
+        </p>
+
+        <p class"text">
+        You'll probably have to go to a hearing with your {{ respsHusbandOrWife() }} to try to come to an agreement over the divorce.
+        </p>
+
+        <p class"text">
+        If you don't submit your answer before the deadline, then your {{ respsHusbandOrWife() }} can continue the divorce as if you hadn't said that you intended to defence the divorce.
+        </p>
+    {% else %}
+    <!-- Nothing to do next if you're not defending -->
+    {% endif %}
+{% endblock %}
+{% block whatNext %}
+    {% if session.aos.defend == "No" %}
+        <h2 class="heading-medium">What happens next</h2>
+
+        {% if session.aos.consent == "No" %}
+            <p class="text">
+            As you haven't given your consent, the divorce won't be able to continue based on the 2 years separation with consent 'fact' (reason for divorce). 
+            </p>
+
+
+            <p class="text">
+            The application will be returned to your {{ respsHusbandOrWife() }}. If they choose to continue, they will need to change the reason for divorce to one that doesn't need your consent.
+            </p>
+
+            <p class="text">
+            Your {{ respsHusbandOrWife() }} will have to pay £95 to change the reason. You may have to pay some or all of this extra fee if they've applied to claim their divorce costs.
+            </p>
+
+            <p>
+            You'll be contacted by the court when your {{ respsHusbandOrWife() }} has made their decision.
+            </p>
+
+            <h2 class="heading-medium">If you decide that you want to consent to the divorce</h2>
+            <p>
+            You can change your mind and give your consent to the divorce at any time. You'll need to do this in writing. Contact the divorce centre if you want to do this.
+            </p>
+        {% elif session.respondent.aos.admitAdultery == "No" %}
+            <p>
+            The court needs to be sure that adultery took place for it to be used as the reason for divorce (legally known as the 'fact').
+            </p>
+
+
+            <p>
+            To continue with the divorce your {{ respsHusbandOrWife() }} will need to either:
+            </p>
+
+            <ul class="bullet list-bullet">
+            <Li>change their reason for divorce (and pay a fee of £95)</li>
+            <li>provide evidence of the adultery</li>
+            </ul>
+            <p>
+            You'll be contacted by the court when your {{ respsHusbandOrWife() }} has made their decision.
+            </p>
+        {% else %}
+            <p class"text">
+            Your response will be checked and then sent to your {{ respsHusbandOrWife() }}. They can then apply for the court order which will divorce you.
+            </p>
+
+            <p>
+            The order (known as a decree) is made in 2 stages. You’re only divorced once both stages are complete.
+            </p>
+
+
+            <ol class="list list-number">
+            <li>The 'decree nisi', which shows that the court agrees that you’re entitled to a divorce.</li>
+            <li>The ‘decree absolute’, which legally ends the marriage. It cannot be made until at least 6 weeks after the decree nisi.
+            </li>
+            </ol>
+
+            <p>
+            You'll be sent an email after each stage.
+            </p>
+
+            <p>
+            The court can cancel (legally known as rescind) the decree nisi at any time up until the decree absolute, if it's presented with new evidence showing why you shouldn’t be given a divorce.
+            </p>
+
+            <p class="text">
+            Contact the divorce centre if you don't hear anything back after 6 weeks.
+            </p>
+        {% endif %}
+
+
+
+    {% endif %}
+{% endblock %}
+
+{% block footer %}
+    <h2 class="heading-medium">If you need help</h2>
+
+    <p class"text">
+      You can contact the divorce centre if you need help. Court staff can’t give you legal advice however, and you should speak to a <a href="https://www.gov.uk/find-a-legal-adviser"target="blank">solicitor or legal adviser</a>.
+    </p>
+
+  <!--   <p class"text">
+      Email: divorce@justice.gov.uk
+      <br>
+      Phone: 0300 303 0642 (Monday to Friday, 8.30am to 5pm) 
+    </p> -->
+
+    <!-- <h2 class="heading-medium">Dividing your money and property</h2>
+
+    <p class="text">
+      It's advisable to have a legally-binding arrangement with your {{ respsHusbandOrWife() }} on your finances, even if you don't have many assets (for example, money, belongings, or property) and you currently have a good relationship with them.
+     </p>
+
+      <p class="text">
+        Together, you can apply for a consent order, in which you both agree how your money and property will be split. 
+      </p>
+
+      <p class="text">
+        To get a consent order, you should pay a solicitor to draft one for you, and then send it to the court with the <a href="https://www.gov.uk/money-property-when-relationship-ends/apply-for-consent-order" target="blank">consent order forms</a> and a £50 fee.
+      </p>
+
+      <p class="text">
+        You should get legal advice if you're not sure what to do.
+      </p> -->
+    <h2 class="heading-medium">Help us improve this service</h2>
+
+    <p class"text">
+
+      Please help us improve this service by <a href="http://www.smartsurvey.co.uk/s/8RR1T?pageurl=/done">leaving your feedback</a>.
+    </p>
+
+
+{% endblock %}
+
+    {% embed "lib/partials/sidebar.html" %}
+    {% endembed %}

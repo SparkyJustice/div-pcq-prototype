@@ -1,0 +1,89 @@
+{% extends "question.html" %}
+{% block question %}
+
+Have you changed your name since you got married?
+{{ question }}
+{% endblock %}
+{% block form %}
+<p class="text">
+
+        The court needs to know if you changed your name when you got married, or if you've changed it since.
+</p>
+<div class="form-group">
+  <fieldset class="inline">
+    <legend class="visually-hidden">{{ question }}</legend>
+    <div class="multiple-choice" data-target="help-yes">
+      <input id="yes" type="radio"
+             name="petitionerHasChangedName" value="Yes" {{ checked(fields.petitionerHasChangedName.value, 'Yes') }}>
+      <label for="yes">Yes</label>
+    </divv>
+    <div class="multiple-choice" data-target="help-no">
+      <input id="no" type="radio"
+             name="petitionerHasChangedName" value="No" {{ checked(fields.petitionerHasChangedName.value, 'No') }}>
+      <label for="no">No</label>
+    </div>
+  </fieldset>
+</div>
+
+<div id="help-yes" class="js-hidden">
+
+<h3 class="heading-medium" style="margin-top: 0px;">What did you use for your name change?</h3>
+
+<div class="form-group">
+  <fieldset>
+
+    <legend class="visually-hidden">{{ question }}</legend>
+
+    <div class="multiple-choice">
+      <input id="marriageCert" type="checkbox"
+             name="nameChangeMethod" value="marriageCert" {{ checked(fields.nameChangeMethod.value, 'marriageCert') }}>
+      <label for="marriageCert">Marriage certificate</label>
+    </div>
+
+    <div class="multiple-choice" data-target="provide-evidence-deed">
+      <input id="deedPoll" type="checkbox"
+             name="nameChangeMethod" value="deedPollOrStatutoryDeclaration" {{ checked(fields.nameChangeMethod.value, 'deedPollOrStatutoryDeclaration') }}>
+      <label for="deedPoll">Deed poll or statutory declaration </label>
+    </div>
+
+    <div id="provide-evidence-deed" class="form-group panel js-hidden">
+      <p class="text">
+        You'll need to send a copy of this document to the court. You can upload a digital photo or scan to this application (you'll be told when to do this) or send it by post.
+      </p>
+    </div>
+    
+    <div class="multiple-choice" data-target="case-details">
+      <input id="other" type="checkbox"
+             name="nameChangeMethod" value="Other" {{ checked(fields.nameChangeMethod.value, 'Other') }}>
+      <label for="other">Other </label>
+    </div>
+
+
+  <div id="case-details" class="form-group panel js-hidden">
+
+    <label class="form-label-bold" for="case-details-textarea">
+        Provide details of how you changed your name
+    </label>
+
+    <span class="form-hint">
+       You'll need to send the court a copy of the document proving you changed your name. You can upload a digital photo or scan to this application (you'll be told when to do this) or send it by post. If you don't have any documents showing how you changed your name, explain why here. 
+    </span>
+
+
+  <textarea class="form-control" id="case-details-textarea" rows="4" name="case-details" type="text" style="width: 100%"></textarea>
+
+  </fieldset>
+</div>
+</div>
+
+
+{% endblock %}
+
+{% macro reference(refId) %}
+<input class="form-control"
+       name="r{{ refId }}"
+       type="text"
+       value="{{ fields[refId].value }}"
+       maxlength="1"
+       title="reference number {{ refId }}">
+{% endmacro %}
