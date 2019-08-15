@@ -530,11 +530,11 @@ router.post('/choose-divorce-centre', function (req, res) {
 });
 
 router.post('/upload-docs/documents', function (req, res) {
-        res.redirect('/check-your-answers');
+        res.redirect('https://hmcts-pcq-div-prototype.herokuapp.com/pcq-v1/introduction?respondent=false&');
 });
 
 router.post('/upload-docs/unable-to-upload', function (req, res) {
-    res.redirect('/check-your-answers');
+    res.redirect('https://hmcts-pcq-div-prototype.herokuapp.com/pcq-v1/introduction?respondent=false&');
 });
 
 router.get('/children', function (req, res) {
@@ -2977,7 +2977,7 @@ function getNextAosStep(req, path) {
             req.session.claimCosts.respReasonTheyWontPay = req.body.noDetails;
             return "/aos/contact-details";
         case "/aos/contact-details":
-            return "/aos/check-your-answers";
+            return "https://hmcts-pcq-div-prototype.herokuapp.com/pcq-v1/introduction?defendant=true&";
         case "/aos/check-your-answers":
             return "/aos/done";
     }
