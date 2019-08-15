@@ -1,4 +1,4 @@
-const Step = require('app/steps/Step');
+const Step = require('./Step');
 const DateUtil = require('app/utils/Date');
 const {
   notAnswered,
