@@ -1,4 +1,4 @@
-const Step = require('app/steps/Step');
+const Step = require(__dirname + '/Step');
 const check = require('check-types');
 const config = require('app/config');
 

@@ -1,5 +1,5 @@
 const _ = require('underscore');
-const Step = require('app/steps/Step');
+const Step = require(__dirname + '/Step');
 const relation = require('app/utils/DivorceRelation');
 
 module.exports = class CheckYourAnswers extends Step {

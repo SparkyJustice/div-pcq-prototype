@@ -1,4 +1,4 @@
-const Field = require('app/steps/Field');
+const Field = require(__dirname + '/Field');
 const { array: isArray, string: isString } = require('check-types');
 
 /**
