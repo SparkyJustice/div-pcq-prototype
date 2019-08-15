@@ -1,5 +1,5 @@
 const Router = require('express').Router;
-const Context = require('app/steps/Context');
+const Context = require('/app/steps/Context');
 
 module.exports = class Step {
   get url() { throw new TypeError('Must override #url'); }
