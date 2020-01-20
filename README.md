@@ -5,7 +5,7 @@ This is a copy of the Divorce service prototype. It has been built for user test
 ## Documentation ##
 The project and planning documents are held on [Confluence](https://tools.hmcts.net/confluence/display/CD/Protected+Characteristics+Questions)
 
-## CMC env_variables ##
+## env_variables ##
 NODE_ENV = heroku
 
 NODE_PATH = .
