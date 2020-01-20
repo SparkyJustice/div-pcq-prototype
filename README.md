@@ -10,4 +10,4 @@ NODE_ENV = heroku
 
 NODE_PATH = .
 
-REDISCLOUD_URL = redis://rediscloud:e3f5XeYuJKiPZb9T@pub-redis-14388.eu-west-1-2.1.ec2.garantiadata.com:14388
+REDISCLOUD_URL = redis://rediscloud:e3f5XeYuJKiPZb9T@<span></span>pub-redis-14388.eu-west-1-2.1.ec2.garantiadata.com:14388
